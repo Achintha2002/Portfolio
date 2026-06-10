@@ -478,18 +478,25 @@ section {
 
 /* Name Card Specifics */
 .name-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .name-card-subtitle {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 100%;
   font-family: 'Outfit', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 0.8rem;
   color: var(--text-muted);
-  margin-bottom: 0.5rem;
+  margin: 0;
 }
 
 .name-card-title {
@@ -498,7 +505,8 @@ section {
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.15em; /* Fixes descenders like 'g' getting cut off */
   word-break: break-word;
   
   /* Advanced Animated Text Gradient */

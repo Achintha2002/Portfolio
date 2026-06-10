@@ -24,11 +24,11 @@ const PORTFOLIO_CONFIG = {
   craft: {
     title: "Craft",
     bullets: [
-      "Building scalable apps, websites, and automations.",
+      "Building scalable apps and websites.",
       "I understand what advantages modern tech can provide, helping me advise on the solutions a business actually needs.",
       "I will find & deliver the best tech solution for your business."
     ],
-    cta: "Active Hackathon competitor & open-source contributor. Feel free to invite me to collaborate.",
+    cta: "Passionate about building scalable web applications and seamless user experiences. Feel free to reach out for collaborations.",
     technologies: [
       { name: "React", icon: "fab fa-react", color: "#61DAFB" },
       { name: "Next.js", icon: "simple-icons:nextdotjs", color: "#FFFFFF" },
