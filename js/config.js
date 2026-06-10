@@ -12,7 +12,7 @@ const PORTFOLIO_CONFIG = {
     realPhoto: "assets/real_photo.png",
     email: "hello@achintha.dev",
     github: "https://github.com/achinthaedirisinghe",
-    linkedin: "https://linkedin.com",
+    linkedin: "hhttps://www.linkedin.com/in/achintha-edirisinghe-a4a23b3ab",
     calendar: "https://calendly.com",
   },
   mindset: {
@@ -48,7 +48,7 @@ const PORTFOLIO_CONFIG = {
       title: "BrightPath LMS",
       description: "Interactive Live Kuppi Sessions and peer-led learning platform for university networks. Built with Django & Celery.",
       image: "assets/brightpath.jpg",
-      github: "https://github.com/Gagana0819/BrightPath-LMS-ITPM-",
+      github: "https://github.com/Gagana0819/BrightPath-LMS-ITPM-.git",
       tags: ["Python", "Django", "React", "Supabase", "Celery"]
     },
     {
@@ -91,8 +91,8 @@ const PORTFOLIO_CONFIG = {
     }
   ],
   skills: [
-    "React", "Node.js", "Python", "Docker", "PostgreSQL", "Next.js", "Git", 
-    "JavaScript", "HTML5", "CSS3", "Figma", "Redux", "Tailwind", 
+    "React", "Node.js", "Python", "Docker", "PostgreSQL", "Next.js", "Git",
+    "JavaScript", "HTML5", "CSS3", "Figma", "Redux", "Tailwind",
     "Express", "TypeScript", "MongoDB", "Linux", "Kotlin"
   ],
   chatbot: {
