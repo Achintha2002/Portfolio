@@ -67,8 +67,8 @@ const PORTFOLIO_CONFIG = {
   ],
   skills: [
     "React", "Node.js", "Python", "Docker", "PostgreSQL", "Next.js", "Git", 
-    "JavaScript", "HTML5", "CSS3", "AWS", "Figma", "Redux", "Tailwind", 
-    "Express", "TypeScript", "MongoDB", "Linux", "GraphQL"
+    "JavaScript", "HTML5", "CSS3", "Figma", "Redux", "Tailwind", 
+    "Express", "TypeScript", "MongoDB", "Linux"
   ],
   chatbot: {
     avatar: "assets/avatar.png",

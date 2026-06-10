@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPortfolioContent();
   
   // Feature Initializations
+  initCursorGlow();
   initThemeToggle();
   initScrollHighlight();
   initBentoTabs();
@@ -11,6 +12,22 @@ document.addEventListener("DOMContentLoaded", () => {
   initGuestbook();
   initModals();
 });
+
+// =========================================================================
+// Mouse Cursor Lit Dots Effect
+// =========================================================================
+function initCursorGlow() {
+  // Lit dots overlay — CSS mask follows mouse via CSS variables
+  const dotOverlay = document.createElement("div");
+  dotOverlay.className = "cursor-dot-overlay";
+  document.body.appendChild(dotOverlay);
+
+  document.addEventListener("mousemove", (e) => {
+    document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
+    document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
+  });
+}
+
 
 // =========================================================================
 // Setup Dynamic Content from config.js
@@ -321,156 +338,178 @@ function initChatbot() {
 }
 
 // =========================================================================
-// 3D Tag Sphere Logic (HTML5 Canvas)
+// 3D Icon Sphere (Devicons, Div-based)
 // =========================================================================
 function initSkillsSphere() {
-  const canvas = document.getElementById("skills-canvas");
-  if (!canvas) return;
-  const ctx = canvas.getContext("2d");
-  const skills = PORTFOLIO_CONFIG.skills;
-  
-  // Set size
-  const size = window.innerWidth < 768 ? 350 : 450;
-  canvas.width = size;
-  canvas.height = size;
-  
-  const tags = [];
-  const radius = size * 0.4;
-  const focalLength = size * 0.8;
-  let cx = size / 2;
-  let cy = size / 2;
+  const iconsLayer = document.getElementById("sphere-icons-layer");
+  const scene = document.getElementById("sphere-scene");
+  const label = document.getElementById("sphere-label");
+  if (!iconsLayer || !scene) return;
 
-  // Sphere speed variables
-  let speedX = 0.0003;
-  let speedY = 0.0003;
-  let mouseActive = false;
-  let mouseX = cx;
-  let mouseY = cy;
+  // ── SVG Globe Wireframe ────────────────────────────────────────────────
+  (function buildWireframe() {
+    const SIZE = 480, R = 185, CX = SIZE / 2, CY = SIZE / 2;
+    const ns = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", `0 0 ${SIZE} ${SIZE}`);
+    svg.style.cssText = "position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;";
 
-  // Golden ratio coordinates distribution
-  const N = skills.length;
-  for (let i = 0; i < N; i++) {
-    const z = ((2 * i) / N) - 1 + (1 / N);
-    const r = Math.sqrt(1 - z * z);
-    const theta = i * 2.39996; // Golden angle (approx)
-    
-    tags.push({
-      text: skills[i],
-      x: radius * r * Math.cos(theta),
-      y: radius * r * Math.sin(theta),
-      z: radius * z,
-      x2d: 0,
-      y2d: 0,
-      scale: 1
+    const BASE_STROKE = "rgba(139,92,246,0.13)";
+    const PERSP = 0.38; // latitude ellipse y-compression
+
+    function el(tag, attrs) {
+      const e = document.createElementNS(ns, tag);
+      Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v));
+      e.setAttribute("fill", "none");
+      svg.appendChild(e);
+      return e;
+    }
+
+    // Outer boundary circle
+    el("ellipse", { cx: CX, cy: CY, rx: R, ry: R,
+      stroke: "rgba(139,92,246,0.3)", "stroke-width": "1" });
+
+    // Latitude parallels (horizontal ellipses)
+    [-70, -50, -30, 0, 30, 50, 70].forEach(deg => {
+      const phi = deg * Math.PI / 180;
+      const rx  = R * Math.cos(phi);
+      const ry  = rx * PERSP;
+      const cyP = CY + R * Math.sin(phi);
+      el("ellipse", { cx: CX, cy: cyP, rx, ry,
+        stroke: deg === 0 ? "rgba(139,92,246,0.2)" : BASE_STROKE,
+        "stroke-width": deg === 0 ? "0.9" : "0.7" });
     });
-  }
 
-  // Drag interaction trackers
-  canvas.addEventListener("mousemove", (e) => {
-    const rect = canvas.getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
-    
-    // Adjust speed based on mouse distance from center
-    speedY = -(mouseX - cx) * 0.00002;
-    speedX = (mouseY - cy) * 0.00002;
+    // Longitude meridians (vertical ellipses)
+    // Center meridian as a line
+    el("line", { x1: CX, y1: CY - R, x2: CX, y2: CY + R,
+      stroke: BASE_STROKE, "stroke-width": "0.7" });
+
+    [22.5, 45, 67.5, 90, 112.5, 135, 157.5].forEach(deg => {
+      const lambda = deg * Math.PI / 180;
+      const rx = R * Math.sin(lambda);
+      el("ellipse", { cx: CX, cy: CY, rx, ry: R,
+        stroke: BASE_STROKE, "stroke-width": "0.7" });
+    });
+
+    scene.insertBefore(svg, scene.firstChild);
+  })();
+  // ── End Wireframe ──────────────────────────────────────────────────────
+
+  // Devicon class mapping for each skill
+  const iconMap = {
+    "React":      "devicon-react-original colored",
+    "Node.js":    "devicon-nodejs-plain colored",
+    "Python":     "devicon-python-original colored",
+    "Docker":     "devicon-docker-plain colored",
+    "PostgreSQL": "devicon-postgresql-plain colored",
+    "Next.js":    "devicon-nextjs-original",
+    "Git":        "devicon-git-plain colored",
+    "JavaScript": "devicon-javascript-plain colored",
+    "HTML5":      "devicon-html5-plain colored",
+    "CSS3":       "devicon-css3-plain colored",
+    "AWS":        "devicon-amazonwebservices-plain-wordmark colored",
+    "Figma":      "devicon-figma-plain colored",
+    "Redux":      "devicon-redux-original colored",
+    "Tailwind":   "devicon-tailwindcss-original colored",
+    "Express":    "devicon-express-original",
+    "TypeScript": "devicon-typescript-plain colored",
+    "MongoDB":    "devicon-mongodb-plain colored",
+    "Linux":      "devicon-linux-plain colored",
+    "GraphQL":    "devicon-graphql-plain colored",
+  };
+
+  const skills = PORTFOLIO_CONFIG.skills;
+  const N = skills.length;
+  const SIZE = 480;
+  const RADIUS = 170;
+  const CX = SIZE / 2;
+  const CY = SIZE / 2;
+
+  // Create icon div elements using golden ratio sphere distribution
+  const items = skills.map((skill, i) => {
+    const phi = Math.acos(1 - 2 * (i + 0.5) / N);
+    const theta = Math.PI * (1 + Math.sqrt(5)) * i;
+
+    const x0 = RADIUS * Math.sin(phi) * Math.cos(theta);
+    const y0 = RADIUS * Math.cos(phi);
+    const z0 = RADIUS * Math.sin(phi) * Math.sin(theta);
+
+    const div = document.createElement("div");
+    div.className = "sphere-icon-item";
+    const iconClass = iconMap[skill] || "fas fa-code";
+    div.innerHTML = `<i class="${iconClass}"></i>`;
+
+    div.addEventListener("mouseenter", () => {
+      if (label) label.textContent = skill;
+    });
+    div.addEventListener("mouseleave", () => {
+      if (label) label.textContent = "\u00a0";
+    });
+
+    iconsLayer.appendChild(div);
+    return { el: div, x: x0, y: y0, z: z0 };
+  });
+
+  // Rotation state
+  let rotX = 0, rotY = 0;
+  let speedX = 0.0005;
+  let speedY = 0.003;
+  let mouseActive = false;
+
+  scene.addEventListener("mousemove", (e) => {
+    const rect = scene.getBoundingClientRect();
+    const mx = e.clientX - rect.left - CX;
+    const my = e.clientY - rect.top - CY;
+    speedY = mx * 0.00004;
+    speedX = my * 0.00004;
     mouseActive = true;
   });
 
-  canvas.addEventListener("mouseleave", () => {
+  scene.addEventListener("mouseleave", () => {
     mouseActive = false;
   });
 
-  // Scale coordinates on resize
-  window.addEventListener("resize", () => {
-    const newSize = window.innerWidth < 768 ? 350 : 450;
-    if (canvas.width !== newSize) {
-      canvas.width = newSize;
-      canvas.height = newSize;
-      cx = newSize / 2;
-      cy = newSize / 2;
-    }
-  });
-
-  // Rotate a point in 3D
-  function rotateX(tag, angle) {
-    const cos = Math.cos(angle);
-    const sin = Math.sin(angle);
-    const y1 = tag.y * cos - tag.z * sin;
-    const z1 = tag.z * cos + tag.y * sin;
-    tag.y = y1;
-    tag.z = z1;
-  }
-
-  function rotateY(tag, angle) {
-    const cos = Math.cos(angle);
-    const sin = Math.sin(angle);
-    const x1 = tag.x * cos - tag.z * sin;
-    const z1 = tag.z * cos + tag.x * sin;
-    tag.x = x1;
-    tag.z = z1;
-  }
-
-  // Animation Loop
   function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Decelerate if mouse is inactive, returning to natural slow rotation
+    // Ease back to default speed when mouse leaves
     if (!mouseActive) {
-      speedX += (0.0003 - speedX) * 0.05;
-      speedY += (0.0003 - speedY) * 0.05;
+      speedX += (0.0005 - speedX) * 0.05;
+      speedY += (0.003 - speedY) * 0.05;
     }
 
-    // Sort by depth (Z-index) to draw background tags first
-    tags.sort((a, b) => b.z - a.z);
+    rotX += speedX;
+    rotY += speedY;
 
-    // Dynamic color values based on Theme
-    const isDarkTheme = document.documentElement.getAttribute("data-theme") !== "light";
-    const textThemeColor = isDarkTheme ? [243, 244, 246] : [17, 24, 39]; // rgb colors
-    const accentColor = [139, 92, 246]; // purple accent
+    const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+    const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
 
-    tags.forEach(tag => {
-      rotateX(tag, speedX);
-      rotateY(tag, speedY);
-      
-      // Perspective projection
-      const scale = focalLength / (focalLength + tag.z);
-      tag.scale = scale;
-      tag.x2d = cx + tag.x * scale;
-      tag.y2d = cy + tag.y * scale;
-      
-      // Render text
-      const fontSize = Math.round(14 * scale);
-      ctx.font = `600 ${fontSize}px 'Outfit', sans-serif`;
-      
-      // Draw text background glowing shadows or custom colors
-      // Opacity scales with scale value (closer tags are opaque, further are transparent)
-      const opacity = Math.min(Math.max((scale - 0.5) * 1.5, 0.15), 0.95);
-      
-      // Check if mouse is hovering over the element
-      let hover = false;
-      if (mouseActive) {
-        const dx = mouseX - tag.x2d;
-        const dy = mouseY - tag.y2d;
-        const widthText = ctx.measureText(tag.text).width;
-        if (Math.abs(dx) < widthText / 2 + 10 && Math.abs(dy) < fontSize) {
-          hover = true;
-        }
-      }
+    // Project each icon to 2D and compute depth
+    const projected = items.map(item => {
+      // Rotate around Y axis
+      const x1 = item.x * cosY + item.z * sinY;
+      const z1 = -item.x * sinY + item.z * cosY;
+      // Rotate around X axis
+      const y2 = item.y * cosX - z1 * sinX;
+      const z2 = item.y * sinX + z1 * cosX;
+      return { item, sx: x1, sy: y2, sz: z2 };
+    });
 
-      if (hover) {
-        ctx.fillStyle = `rgba(${accentColor[0]}, ${accentColor[1]}, ${accentColor[2]}, 1.0)`;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = `rgba(${accentColor[0]}, ${accentColor[1]}, ${accentColor[2]}, 0.5)`;
-      } else {
-        ctx.fillStyle = `rgba(${textThemeColor[0]}, ${textThemeColor[1]}, ${textThemeColor[2]}, ${opacity})`;
-        ctx.shadowBlur = 0;
-      }
-      
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText(tag.text, tag.x2d, tag.y2d);
-      ctx.shadowBlur = 0; // reset shadow
+    // Sort back-to-front for correct stacking
+    projected.sort((a, b) => a.sz - b.sz);
+
+    projected.forEach(({ item, sx, sy, sz }, idx) => {
+      const norm = (sz + RADIUS) / (2 * RADIUS); // 0=back, 1=front
+      const opacity = Math.max(0.08, 0.15 + norm * 0.85);
+      const scale = 0.45 + norm * 0.75;
+      const fontSize = Math.round(1.1 + norm * 1.2);
+
+      item.el.style.left = `${CX + sx}px`;
+      item.el.style.top  = `${CY + sy}px`;
+      item.el.style.opacity = opacity;
+      item.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
+      item.el.style.zIndex = idx;
+      item.el.querySelector("i").style.fontSize = `${fontSize}rem`;
+      item.el.style.filter = norm < 0.25 ? "grayscale(80%) brightness(0.6)" : "none";
     });
 
     requestAnimationFrame(animate);
@@ -478,6 +517,7 @@ function initSkillsSphere() {
 
   animate();
 }
+
 
 // =========================================================================
 // Guestbook LocalStorage Implementation

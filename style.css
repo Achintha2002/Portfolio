@@ -51,6 +51,25 @@
   --glow-shadow: 0 0 30px rgba(124, 58, 237, 0.12);
 }
 
+/* Lit Dots Overlay — dots near cursor light up */
+.cursor-dot-overlay {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-image: radial-gradient(rgba(139, 92, 246, 0.85) 1px, transparent 1px);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(circle 180px at var(--mouse-x, -999px) var(--mouse-y, -999px), black 0%, transparent 100%);
+  mask-image: radial-gradient(circle 180px at var(--mouse-x, -999px) var(--mouse-y, -999px), black 0%, transparent 100%);
+}
+
+[data-theme="light"] .cursor-dot-overlay {
+  background-image: radial-gradient(rgba(109, 40, 217, 0.6) 1px, transparent 1px);
+}
+
 /* Reset and Global Styles */
 * {
   box-sizing: border-box;
@@ -943,20 +962,72 @@ section {
 /* Skills 3D Sphere Section */
 .skills-sphere-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 480px;
   margin-top: 2rem;
+  gap: 1.5rem;
+  user-select: none;
 }
 
-#skills-canvas {
+/* Sphere Scene wrapper */
+.sphere-scene {
+  position: relative;
+  width: 480px;
+  height: 480px;
   cursor: grab;
-  max-width: 100%;
 }
 
-#skills-canvas:active {
+.sphere-scene:active {
   cursor: grabbing;
+}
+
+/* Wireframe rings */
+
+/* Icon layer inside sphere scene */
+.sphere-icons-layer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+/* Each tech icon item */
+.sphere-icon-item {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  pointer-events: all;
+  cursor: default;
+  transition: filter 0.2s;
+}
+
+.sphere-icon-item i {
+  font-size: 2rem;
+  transition: transform 0.2s;
+  line-height: 1;
+}
+
+.sphere-icon-item:hover i {
+  transform: scale(1.25);
+}
+
+/* Hover label below sphere */
+.sphere-hover-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-purple);
+  height: 20px;
+  text-align: center;
+  min-width: 120px;
 }
 
 /* More to Explore Section */

@@ -16,6 +16,9 @@
   <!-- FontAwesome for Premium Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
+  <!-- Devicons for Tech Skill Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  
   <!-- Local Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -206,7 +209,10 @@
         <p class="section-subtitle">Interactive 3D Sphere projection of programming languages, libraries, and tools I use.</p>
         
         <div class="skills-sphere-container">
-          <canvas id="skills-canvas"></canvas>
+          <div class="sphere-scene" id="sphere-scene">
+            <div class="sphere-icons-layer" id="sphere-icons-layer"></div>
+          </div>
+          <p class="sphere-hover-label" id="sphere-label">&nbsp;</p>
         </div>
         
       </div>
