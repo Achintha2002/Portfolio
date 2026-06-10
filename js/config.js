@@ -44,27 +44,50 @@ const PORTFOLIO_CONFIG = {
   projects: [
     {
       id: "01",
-      category: "DESKTOP APP",
-      title: "Cube Solver",
-      description: "Desktop application using computer vision to scan and solve Rubik's Cube in real-time.",
-      image: "assets/cube-solver.png",
-      github: "https://github.com/achinthaedirisinghe/Cube-Solver"
+      category: "WEB APP",
+      title: "BrightPath LMS",
+      description: "Interactive Live Kuppi Sessions and peer-led learning platform for university networks. Built with Django & Celery.",
+      image: "assets/brightpath.jpg",
+      github: "https://github.com/Gagana0819/BrightPath-LMS-ITPM-",
+      tags: ["Python", "Django", "React", "Supabase", "Celery"]
     },
     {
       id: "02",
-      category: "MOBILE APP",
-      title: "Improvement Tree",
-      description: "Full-stack mobile app with cloud server that gamifies personal development.",
-      image: "assets/improvement-tree.png",
-      github: "https://github.com/achinthaedirisinghe/Self-Improvement-Tree"
+      category: "E-COMMERCE",
+      title: "Sportify",
+      description: "Modern e-commerce platform for sports equipment with role-based dashboards, Stripe payments, and Cloudinary integration.",
+      image: "assets/sportify.jpg",
+      github: "https://github.com/Achintha2002/Sportifyweb",
+      tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"]
     },
     {
       id: "03",
+      category: "E-COMMERCE",
+      title: "Raani Cream",
+      description: "Premium MERN stack e-commerce platform for an organic skincare brand featuring an admin console and interactive shopping experience.",
+      image: "assets/raani-cream.jpg",
+      github: "https://github.com/Achintha2002/cream-web",
+      link: "https://cream-web-ten.vercel.app/",
+      tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"]
+    },
+    {
+      id: "04",
       category: "WEB APP",
-      title: "Nebula Drift",
-      description: "Arcade runner game with procedural terrain generation and dynamic gameplay.",
-      image: "assets/nebula.png",
-      github: "https://github.com/achinthaedirisinghe/Nebula"
+      title: "Smart Campus Hub",
+      description: "Full-stack Smart Campus Management System featuring resource booking, incident ticketing, and an automated notification system.",
+      image: "assets/smart-campus.png",
+      github: "https://github.com/sandundimantha/it3030-paf-2026-smart-campus-group54.git",
+      tags: ["Spring Boot", "React", "PostgreSQL", "Google OAuth"]
+    },
+    {
+      id: "05",
+      category: "WEB APP",
+      title: "Photo Home",
+      description: "A modern photography portfolio website to showcase galleries, featured works, and photography services.",
+      image: "assets/photo-home.png",
+      github: "https://github.com/Achintha2002/PhotoFrameWeb.git",
+      link: "https://photo-frame-web.vercel.app/",
+      tags: ["React", "Vite", "Tailwind CSS"]
     }
   ],
   skills: [
@@ -82,7 +105,7 @@ const PORTFOLIO_CONFIG = {
       { text: "Contact", keyword: "contact" }
     ],
     responses: {
-      work: "I have built several interesting projects: 🚀 **Cube Solver** (computer vision real-time Rubik's cube solver), 🌳 **Improvement Tree** (a gamified mobile habits app), and 🌌 **Nebula Drift** (a procedural space arcade runner). You can explore them in detail in the Projects section!",
+      work: "I have built several interesting projects: 🎓 **BrightPath LMS** (interactive university learning platform), 🛒 **Sportify** (modern e-commerce platform for sports equipment), ✨ **Raani Cream** (premium skincare e-commerce platform), 🏛️ **Smart Campus Hub** (full-stack campus management system), and 📷 **Photo Home** (photography portfolio). You can explore them in detail in the Projects section!",
       about: "I'm Achintha Edirisinghe, a Full Stack Developer based in Colombo, Sri Lanka (GMT+5:30). I focus on creating high-performance, aesthetic web applications and automations. I'm passionate about clean architecture, hackathons, and physical fitness.",
       skills: "My tech stack includes **React**, **Next.js**, **Node.js**, **TypeScript**, **Python**, **PostgreSQL**, **Docker**, and **Git**. I am also familiar with AWS and Figma for cloud infrastructure and UI design.",
       contact: "Let's connect! 📞 You can email me at **hello@achintha.dev** or use the **Book a Call** button at the top of the page to schedule a chat directly through my calendar. I'm always open to freelance opportunities, hackathons, and collaborations!",

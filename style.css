@@ -141,11 +141,12 @@ header {
 
 .nav-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
 }
 
 .theme-toggle-btn {
@@ -161,6 +162,8 @@ header {
   justify-content: center;
   transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: var(--card-shadow);
+  position: absolute;
+  left: 2rem;
 }
 
 .theme-toggle-btn:hover {
@@ -505,6 +508,7 @@ section {
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.02em;
+  margin-top: -1.5rem;
   margin-bottom: 0.5rem;
   padding-bottom: 0.15em; /* Fixes descenders like 'g' getting cut off */
   word-break: break-word;
@@ -533,6 +537,37 @@ section {
   color: var(--text-secondary);
   font-weight: 500;
   letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
+}
+
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: 99px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  width: fit-content;
+}
+
+.resume-btn:hover {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.4) 0%, rgba(236, 72, 153, 0.4) 100%);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.3);
+}
+
+.resume-btn i {
+  font-size: 1.1rem;
 }
 
 @keyframes sweep-text {
@@ -964,6 +999,26 @@ section {
   font-size: 0.95rem;
   margin-bottom: 1.5rem;
   flex: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.project-tag {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 6px 14px;
+  border-radius: 99px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .project-links {

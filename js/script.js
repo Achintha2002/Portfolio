@@ -112,11 +112,21 @@ function setupPortfolioContent() {
             <div class="project-category">${project.category}</div>
             <h3 class="project-title">${project.title}</h3>
             <p class="project-desc">${project.description}</p>
+            ${project.tags ? `
+            <div class="project-tags">
+              ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+            </div>
+            ` : ''}
           </div>
           <div class="project-links">
             <a href="${project.github}" target="_blank" class="project-btn">
               <i class="fab fa-github"></i> GitHub
             </a>
+            ${project.link ? `
+            <a href="${project.link}" target="_blank" class="project-btn primary-btn">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            ` : ''}
           </div>
         </div>
       `;
