@@ -17,8 +17,8 @@ const PORTFOLIO_CONFIG = {
   },
   mindset: {
     title: "Mindset",
-    quote: "Building more than software. My passions provide the discipline and focus I need to grow.",
-    tagline: "Mastering body and mind is my path to excellence.",
+    quote: "Engineering elegant solutions through continuous learning. My mindset is driven by curiosity, discipline, and a passion for scalable architecture.",
+    tagline: "Bridging the gap between complex problems and seamless user experiences.",
     image: "assets/mindset.png",
   },
   craft: {
