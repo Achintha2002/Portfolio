@@ -36,7 +36,8 @@ const PORTFOLIO_CONFIG = {
       { name: "Docker", icon: "fab fa-docker", color: "#2496ED" },
       { name: "Git", icon: "fab fa-git-alt", color: "#F05032" },
       { name: "PostgreSQL", icon: "database-icon", color: "#4169E1" },
-      { name: "Tailwind", icon: "css-icon", color: "#06B6D4" }
+      { name: "Tailwind", icon: "css-icon", color: "#06B6D4" },
+      { name: "Kotlin", icon: "kotlin-icon", color: "#7F52FF" }
     ]
   },
   projects: [
@@ -68,7 +69,7 @@ const PORTFOLIO_CONFIG = {
   skills: [
     "React", "Node.js", "Python", "Docker", "PostgreSQL", "Next.js", "Git", 
     "JavaScript", "HTML5", "CSS3", "Figma", "Redux", "Tailwind", 
-    "Express", "TypeScript", "MongoDB", "Linux"
+    "Express", "TypeScript", "MongoDB", "Linux", "Kotlin"
   ],
   chatbot: {
     avatar: "assets/avatar.png",
