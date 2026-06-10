@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initCursorGlow();
   initThemeToggle();
   initScrollHighlight();
-  initBentoTabs();
   initChatbot();
   initSkillsSphere();
   initGuestbook();
@@ -200,25 +199,7 @@ function initScrollHighlight() {
   sections.forEach(section => observer.observe(section));
 }
 
-// =========================================================================
-// Bento Card Tabs Logic
-// =========================================================================
-function initBentoTabs() {
-  const tabBtns = document.querySelectorAll(".tab-btn");
-  const tabPanes = document.querySelectorAll(".tab-pane");
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const target = btn.dataset.tab;
-      
-      tabBtns.forEach(b => b.classList.remove("active"));
-      tabPanes.forEach(p => p.classList.remove("active"));
-
-      btn.classList.add("active");
-      document.getElementById(`tab-${target}`).classList.add("active");
-    });
-  });
-}
 
 // =========================================================================
 // Simulated AI Chatbot Logic
