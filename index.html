@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Achintha Edirisinghe | Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Achintha Edirisinghe - Full Stack Developer based in Colombo, Sri Lanka. Specialized in building premium, interactive, high-performance web applications and automations.">
+  <meta name="keywords" content="Achintha Edirisinghe, Portfolio, Developer, Full Stack, Software Engineer, Sri Lanka, React, Next.js, Node.js">
+  <meta name="author" content="Achintha Edirisinghe">
+  
+  <!-- Favicon placeholder (Uses character as icon) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+  
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Local Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header id="main-header">
+    <div class="nav-container">
+      
+      <!-- Theme Switcher (Left) -->
+      <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme" id="theme-toggle-icon">
+        <i class="fas fa-moon"></i>
+      </button>
+      
+      <!-- Capsule Navigation Menu (Center) -->
+      <nav class="nav-capsule">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#other" class="nav-link">Other</a>
+      </nav>
+      
+      <!-- Call Booking Action (Right) -->
+      <a id="book-call-btn" href="#" target="_blank" class="book-call-btn">
+        <i class="far fa-calendar-alt"></i>
+        <span>Book a Call</span>
+      </a>
+      
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- Hero / Home Section -->
+    <section id="home">
+      <div class="container">
+        
+        <div class="hero-avatar-container">
+          <img id="hero-avatar-img" src="assets/avatar.png" alt="Achintha Edirisinghe" class="hero-avatar">
+        </div>
+        
+        <h1 class="hero-title" id="owner-name">Hi, I'm Achintha Edirisinghe</h1>
+        
+        <!-- Interactive Chatbot wrapper -->
+        <div class="chatbot-wrapper">
+          <div class="chatbot-container">
+            <div class="chatbot-messages" id="chat-messages">
+              <!-- Dynamically populated messages -->
+            </div>
+            
+            <div class="chatbot-chips" id="chat-chips">
+              <!-- Quick clicks chips -->
+            </div>
+            
+            <div class="chatbot-input-area">
+              <input type="text" id="chat-input" class="chatbot-input" placeholder="Ask anything about Achintha..." autocomplete="off">
+              <button id="chat-send-btn" class="chatbot-send-btn" aria-label="Send message">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- About Section (Bento Grid) -->
+    <section id="about">
+      <div class="container">
+        
+        <h2 class="section-title">Mindset &amp; Craft</h2>
+        <p class="section-subtitle">A bento-style look into my professional background, passions, and core stack.</p>
+        
+        <div class="bento-grid">
+          
+          <!-- Card 1: Name and Title (span 4 columns, 1 row) -->
+          <div class="bento-card card-4 name-card">
+            <div class="name-card-subtitle">Developer Profile</div>
+            <h3 class="name-card-title" id="bento-name">Achintha Edirisinghe</h3>
+            <p class="text-muted" id="bento-role">Full Stack Developer</p>
+          </div>
+          
+          <!-- Card 2: Interactive Tabs (Science Club/University, span 8 cols) -->
+          <div class="bento-card card-8 academic-card">
+            <div class="tab-tip-label">Hover to Read More</div>
+            <div class="tab-header-container">
+              <div class="tab-headers">
+                <button class="tab-btn active" data-tab="science">Science Club</button>
+                <button class="tab-btn" data-tab="university">University</button>
+                <button class="tab-btn" data-tab="competitions">Competitions</button>
+              </div>
+            </div>
+            <div class="tab-panes">
+              <div class="tab-pane active" id="tab-science">
+                <h4 class="pane-title">AI &amp; Tech Community</h4>
+                <p class="pane-text">Active member of university computing and technology forums. Leading workshops on modern web architecture and building automation systems.</p>
+              </div>
+              <div class="tab-pane" id="tab-university">
+                <h4 class="pane-title">Computer Science Degree</h4>
+                <p class="pane-text">Pursuing Computer Science &amp; Intelligent Systems. Self-driven study in data structures, API performance scaling, and serverless architectures.</p>
+              </div>
+              <div class="tab-pane" id="tab-competitions">
+                <h4 class="pane-title">National Hackathons</h4>
+                <p class="pane-text">Compete regularly in national software development competitions and smart hackathons. Focused on prototyping high-performance MVPs in 24 hours.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 3: Mindset (span 4, span 2 rows) -->
+          <div class="bento-card card-4 row-2 mindset-card">
+            <div class="mindset-card-content">
+              <h3 class="mindset-title">Mindset</h3>
+              <p class="mindset-quote" id="bento-mindset-quote">Building more than software. My passions provide the discipline and focus I need to grow.</p>
+              <p class="mindset-tagline" id="bento-mindset-tagline">Mastering body and mind is my path to excellence.</p>
+            </div>
+            <div class="mindset-img-overlay"></div>
+            <div class="mindset-badge">FITNESS &amp; FOCUS</div>
+          </div>
+          
+          <!-- Card 4: Central Avatar/Photo (span 4, span 1.5 rows) -->
+          <div class="bento-card card-4 row-1-5 photo-card">
+            <img id="bento-photo-img" src="assets/avatar.png" alt="Achintha Portrait" class="photo-card-img">
+            <div class="photo-card-overlay">
+              <h3 class="photo-title" id="bento-photo-name">Achintha</h3>
+              <p class="photo-subtitle">Crafting software solutions daily</p>
+            </div>
+          </div>
+          
+          <!-- Card 5: Craft Details (span 4, span 2 rows) -->
+          <div class="bento-card card-4 row-2 craft-card">
+            <div>
+              <h3 class="craft-title">Craft</h3>
+              <p class="craft-desc" id="bento-craft-desc">Building scalable apps, websites, and automations.</p>
+              <p class="text-muted" style="font-size: 0.9rem;">My primary technologies:</p>
+              <div class="craft-tech-list" id="bento-craft-techs">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+            <div>
+              <p class="craft-collaborate" id="bento-craft-cta">Active Hackathon competitor &amp; open-source contributor.</p>
+              <div class="craft-status">
+                <div class="status-indicator"></div>
+                <span>Open to collaboration &amp; freelance</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 6: Coordinates Location (span 4, span 0.5 rows) -->
+          <div class="bento-card card-4 location-card">
+            <h4 class="location-title" id="bento-location-title">Colombo, Sri Lanka</h4>
+            <div class="location-coord" id="bento-location-coord">6.9271° N, 79.8612° E</div>
+            <div class="location-timezone">GMT+5:30</div>
+            <div class="location-map-bg"></div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="container">
+        
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">A curated selection of software projects that showcase my full-stack capabilities.</p>
+        
+        <div class="projects-grid" id="projects-grid-container">
+          <!-- Dynamically populated from config.js -->
+        </div>
+        
+        <!-- Explore all code callout -->
+        <div class="github-all-projects-container">
+          <a href="https://github.com/achinthaedirisinghe?tab=repositories" target="_blank" class="github-all-btn">
+            <i class="fab fa-github"></i> Explore all projects on GitHub
+          </a>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Skills Tag Cloud Section -->
+    <section id="skills">
+      <div class="container">
+        
+        <h2 class="section-title">My Skills</h2>
+        <p class="section-subtitle">Interactive 3D Sphere projection of programming languages, libraries, and tools I use.</p>
+        
+        <div class="skills-sphere-container">
+          <canvas id="skills-canvas"></canvas>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Other (More to Explore) Section -->
+    <section id="other">
+      <div class="container">
+        
+        <h2 class="section-title">More to Explore</h2>
+        <p class="section-subtitle">Connect with me on social media, see my accomplishments, or sign my guestbook.</p>
+        
+        <div class="explore-grid">
+          
+          <!-- Guestbook trigger card -->
+          <div class="explore-card guestbook-card">
+            <div class="explore-icon-wrapper">
+              <i class="far fa-comments"></i>
+            </div>
+            <h3 class="explore-title">Guestbook</h3>
+            <p class="explore-desc" id="explore-guestbook-desc">Leave your mark and see what others have to say.</p>
+            <span class="explore-link open-guestbook">Explore <i class="fas fa-arrow-right"></i></span>
+          </div>
+          
+          <!-- Achievements trigger card -->
+          <div class="explore-card achievements-card">
+            <div class="explore-icon-wrapper">
+              <i class="fas fa-award"></i>
+            </div>
+            <h3 class="explore-title">Achievements</h3>
+            <p class="explore-desc" id="explore-achievements-desc">Milestones, certifications, and accomplishments.</p>
+            <span class="explore-link open-achievements">Explore <i class="fas fa-arrow-right"></i></span>
+          </div>
+          
+          <!-- Social links trigger card -->
+          <div class="explore-card links-card">
+            <div class="explore-icon-wrapper">
+              <i class="fas fa-link"></i>
+            </div>
+            <h3 class="explore-title">My Links</h3>
+            <p class="explore-desc" id="explore-links-desc">Find me across the web and social platforms.</p>
+            <span class="explore-link open-links">Explore <i class="fas fa-arrow-right"></i></span>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modals Overlay System -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <h3 class="modal-title" id="modal-title">Explore</h3>
+      <p class="modal-subtitle" id="modal-subtitle">Additional resources</p>
+      
+      <div id="modal-body-content">
+        
+        <!-- Section: Guestbook -->
+        <div class="modal-sec" id="modal-sec-guestbook" style="display: none; flex-direction: column; height: 100%;">
+          <form id="gb-form" class="guestbook-form">
+            <input type="text" id="gb-name" class="guestbook-input" placeholder="Your Name" required maxlength="40">
+            <textarea id="gb-msg" class="guestbook-textarea" placeholder="Leave a message..." required maxlength="250"></textarea>
+            <button type="submit" class="guestbook-submit-btn">Post Message</button>
+          </form>
+          <div id="gb-list" class="guestbook-list">
+            <!-- Comments listed here -->
+          </div>
+        </div>
+        
+        <!-- Section: Achievements -->
+        <div class="modal-sec" id="modal-sec-achievements" style="display: none;">
+          <div class="achievements-modal-list" id="modal-sec-achievements-list">
+            <!-- Achievements items listed here -->
+          </div>
+        </div>
+        
+        <!-- Section: Social Links -->
+        <div class="modal-sec" id="modal-sec-links" style="display: none;">
+          <div class="links-modal-list" id="modal-sec-links-list">
+            <!-- Social links listed here -->
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-socials">
+        <a href="https://github.com/achinthaedirisinghe" target="_blank" class="footer-social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="footer-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:hello@achintha.dev" class="footer-social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p id="footer-copyright">&copy; 2026 Achintha Edirisinghe. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Script Declarations -->
+  <script src="js/config.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
