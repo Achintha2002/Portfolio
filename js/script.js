@@ -82,7 +82,7 @@ function setupPortfolioContent() {
 
   // Bento Grid: Photo Card
   const photoCardImg = document.getElementById("bento-photo-img");
-  if (photoCardImg) photoCardImg.src = config.owner.avatar;
+  if (photoCardImg) photoCardImg.src = config.owner.realPhoto || config.owner.avatar;
   const photoName = document.getElementById("bento-photo-name");
   if (photoName) photoName.textContent = config.owner.firstName;
   

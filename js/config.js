@@ -9,6 +9,7 @@ const PORTFOLIO_CONFIG = {
     coordinates: "6.9271° N, 79.8612° E",
     timezone: "GMT+5:30",
     avatar: "assets/avatar.png",
+    realPhoto: "assets/real_photo.png",
     email: "hello@achintha.dev",
     github: "https://github.com/achinthaedirisinghe",
     linkedin: "https://linkedin.com",
@@ -72,7 +73,7 @@ const PORTFOLIO_CONFIG = {
     "Express", "TypeScript", "MongoDB", "Linux", "Kotlin"
   ],
   chatbot: {
-    avatar: "assets/avatar.png",
+    avatar: "assets/real_photo.png",
     welcome: "Hi, I'm Achintha. Ask me anything about my work, skills, mindset, or how we can collaborate!",
     defaultQuestions: [
       { text: "Work", keyword: "work" },
