@@ -10,9 +10,9 @@ const PORTFOLIO_CONFIG = {
     timezone: "GMT+5:30",
     avatar: "assets/avatar.png",
     realPhoto: "assets/real_photo.png",
-    email: "hello@achintha.dev",
+    email: "achintha.w101@gmail.com",
     github: "https://github.com/achinthaedirisinghe",
-    linkedin: "hhttps://www.linkedin.com/in/achintha-edirisinghe-a4a23b3ab",
+    linkedin: "https://www.linkedin.com/in/achintha-edirisinghe-a4a23b3ab",
     calendar: "https://calendly.com",
   },
   mindset: {
@@ -108,7 +108,7 @@ const PORTFOLIO_CONFIG = {
       work: "I have built several interesting projects: 🎓 **BrightPath LMS** (interactive university learning platform), 🛒 **Sportify** (modern e-commerce platform for sports equipment), ✨ **Raani Cream** (premium skincare e-commerce platform), 🏛️ **Smart Campus Hub** (full-stack campus management system), and 📷 **Photo Home** (photography portfolio). You can explore them in detail in the Projects section!",
       about: "I'm Achintha Edirisinghe, a Full Stack Developer based in Colombo, Sri Lanka (GMT+5:30). I focus on creating high-performance, aesthetic web applications and automations. I'm passionate about clean architecture, hackathons, and physical fitness.",
       skills: "My tech stack includes **React**, **Next.js**, **Node.js**, **TypeScript**, **Python**, **PostgreSQL**, **Docker**, and **Git**. I am also familiar with AWS and Figma for cloud infrastructure and UI design.",
-      contact: "Let's connect! 📞 You can email me at **hello@achintha.dev** or use the **Book a Call** button at the top of the page to schedule a chat directly through my calendar. I'm always open to freelance opportunities, hackathons, and collaborations!",
+      contact: "Let's connect! 📞 You can email me at **achintha.w101@gmail.com** or use the **Book a Call** button at the top of the page to schedule a chat directly through my calendar. I'm always open to freelance opportunities, hackathons, and collaborations!",
       default: "That's an interesting question! I am programmed to tell you about my Work, Skills, About me, and Contact info. Try clicking one of the buttons below or asking about one of those topics!"
     }
   },
@@ -133,8 +133,8 @@ const PORTFOLIO_CONFIG = {
   ],
   socialLinks: [
     { name: "GitHub", url: "https://github.com/achinthaedirisinghe", icon: "fab fa-github" },
-    { name: "LinkedIn", url: "https://linkedin.com", icon: "fab fa-linkedin" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/achintha-edirisinghe-a4a23b3ab", icon: "fab fa-linkedin" },
     { name: "Twitter", url: "https://twitter.com", icon: "fab fa-twitter" },
-    { name: "Email", url: "mailto:hello@achintha.dev", icon: "fas fa-envelope" }
+    { name: "Email", url: "mailto:achintha.w101@gmail.com", icon: "fas fa-envelope" }
   ]
 };
