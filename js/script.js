@@ -713,6 +713,20 @@ function initCertsCarousel() {
     carousel.style.scrollSnapType = "none"; // Disable snap again for auto scroll
   });
 
+  // Touch support for mobile
+  carousel.addEventListener("touchstart", () => {
+    isHovered = true;
+    carousel.style.scrollSnapType = "x mandatory";
+  }, { passive: true });
+
+  carousel.addEventListener("touchend", () => {
+    // Delay resuming animation after touch to allow natural scrolling momentum
+    setTimeout(() => {
+      isHovered = false;
+      carousel.style.scrollSnapType = "none";
+    }, 1500);
+  });
+
   function autoScroll() {
     if (!isHovered) {
       carousel.scrollLeft += scrollSpeed * scrollDirection;
