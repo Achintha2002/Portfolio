@@ -2011,6 +2011,9 @@ footer {
   }
 
   /* Hero Section */
+  #home {
+    padding-top: 6rem;
+  }
   .hero-avatar-container {
     width: 130px;
     height: 130px;
@@ -2025,7 +2028,6 @@ footer {
   .hero-title {
     font-size: 2.2rem;
     margin-bottom: 2rem;
-    min-height: 130px;
   }
 
   /* Chatbot */
