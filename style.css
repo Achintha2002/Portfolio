@@ -2016,11 +2016,11 @@ footer {
     display: none;
   }
   .mindset-click-hint {
-    display: flex;
+    display: inline-flex;
     position: absolute;
-    bottom: 25%;
-    left: 50%;
-    transform: translate(-50%, 50%);
+    top: 130px;
+    left: 1.2rem;
+    transform: none;
     z-index: 4;
     align-items: center;
     gap: 0.4rem;
