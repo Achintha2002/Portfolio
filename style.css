@@ -1905,15 +1905,72 @@ footer {
   }
 
   /* Bento & Grids */
+  /* Bento & Grids - 2 Column Layout */
   .bento-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
   .bento-card {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
-  .card-4, .card-8 {
+  
+  /* Reset Desktop Spans and Apply Mobile Ordering */
+  .name-card {
     grid-column: span 1;
+    order: 1;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .photo-card {
+    grid-column: span 1;
+    order: 2;
+  }
+  .education-card {
+    grid-column: span 2;
+    order: 3;
+  }
+  .craft-card {
+    grid-column: span 1;
+    grid-row: span 2;
+    order: 4;
+  }
+  .location-card {
+    grid-column: span 1;
+    order: 5;
+  }
+  .mindset-card {
+    grid-column: span 1;
+    order: 6;
+  }
+
+  /* Fix Name Card Overlapping on Mobile */
+  .name-card-subtitle {
+    position: static;
+    font-size: 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+  .name-card-title {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    margin-top: 0;
+  }
+  .name-card-role {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .resume-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+  .bento-socials {
+    position: static;
+    margin-top: 1rem;
+    gap: 8px;
+  }
+  .bento-social-link {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
   }
   .explore-grid {
     grid-template-columns: 1fr;
