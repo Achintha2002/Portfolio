@@ -1768,7 +1768,7 @@ footer {
 .footer-massive-name {
   font-family: 'Outfit', sans-serif;
   font-size: clamp(1.5rem, 7vw, 10rem);
-  font-weight: 400;
+  font-weight: 600;
   color: var(--text-primary);
   letter-spacing: 0.05em;
   margin: 0 0 2rem 0;
