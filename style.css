@@ -2027,8 +2027,8 @@ footer {
   }
   .hero-title {
     font-size: 2.2rem;
-    margin-bottom: 2rem;
-    min-height: 110px;
+    margin-bottom: 2.5rem;
+    min-height: 125px;
   }
 
   /* Chatbot */
