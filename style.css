@@ -1979,8 +1979,9 @@ footer {
   .theme-toggle-btn {
     position: static;
     transform: none;
-    margin-bottom: 2rem;
     margin-top: 0;
+    margin-bottom: 2.5rem;
+    margin-left: 1.2rem;
     align-self: flex-start;
     border: 1px solid var(--border-color);
   }
