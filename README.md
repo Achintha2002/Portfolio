@@ -41,4 +41,4 @@ To run this project locally, you simply need to serve the directory. No complex 
 To update the content of the portfolio (name, projects, location, links), simply edit the `PORTFOLIO_CONFIG` object inside `js/config.js`.
 
 ---
-*Designed and built by Achintha Edirisinghe.*
+
