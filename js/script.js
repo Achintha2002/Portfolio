@@ -77,8 +77,14 @@ function setupPortfolioContent() {
   // Bento Grid: Mindset Card
   const bentoMindsetQuote = document.getElementById("bento-mindset-quote");
   if (bentoMindsetQuote) bentoMindsetQuote.textContent = config.mindset.quote;
+  const bentoMindsetQuoteBack = document.getElementById("bento-mindset-quote-back");
+  if (bentoMindsetQuoteBack) bentoMindsetQuoteBack.textContent = config.mindset.quote;
+
   const bentoMindsetTagline = document.getElementById("bento-mindset-tagline");
   if (bentoMindsetTagline) bentoMindsetTagline.textContent = config.mindset.tagline;
+  const bentoMindsetTaglineBack = document.getElementById("bento-mindset-tagline-back");
+  if (bentoMindsetTaglineBack) bentoMindsetTaglineBack.textContent = config.mindset.tagline;
+
   const mindsetOverlay = document.querySelector(".mindset-img-overlay");
   if (mindsetOverlay) mindsetOverlay.style.backgroundImage = `url('${config.mindset.image}')`;
 
@@ -92,7 +98,9 @@ function setupPortfolioContent() {
   const locationTitle = document.getElementById("bento-location-title");
   if (locationTitle) locationTitle.textContent = config.owner.location;
   const locationCoord = document.getElementById("bento-location-coord");
-  if (locationCoord) locationCoord.textContent = `${config.owner.coordinates} - ${config.owner.timezone}`;
+  if (locationCoord) locationCoord.textContent = config.owner.coordinates;
+  const locationTimezone = document.getElementById("bento-location-timezone");
+  if (locationTimezone) locationTimezone.textContent = config.owner.timezone;
 
   // Calendar Link
   const bookCallBtn = document.getElementById("book-call-btn");
@@ -390,27 +398,23 @@ function initSkillsSphere() {
   })();
   // ── End Wireframe ──────────────────────────────────────────────────────
 
-  // Devicon class mapping for each skill
+  // Devicon class mapping or raw SVG for each skill
   const iconMap = {
     "React":      "devicon-react-original colored",
     "Node.js":    "devicon-nodejs-plain colored",
     "Python":     "devicon-python-original colored",
     "Docker":     "devicon-docker-plain colored",
-    "PostgreSQL": "devicon-postgresql-plain colored",
-    "Next.js":    "devicon-nextjs-original",
+    "Next.js":    `<svg viewBox="0 0 512 512" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" r="256" fill="white"/><path d="M380.5 407.7L194.2 153.8H148v204.4h39.6V226l165 225.8c9.5-13.6 19.3-27.5 27.9-44.1zM324.5 153.8h39.6v204.4h-39.6z" fill="black"/></svg>`,
     "Git":        "devicon-git-plain colored",
     "JavaScript": "devicon-javascript-plain colored",
     "HTML5":      "devicon-html5-plain colored",
     "CSS3":       "devicon-css3-plain colored",
-    "AWS":        "devicon-amazonwebservices-plain-wordmark colored",
     "Figma":      "devicon-figma-plain colored",
-    "Redux":      "devicon-redux-original colored",
-    "Tailwind":   "devicon-tailwindcss-original colored",
-    "Express":    "devicon-express-original",
-    "TypeScript": "devicon-typescript-plain colored",
-    "MongoDB":    "devicon-mongodb-plain colored",
-    "Linux":      "devicon-linux-plain colored",
-    "GraphQL":    "devicon-graphql-plain colored",
+    "MongoDB":    "devicon-mongodb-plain-wordmark colored",
+    "GitHub":     "devicon-github-original",
+    "C++":        "devicon-cplusplus-plain colored",
+    "Vercel":     `<svg viewBox="0 0 512 512" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 48L496 464H16Z" fill="white"/></svg>`,
+    "Expo":       `<svg viewBox="0 0 256 256" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M141.04 18.17l96.65 174.56c8.53 15.42-2.6 34.61-20.16 34.61H214.3c-7.31 0-14.18-3.92-17.75-10.15L127.97 97.43l-68.42 119.7c-3.61 6.32-10.45 10.21-17.75 10.21H18.66c-17.58 0-28.71-19.16-20.2-34.56l96.53-174.61c8.89-16.08 31.96-16.05 40.85 0z"/></svg>`
   };
 
   const skills = PORTFOLIO_CONFIG.skills;
@@ -431,8 +435,12 @@ function initSkillsSphere() {
 
     const div = document.createElement("div");
     div.className = "sphere-icon-item";
-    const iconClass = iconMap[skill] || "fas fa-code";
-    div.innerHTML = `<i class="${iconClass}"></i>`;
+    const iconData = iconMap[skill] || "fas fa-code";
+    if (iconData.startsWith("<svg")) {
+      div.innerHTML = iconData;
+    } else {
+      div.innerHTML = `<i class="${iconData}"></i>`;
+    }
 
     div.addEventListener("mouseenter", () => {
       if (label) label.textContent = skill;
@@ -497,12 +505,15 @@ function initSkillsSphere() {
       const scale = 0.45 + norm * 0.75;
       const fontSize = Math.round(1.1 + norm * 1.2);
 
-      item.el.style.left = `${CX + sx}px`;
-      item.el.style.top  = `${CY + sy}px`;
+      item.el.style.left = `${50 + (sx / CX) * 50}%`;
+      item.el.style.top  = `${50 + (sy / CY) * 50}%`;
       item.el.style.opacity = opacity;
       item.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
       item.el.style.zIndex = idx;
-      item.el.querySelector("i").style.fontSize = `${fontSize}rem`;
+      
+      const iconElem = item.el.querySelector("i") || item.el.querySelector("svg");
+      if (iconElem) iconElem.style.fontSize = `${fontSize}rem`;
+      
       item.el.style.filter = norm < 0.25 ? "grayscale(80%) brightness(0.6)" : "none";
     });
 

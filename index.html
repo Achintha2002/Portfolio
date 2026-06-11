@@ -139,14 +139,28 @@
           </div>
           
           <!-- Card 3: Mindset (span 4, span 2 rows) -->
-          <div class="bento-card card-4 row-2 mindset-card">
-            <div class="mindset-card-content">
-              <h3 class="mindset-title">Mindset</h3>
-              <p class="mindset-quote" id="bento-mindset-quote">Building more than software. My passions provide the discipline and focus I need to grow.</p>
-              <p class="mindset-tagline" id="bento-mindset-tagline">Mastering body and mind is my path to excellence.</p>
+          <div class="bento-card card-4 row-2 mindset-card" onclick="this.classList.toggle('flipped')">
+            <div class="mindset-card-inner">
+              <!-- Front Face -->
+              <div class="mindset-card-front">
+                <div class="mindset-img-overlay"></div>
+                <div class="mindset-card-content">
+                  <h3 class="mindset-title">Mindset</h3>
+                  <p class="mindset-quote" id="bento-mindset-quote">Building more than software. My passions provide the discipline and focus I need to grow.</p>
+                  <p class="mindset-tagline" id="bento-mindset-tagline">Mastering body and mind is my path to excellence.</p>
+                </div>
+                <div class="mindset-badge">FITNESS &amp; FOCUS</div>
+                <div class="mindset-click-hint"><i class="fas fa-hand-pointer"></i> Tap <i class="fas fa-redo"></i></div>
+              </div>
+              <!-- Back Face -->
+              <div class="mindset-card-back">
+                <div class="mindset-card-content">
+                  <h3 class="mindset-title">Mindset</h3>
+                  <p class="mindset-quote" id="bento-mindset-quote-back">Building more than software. My passions provide the discipline and focus I need to grow.</p>
+                  <p class="mindset-tagline" id="bento-mindset-tagline-back">Mastering body and mind is my path to excellence.</p>
+                </div>
+              </div>
             </div>
-            <div class="mindset-img-overlay"></div>
-            <div class="mindset-badge">FITNESS &amp; FOCUS</div>
           </div>
           
           <!-- Card 4: Central Avatar/Photo (span 4, span 1.5 rows) -->
@@ -183,7 +197,7 @@
           <div class="bento-card card-4 location-card">
             <h4 class="location-title" id="bento-location-title">Colombo, Sri Lanka</h4>
             <div class="location-coord" id="bento-location-coord">6.9271° N, 79.8612° E</div>
-            <div class="location-timezone">GMT+5:30</div>
+            <div class="location-timezone" id="bento-location-timezone">GMT+5:30</div>
             <div class="location-map-bg"></div>
           </div>
           
