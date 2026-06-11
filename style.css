@@ -1981,6 +1981,7 @@ footer {
     grid-column: span 1;
     order: 6;
     cursor: pointer;
+    min-height: 350px;
   }
   .mindset-card.flipped .mindset-card-inner {
     transform: rotateY(180deg);
