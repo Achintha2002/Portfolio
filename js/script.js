@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSkillsSphere();
   initGuestbook();
   initModals();
+  initCertsCarousel();
 });
 
 // =========================================================================
@@ -603,12 +604,10 @@ function initModals() {
 
   // Targets to launch modals
   const guestbookTriggers = document.querySelectorAll(".open-guestbook");
-  const achievementsTriggers = document.querySelectorAll(".open-achievements");
-  const linksTriggers = document.querySelectorAll(".open-links");
+  const githubStatsTriggers = document.querySelectorAll(".open-github-stats");
 
   guestbookTriggers.forEach(t => t.addEventListener("click", () => openModal("guestbook")));
-  achievementsTriggers.forEach(t => t.addEventListener("click", () => openModal("achievements")));
-  linksTriggers.forEach(t => t.addEventListener("click", () => openModal("links")));
+  githubStatsTriggers.forEach(t => t.addEventListener("click", () => openModal("githubStats")));
 
   modalClose.addEventListener("click", closeModal);
   modalOverlay.addEventListener("click", (e) => {
@@ -625,49 +624,10 @@ function initModals() {
       modalSubtitle.textContent = config.explore.guestbook.description;
       document.getElementById("modal-sec-guestbook").style.display = "flex";
     } 
-    else if (type === "achievements") {
-      modalTitle.textContent = config.explore.achievements.title;
-      modalSubtitle.textContent = config.explore.achievements.description;
-      
-      const listContainer = document.getElementById("modal-sec-achievements-list");
-      listContainer.innerHTML = "";
-      config.achievementsList.forEach(ach => {
-        const item = document.createElement("div");
-        item.className = "achievement-modal-item";
-        item.innerHTML = `
-          <div class="achievement-modal-icon"><i class="fas fa-trophy"></i></div>
-          <div class="achievement-modal-details">
-            <h4 class="achievement-modal-title">${ach.title}</h4>
-            <p class="achievement-modal-desc">${ach.detail}</p>
-          </div>
-        `;
-        listContainer.appendChild(item);
-      });
-      
-      document.getElementById("modal-sec-achievements").style.display = "block";
-    } 
-    else if (type === "links") {
-      modalTitle.textContent = config.explore.links.title;
-      modalSubtitle.textContent = config.explore.links.description;
-      
-      const linksContainer = document.getElementById("modal-sec-links-list");
-      linksContainer.innerHTML = "";
-      config.socialLinks.forEach(link => {
-        const item = document.createElement("a");
-        item.href = link.url;
-        item.target = "_blank";
-        item.className = "link-modal-item";
-        item.innerHTML = `
-          <div class="link-modal-icon-name">
-            <i class="${link.icon}"></i>
-            <span>${link.name}</span>
-          </div>
-          <i class="fas fa-arrow-right"></i>
-        `;
-        linksContainer.appendChild(item);
-      });
-      
-      document.getElementById("modal-sec-links").style.display = "block";
+    else if (type === "githubStats") {
+      modalTitle.textContent = "GitHub Stats";
+      modalSubtitle.textContent = "My open source contributions and coding activity.";
+      document.getElementById("modal-sec-github-stats").style.display = "flex";
     }
 
     modalOverlay.classList.add("active");
@@ -678,4 +638,53 @@ function initModals() {
     modalOverlay.classList.remove("active");
     document.body.style.overflow = ""; // restore scrolling
   }
+}
+
+// =========================================================================
+// Certificates Auto-Scroll Animation
+// =========================================================================
+function initCertsCarousel() {
+  const carousel = document.querySelector(".certs-carousel");
+  if (!carousel) return;
+
+  // Disable scroll snap for smooth programmatic scrolling
+  carousel.style.scrollSnapType = "none";
+  
+  let isHovered = false;
+  let scrollSpeed = 0.5; // pixels per frame (slower, premium feel)
+  let scrollDirection = 1; // 1 = right, -1 = left
+
+  // Pause on hover
+  carousel.addEventListener("mouseenter", () => {
+    isHovered = true;
+    carousel.style.scrollSnapType = "x mandatory"; // Re-enable snap when user might interact manually
+  });
+  
+  carousel.addEventListener("mouseleave", () => {
+    isHovered = false;
+    carousel.style.scrollSnapType = "none"; // Disable snap again for auto scroll
+  });
+
+  function autoScroll() {
+    if (!isHovered) {
+      carousel.scrollLeft += scrollSpeed * scrollDirection;
+
+      // Reverse direction at edges (with a tiny buffer to prevent locking)
+      if (scrollDirection === 1) {
+        // Going right: check if we hit the end
+        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 1) {
+          scrollDirection = -1;
+        }
+      } else {
+        // Going left: check if we hit the beginning
+        if (carousel.scrollLeft <= 0) {
+          scrollDirection = 1;
+        }
+      }
+    }
+    requestAnimationFrame(autoScroll);
+  }
+
+  // Start animation loop
+  requestAnimationFrame(autoScroll);
 }

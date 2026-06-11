@@ -1209,6 +1209,29 @@ section {
   transform: scale(1.05);
 }
 
+.cert-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  gap: 10px;
+  background: var(--bg-tertiary);
+}
+
+.cert-fallback i {
+  font-size: 2.5rem;
+  color: var(--text-secondary);
+}
+
+.cert-fallback span {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
 .cert-content {
   padding: 1.5rem;
   flex-grow: 1;
@@ -1350,6 +1373,12 @@ section {
   position: relative;
   transform: translateY(30px);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#modal-body-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
 }
 
 .modal-overlay.active .modal-content {

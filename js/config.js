@@ -11,7 +11,7 @@ const PORTFOLIO_CONFIG = {
     avatar: "assets/avatar.png",
     realPhoto: "assets/real_photo.png",
     email: "achintha.w101@gmail.com",
-    github: "https://github.com/achinthaedirisinghe",
+    github: "https://github.com/Achintha2002",
     linkedin: "https://www.linkedin.com/in/achintha-edirisinghe-a4a23b3ab",
     calendar: "https://calendly.com",
   },
@@ -132,7 +132,7 @@ const PORTFOLIO_CONFIG = {
     { title: "AWS Certified Developer", detail: "Certified Associate developer focusing on serverless cloud architecture." }
   ],
   socialLinks: [
-    { name: "GitHub", url: "https://github.com/achinthaedirisinghe", icon: "fab fa-github" },
+    { name: "GitHub", url: "https://github.com/Achintha2002", icon: "fab fa-github" },
     { name: "LinkedIn", url: "https://www.linkedin.com/in/achintha-edirisinghe-a4a23b3ab", icon: "fab fa-linkedin" },
     { name: "Twitter", url: "https://twitter.com", icon: "fab fa-twitter" },
     { name: "Email", url: "mailto:achintha.w101@gmail.com", icon: "fas fa-envelope" }
