@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initGuestbook();
   initModals();
   initCertsCarousel();
+  initMobileMenu();
 });
 
 // =========================================================================
@@ -28,6 +29,40 @@ function initCursorGlow() {
   });
 }
 
+
+// =========================================================================
+// Mobile Navigation Drawer
+// =========================================================================
+function initMobileMenu() {
+  const openBtn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('mobile-close-btn');
+  const backdrop = document.getElementById('mobile-menu-backdrop');
+  const drawer = document.getElementById('nav-drawer');
+  const navLinks = drawer ? drawer.querySelectorAll('.nav-link') : [];
+
+  if (!openBtn || !closeBtn || !backdrop || !drawer) return;
+
+  function openMenu() {
+    drawer.classList.add('open');
+    backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden'; // prevent background scrolling
+  }
+
+  function closeMenu() {
+    drawer.classList.remove('open');
+    backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+
+  // Close menu when a navigation link is clicked
+  navLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+}
 
 // =========================================================================
 // Setup Dynamic Content from config.js
