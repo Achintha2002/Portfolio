@@ -1983,6 +1983,9 @@ footer {
     align-self: flex-start;
     border: 1px solid var(--border-color);
   }
+  .theme-toggle-btn:hover {
+    transform: scale(1.05);
+  }
   .book-call-btn {
     padding: 10px;
     border-radius: 50%;
