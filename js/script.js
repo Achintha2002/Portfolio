@@ -43,7 +43,9 @@ function setupPortfolioContent() {
   if (avatarImg) avatarImg.src = config.owner.avatar;
   
   const ownerNameText = document.getElementById("owner-name");
-  if (ownerNameText) ownerNameText.innerHTML = `Hi, I'm <span class="gradient-text">${config.owner.name}</span>`;
+  if (ownerNameText) {
+    initTypewriter();
+  }
   
   // Bento Grid: Name Card
   const bentoName = document.getElementById("bento-name");
@@ -687,4 +689,47 @@ function initCertsCarousel() {
 
   // Start animation loop
   requestAnimationFrame(autoScroll);
+}
+
+// =========================================================================
+// Hero Typewriter Effect
+// =========================================================================
+function initTypewriter() {
+  const container = document.getElementById("owner-name");
+  if (!container) return;
+  
+  const textOptions = [PORTFOLIO_CONFIG.owner.name, "Full Stack Developer"];
+  let currentWordIndex = 0;
+  let currentCharIndex = 0;
+  let isDeleting = false;
+  
+  container.innerHTML = `Hi, I'm <span class="gradient-text" id="typewriter-text"></span><span class="typewriter-cursor">|</span>`;
+  const textSpan = document.getElementById("typewriter-text");
+  
+  function type() {
+    const currentWord = textOptions[currentWordIndex];
+    
+    if (isDeleting) {
+      textSpan.textContent = currentWord.substring(0, currentCharIndex - 1);
+      currentCharIndex--;
+    } else {
+      textSpan.textContent = currentWord.substring(0, currentCharIndex + 1);
+      currentCharIndex++;
+    }
+    let typingSpeed = 100;
+    // If word is completely typed out
+    if (!isDeleting && currentCharIndex === currentWord.length) {
+      typingSpeed = 2000; // Hold for 2 seconds
+      isDeleting = true;
+    } else if (isDeleting && currentCharIndex === 0) {
+      isDeleting = false;
+      currentWordIndex = (currentWordIndex + 1) % textOptions.length;
+      typingSpeed = 500; // Pause before typing next word
+    }
+    
+    setTimeout(type, typingSpeed);
+  }
+  
+  // Start the typing effect
+  setTimeout(type, 500);
 }

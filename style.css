@@ -79,6 +79,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -89,6 +91,7 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
   transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
@@ -110,6 +113,7 @@ body {
 
 /* Utility Classes */
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -152,20 +156,16 @@ header {
 .nav-logo {
   position: absolute;
   left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
   font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 1.5rem;
-  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.8rem;
   text-decoration: none;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  transition: color var(--transition-speed), transform var(--transition-speed);
 }
 
-.nav-logo:hover {
-  color: var(--accent-purple);
-  transform: scale(1.05);
-}
 .theme-toggle-btn {
   width: 48px;
   height: 48px;
@@ -181,11 +181,13 @@ header {
   box-shadow: var(--card-shadow);
   position: absolute;
   right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .theme-toggle-btn:hover {
   border-color: var(--border-hover);
-  transform: scale(1.08) rotate(15deg);
+  transform: translateY(-50%) scale(1.08) rotate(15deg);
 }
 
 .nav-capsule {
@@ -212,7 +214,12 @@ header {
   font-size: 0.95rem;
   padding: 10px 22px;
   border-radius: 9999px;
+  border: 1px solid transparent;
   transition: all var(--transition-speed);
+}
+
+.mobile-text {
+  display: none;
 }
 
 .nav-link:hover {
@@ -308,6 +315,17 @@ section {
   font-weight: 800;
   text-align: center;
   margin-bottom: 3rem;
+}
+
+.typewriter-cursor {
+  font-weight: 400;
+  color: var(--text-primary);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 /* Chatbot UI */
@@ -1705,13 +1723,13 @@ footer {
 
 .footer-massive-name {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(2rem, 6vw, 6rem);
+  font-size: clamp(1.5rem, 6vw, 6rem);
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: 0.05em;
   margin: 0 0 2rem 0;
   line-height: 1.1;
-  white-space: nowrap;
+  word-break: break-word;
 }
 
 .footer-social-link {
@@ -1787,35 +1805,135 @@ footer {
 }
 
 @media (max-width: 768px) {
+  /* Global Spacing */
+  .container {
+    padding: 0 1.2rem;
+  }
+  .section-container {
+    padding: 4rem 0;
+  }
+
+  /* Top Floating Dock Navigation */
   .nav-capsule {
-    display: none; /* Can implement mobile drawer if needed, but for portfolio links tab scrolling is fine */
+    position: fixed;
+    top: 1rem;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 2.4rem);
+    max-width: 380px;
+    z-index: 1000;
+    padding: 0.4rem;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .nav-capsule::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 1.5rem;
+    white-space: nowrap;
+  }
+  .desktop-text {
+    display: none;
+  }
+  .mobile-text {
+    display: inline;
+  }
+  .book-call-btn {
+    padding: 10px;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .book-call-btn span {
     display: none; /* Icon only */
   }
-  .book-call-btn {
-    padding: 12px;
+
+  /* Header & Theme Button */
+  .nav-logo {
+    left: 1.2rem;
   }
+  .theme-toggle-btn {
+    right: 1.2rem;
+  }
+  header {
+    top: 6.5rem;
+  }
+
+  /* Hero Section */
+  .hero-avatar-container {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-avatar {
+    width: 130px;
+    height: 130px;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Chatbot */
+  .chatbot-wrapper {
+    padding: 0;
+  }
+  .chatbot-container {
+    padding: 1.2rem;
+  }
+  .chatbot-messages {
+    height: 250px;
+  }
+  .chatbot-chip {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Section Titles */
   .section-title {
     font-size: 2.2rem;
   }
+
+  /* Bento & Grids */
   .bento-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .bento-card {
+    padding: 1.5rem;
   }
   .card-4, .card-8 {
     grid-column: span 1;
   }
   .explore-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
   .explore-card.links-card {
     grid-column: span 1;
   }
-  #skills-canvas {
-    width: 350px;
-    height: 350px;
+
+  /* Skills Sphere */
+  .sphere-scene {
+    width: 100% !important;
+    max-width: 320px;
+    height: 320px !important;
+    margin: 0 auto;
   }
   .skills-sphere-container {
-    height: 360px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

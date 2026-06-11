@@ -107,8 +107,8 @@ const PORTFOLIO_CONFIG = {
     responses: {
       work: "I have built several interesting projects: 🎓 **BrightPath LMS** (interactive university learning platform), 🛒 **Sportify** (modern e-commerce platform for sports equipment), ✨ **Raani Cream** (premium skincare e-commerce platform), 🏛️ **Smart Campus Hub** (full-stack campus management system), and 📷 **Photo Home** (photography portfolio). You can explore them in detail in the Projects section!",
       about: "I'm Achintha Edirisinghe, a Full Stack Developer based in Colombo, Sri Lanka (GMT+5:30). I focus on creating high-performance, aesthetic web applications and automations. I'm passionate about clean architecture, hackathons, and physical fitness.",
-      skills: "My tech stack includes **React**, **Next.js**, **Node.js**, **TypeScript**, **Python**, **PostgreSQL**, **Docker**, and **Git**. I am also familiar with AWS and Figma for cloud infrastructure and UI design.",
-      contact: "Let's connect! 📞 You can email me at **achintha.w101@gmail.com** or use the **Book a Call** button at the top of the page to schedule a chat directly through my calendar. I'm always open to freelance opportunities, hackathons, and collaborations!",
+      skills: "My tech stack includes **React**, **Next.js**, **Node.js**, **TypeScript**, **Python**, **PostgreSQL**, **Docker**, and **Git**. I am also familiar with Figma for UI design.",
+      contact: "Let's connect! 📞 You can contact me via **Gmail** (achintha.w101@gmail.com) or reach out through my **LinkedIn**. I'm always open to freelance opportunities, hackathons, and collaborations!",
       default: "That's an interesting question! I am programmed to tell you about my Work, Skills, About me, and Contact info. Try clicking one of the buttons below or asking about one of those topics!"
     }
   },
@@ -128,8 +128,7 @@ const PORTFOLIO_CONFIG = {
   },
   achievementsList: [
     { title: "National Hackathon 2nd Place", detail: "Placed 2nd among 120+ teams in the Axios Smart City Hackathon." },
-    { title: "Science Club Coordinator", detail: "Active coordinator managing technical workshops and AI bootcamps." },
-    { title: "AWS Certified Developer", detail: "Certified Associate developer focusing on serverless cloud architecture." }
+    { title: "Science Club Coordinator", detail: "Active coordinator managing technical workshops and AI bootcamps." }
   ],
   socialLinks: [
     { name: "GitHub", url: "https://github.com/Achintha2002", icon: "fab fa-github" },
