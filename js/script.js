@@ -12,7 +12,26 @@ document.addEventListener("DOMContentLoaded", () => {
   initModals();
   initCertsCarousel();
   initMobileMenu();
+  initMindsetCard();
 });
+
+// =========================================================================
+// Mindset Card Auto-Unflip
+// =========================================================================
+function initMindsetCard() {
+  const mindsetCard = document.querySelector('.mindset-card');
+  if (!mindsetCard) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        mindsetCard.classList.remove('flipped');
+      }
+    });
+  }, { threshold: 0 });
+
+  observer.observe(mindsetCard);
+}
 
 // =========================================================================
 // Mouse Cursor Lit Dots Effect
