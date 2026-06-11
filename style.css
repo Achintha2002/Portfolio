@@ -1986,9 +1986,10 @@ footer {
     transform: rotateY(180deg);
   }
   .mindset-card-back {
-    display: flex;
+    display: block;
     overflow-y: auto;
     padding: 1.2rem;
+    -webkit-overflow-scrolling: touch;
   }
   .mindset-card-back::-webkit-scrollbar {
     width: 4px;
