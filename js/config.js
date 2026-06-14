@@ -105,11 +105,11 @@ const PORTFOLIO_CONFIG = {
       { text: "Contact", keyword: "contact" }
     ],
     responses: {
-      work: "I have built several interesting projects: 🎓 **BrightPath LMS** (interactive university learning platform), 🛒 **Sportify** (modern e-commerce platform for sports equipment), ✨ **Raani Cream** (premium skincare e-commerce platform), 🏛️ **Smart Campus Hub** (full-stack campus management system), and 📷 **Photo Home** (photography portfolio). You can explore them in detail in the Projects section!",
-      about: "I'm Achintha Edirisinghe, a Full Stack Developer based in Colombo, Sri Lanka (GMT+5:30). I focus on creating high-performance, aesthetic web applications and automations. I'm passionate about clean architecture, hackathons, and physical fitness.",
-      skills: "My tech stack includes **React**, **Next.js**, **Node.js**, **TypeScript**, **Python**, **PostgreSQL**, **Docker**, and **Git**. I am also familiar with Figma for UI design.",
-      contact: "Let's connect! 📞 You can contact me via **Gmail** (achintha.w101@gmail.com) or reach out through my **LinkedIn**. I'm always open to freelance opportunities, hackathons, and collaborations!",
-      default: "That's an interesting question! I am programmed to tell you about my Work, Skills, About me, and Contact info. Try clicking one of the buttons below or asking about one of those topics!"
+      work: "I have built several interesting projects:\n\n🎓 **BrightPath LMS** - Interactive university learning platform.\n🛒 **Sportify** - Modern e-commerce platform for sports equipment.\n✨ **Raani Cream** - Premium skincare e-commerce platform.\n🏛️ **Smart Campus Hub** - Full-stack campus management system.\n📷 **Photo Home** - Photography portfolio.\n\nYou can explore them in detail in the Projects section!",
+      about: "I'm Achintha Edirisinghe, a Full Stack Developer based in Colombo, Sri Lanka (GMT+5:30).\n\nI focus on creating high-performance, aesthetic web applications and automations. I'm passionate about clean architecture, hackathons, and physical fitness.",
+      skills: "My tech stack includes:\n\n• **Frontend:** React, Next.js, TypeScript\n• **Backend:** Node.js, Python, Express\n• **Database:** PostgreSQL, MongoDB\n• **DevOps & Tools:** Docker, Git, Vercel\n\nI am also familiar with Figma for UI design.",
+      contact: "Let's connect!\n\n📧 You can contact me via **Gmail** (achintha.w101@gmail.com)\n💼 Reach out through my **LinkedIn**.\n\nI'm always open to freelance opportunities, hackathons, and collaborations!",
+      default: "That's an interesting question!\n\nI am programmed to tell you about my Work, Skills, About me, and Contact info. Try clicking one of the buttons below or asking about one of those topics!"
     }
   },
   explore: {
