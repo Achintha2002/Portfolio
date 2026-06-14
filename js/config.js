@@ -106,7 +106,7 @@ const PORTFOLIO_CONFIG = {
     ],
     responses: {
       work: "I have built several interesting projects:\n\n🎓 **BrightPath LMS** - Interactive university learning platform.\n🛒 **Sportify** - Modern e-commerce platform for sports equipment.\n✨ **Raani Cream** - Premium skincare e-commerce platform.\n🏛️ **Smart Campus Hub** - Full-stack campus management system.\n📷 **Photo Home** - Photography portfolio.\n\nYou can explore them in detail in the Projects section!",
-      about: "I'm **Achintha Edirisinghe**, a Full Stack Developer based in Colombo, Sri Lanka.\n\nHere is a bit about me:\n\n🧑‍💻 **Role:** Full Stack Developer\n🎯 **Focus:** High-performance, aesthetic web apps & automations\n❤️ **Passions:** Clean architecture, hackathons, and physical fitness\n🎓 **Education:** BSc (Hons) in IT at SLIIT",
+      about: "Here is a bit about me:\n\n🧑‍💻 Role: Full Stack Developer\n🎯 Focus: High-performance, aesthetic web apps & automations\n❤️ Passions: Clean architecture, hackathons, and physical fitness\n🎓 Education: BSc (Hons) in IT at SLIIT",
       skills: "My tech stack includes:\n\n• **Frontend:** React, Next.js, TypeScript\n• **Backend:** Node.js, Python, Express\n• **Database:** PostgreSQL, MongoDB\n• **DevOps & Tools:** Docker, Git, Vercel\n\nI am also familiar with Figma for UI design.",
       contact: "Let's connect!\n\n📧 You can contact me via **Gmail** (achintha.w101@gmail.com)\n💼 Reach out through my **LinkedIn**.\n\nI'm always open to freelance opportunities, hackathons, and collaborations!",
       default: "That's an interesting question!\n\nI am programmed to tell you about my Work, Skills, About me, and Contact info. Try clicking one of the buttons below or asking about one of those topics!"
