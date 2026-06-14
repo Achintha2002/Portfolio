@@ -58,6 +58,7 @@ const PORTFOLIO_CONFIG = {
       description: "Modern e-commerce platform for sports equipment with role-based dashboards, Stripe payments, and Cloudinary integration.",
       image: "assets/sportify.jpg",
       github: "https://github.com/Achintha2002/Sportifyweb",
+      link: "https://sportify-frontend-eight.vercel.app",
       tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"]
     },
     {
