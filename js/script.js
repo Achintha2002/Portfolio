@@ -193,9 +193,9 @@ function setupPortfolioContent() {
             </a>
             ` : ''}
             ${project.hasCaseStudy ? `
-            <button class="project-btn case-study-btn" onclick="window.openCaseStudyModal('${project.id}')">
+            <a href="project-details.html" class="project-btn case-study-btn">
               <i class="fas fa-book-open"></i> Project Details
-            </button>
+            </a>
             ` : ''}
           </div>
         </div>
