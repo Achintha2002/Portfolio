@@ -193,7 +193,7 @@ function setupPortfolioContent() {
             </a>
             ` : ''}
             ${project.hasCaseStudy ? `
-            <a href="project-details.html" class="project-btn case-study-btn">
+            <a href="${project.caseStudyUrl}" class="project-btn case-study-btn">
               <i class="fas fa-book-open"></i> Project Details
             </a>
             ` : ''}

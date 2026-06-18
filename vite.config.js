@@ -6,7 +6,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        projectDetails: resolve(__dirname, 'project-details.html')
+        projectDetails: resolve(__dirname, 'project-details.html'),
+        sportifyDetails: resolve(__dirname, 'sportify-details.html')
       }
     }
   }

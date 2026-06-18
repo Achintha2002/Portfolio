@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sportify - Project Details</title>
+  <meta name="description" content="Project details for Sportify, an ultimate sports equipment e-commerce platform." />
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.8em%22 font-size=%2280%22 font-family=%22system-ui, sans-serif%22 font-weight=%22bold%22 fill=%22%23b084ff%22>AE</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            body: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          },
+          colors: {
+            ink: '#0f0d22',
+            panel: 'rgba(23,21,49,0.4)',
+            line: 'rgba(255,255,255,0.06)'
+          },
+          boxShadow: {
+            glow: '0 0 40px rgba(59,130,246,0.15), 0 24px 80px rgba(0,0,0,0.4)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --accent: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: 
+        radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.15), transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.12), transparent 28%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.10), transparent 26%),
+        #0f0d22;
+      color: #f3f4f6;
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(23, 21, 49, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px) saturate(150%);
+    }
+
+    .accent-text {
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .grid-overlay {
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0.2) 100%);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .floaty { animation: floaty 8s ease-in-out infinite; }
+    .floaty-delay { animation: floaty 10s ease-in-out infinite; animation-delay: -4s; }
+    
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-15px) translateX(10px); }
+    }
+
+    .shine { position: relative; overflow: hidden; }
+    .shine::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+      transform: translateX(-120%);
+      animation: sweep 7s infinite;
+      pointer-events: none;
+    }
+    @keyframes sweep {
+      0% { transform: translateX(-120%); }
+      30%, 100% { transform: translateX(120%); }
+    }
+    
+    .tech-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.8);
+      transition: all 0.3s;
+    }
+    .tech-pill:hover {
+      background: rgba(59,130,246,0.1);
+      border-color: rgba(59,130,246,0.4);
+      color: #fff;
+    }
+  </style>
+</head>
+<body class="font-body">
+  <div class="fixed inset-0 pointer-events-none grid-overlay opacity-50"></div>
+  <div class="fixed -top-32 -left-32 h-[30rem] w-[30rem] rounded-full bg-blue-500/10 blur-3xl floaty pointer-events-none"></div>
+  <div class="fixed top-40 right-0 h-[28rem] w-[28rem] rounded-full bg-emerald-500/10 blur-3xl floaty-delay pointer-events-none"></div>
+
+  <header class="sticky top-0 z-50 border-b border-white/5 bg-[#0f0d22]/80 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="index.html#projects" class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/10">
+        <span class="text-lg leading-none">←</span>
+        Back to Portfolio
+      </a>
+      <div class="hidden items-center gap-3 md:flex">
+        <span class="h-2.5 w-2.5 rounded-full bg-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.8)]"></span>
+        <span class="text-xs uppercase tracking-[0.25em] text-white/50 font-display">Project Details</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-6 py-12 lg:py-20">
+    <!-- Hero / Intro -->
+    <section class="reveal grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="space-y-8">
+        <div class="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-300">
+          E-COMMERCE
+        </div>
+        <div class="space-y-4">
+          <p class="text-sm uppercase tracking-[0.3em] text-white/40 font-display">Project Title</p>
+          <h1 class="font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+            <span class="accent-text">Sportify</span>
+          </h1>
+          <p class="text-xl text-white/70 font-display mt-2">Ultimate Sports Equipment E-commerce Platform</p>
+          
+          <div class="flex flex-wrap gap-4 pt-6">
+            <a href="https://sportify-frontend-eight.vercel.app" target="_blank" class="inline-flex items-center justify-center gap-2 rounded-full bg-blue-500 px-7 py-3.5 text-sm font-semibold text-white transition hover:scale-[1.02] hover:bg-blue-600 shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+              <i class="fas fa-external-link-alt text-lg"></i> Live Demo
+            </a>
+          </div>
+          
+          <div class="flex justify-center w-full pt-8 pb-4 lg:justify-start lg:pl-10">
+            <a href="https://github.com/Achintha2002/Sportifyweb" target="_blank" aria-label="View on GitHub" class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-ink transition-all duration-300 hover:scale-[1.1] hover:bg-white/90 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+              <i class="fab fa-github text-3xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="glass rounded-[2rem] p-7 sm:p-9 shadow-glow mt-8">
+          <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display">Overview</p>
+          <p class="mt-4 text-base leading-relaxed text-white/70 sm:text-lg">
+            Sportify is a robust, full-stack e-commerce platform designed exclusively for sports equipment and gear. It solves the complexity of multi-vendor retail by providing a seamless, role-based ecosystem that connects customers, system administrators, and suppliers through dedicated dashboards, streamlined order fulfillment, and automated inventory management.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Side Visual / Mockup Area -->
+      <div class="reveal relative">
+        <div class="absolute -inset-8 rounded-[2.5rem] bg-gradient-to-br from-blue-500/10 via-emerald-500/10 to-indigo-500/10 blur-2xl"></div>
+        <div class="glass shine relative overflow-hidden rounded-[2rem] border-white/10 p-5 shadow-glow">
+          <div class="rounded-[1.5rem] overflow-hidden bg-ink/50 border border-white/5 relative group">
+            <img src="assets/sportify.jpg" alt="Sportify E-commerce Platform Interface" class="w-full h-auto object-cover transition duration-700 group-hover:scale-105" />
+            <!-- Overlay gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent opacity-80"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="h-3 w-3 rounded-full bg-red-400"></span>
+                <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
+                <span class="h-3 w-3 rounded-full bg-green-400"></span>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-white mb-1">Modern Multi-Vendor Retail</h3>
+              <p class="text-sm text-white/60">Sleek, performant UI handling complex product catalogs and Stripe payments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="reveal mt-24 lg:mt-32">
+      <div class="mb-10 text-center">
+        <p class="text-sm uppercase tracking-[0.25em] text-white/40 font-display">Technology</p>
+        <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Built With a <span class="accent-text">Robust Stack</span></h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+          <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Frontend</p>
+          <div class="flex flex-wrap gap-3">
+            <span class="tech-pill"><i class="fab fa-react text-blue-400"></i> React 18</span>
+            <span class="tech-pill"><i class="fas fa-bolt text-yellow-400"></i> Vite</span>
+            <span class="tech-pill"><i class="fab fa-css3-alt text-cyan-400"></i> Tailwind CSS</span>
+            <span class="tech-pill"><i class="fas fa-magic text-purple-400"></i> Framer Motion</span>
+            <span class="tech-pill"><i class="fas fa-network-wired text-orange-400"></i> TanStack Query</span>
+            <span class="tech-pill"><i class="fas fa-route text-red-400"></i> React Router DOM v7</span>
+          </div>
+        </article>
+        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+          <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Backend</p>
+          <div class="flex flex-wrap gap-3">
+            <span class="tech-pill"><i class="fab fa-node-js text-emerald-400"></i> Node.js</span>
+            <span class="tech-pill"><i class="fas fa-server text-gray-300"></i> Express.js</span>
+            <span class="tech-pill"><i class="fas fa-key text-yellow-500"></i> JWT &amp; bcryptjs</span>
+            <span class="tech-pill"><i class="fas fa-shield-alt text-red-500"></i> express-rate-limit</span>
+            <span class="tech-pill"><i class="fas fa-file-upload text-blue-300"></i> Multer</span>
+          </div>
+        </article>
+        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+          <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Database &amp; Tools</p>
+          <div class="flex flex-wrap gap-3">
+            <span class="tech-pill"><i class="fas fa-database text-green-500"></i> MongoDB &amp; Mongoose</span>
+            <span class="tech-pill"><i class="fab fa-stripe text-indigo-500"></i> Stripe API</span>
+            <span class="tech-pill"><i class="fas fa-cloud-upload-alt text-blue-400"></i> Cloudinary</span>
+            <span class="tech-pill"><i class="fas fa-clock text-pink-400"></i> Node-cron</span>
+            <span class="tech-pill"><i class="fas fa-envelope text-red-400"></i> Nodemailer</span>
+            <span class="tech-pill"><i class="fas fa-chart-pie text-cyan-400"></i> Chart.js / Recharts</span>
+            <span class="tech-pill"><i class="fas fa-file-pdf text-red-600"></i> jsPDF</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="reveal mt-24 lg:mt-32">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.25em] text-white/40 font-display">Features</p>
+        <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Core <span class="accent-text">Functionalities</span></h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mb-6">
+            <i class="fas fa-users-cog text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-semibold mb-3">Role-Based Access Control (RBAC)</h3>
+          <p class="text-sm leading-relaxed text-white/60">Features dedicated, isolated workflows and dashboards for three distinct user types: Customers (shopping &amp; tracking), Admins (platform oversight), and Suppliers (inventory &amp; fulfillment).</p>
+        </article>
+        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
+            <i class="fas fa-search text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-semibold mb-3">Dynamic Product Catalog &amp; Search</h3>
+          <p class="text-sm leading-relaxed text-white/60">Implements advanced browsing with text-indexed search capabilities, filtering by categories/brands, and dynamic calculation of discounted prices.</p>
+        </article>
+        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 mb-6">
+            <i class="fas fa-bell text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-semibold mb-3">Automated Inventory &amp; Alert System</h3>
+          <p class="text-sm leading-relaxed text-white/60">Monitors stock levels in the background and automatically dispatches formatted emails and in-app notifications to suppliers when product quantities fall below defined reorder points.</p>
+        </article>
+        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
+            <i class="fas fa-shopping-cart text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-semibold mb-3">Comprehensive Order Management</h3>
+          <p class="text-sm leading-relaxed text-white/60">Supports an end-to-end checkout flow with Stripe payment integration, alongside a detailed order tracking system that handles everything from shipment processing to refunds.</p>
+        </article>
+        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400 mb-6">
+            <i class="fas fa-chart-line text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-semibold mb-3">Data Visualization &amp; PDF Reporting</h3>
+          <p class="text-sm leading-relaxed text-white/60">Allows Admins and Suppliers to track sales performance via Chart.js and generate downloadable PDF reports directly from their dashboards using aggregated database statistics.</p>
+        </article>
+        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 mb-6">
+            <i class="fas fa-cloud-upload-alt text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-semibold mb-3">Cloud Image Infrastructure</h3>
+          <p class="text-sm leading-relaxed text-white/60">Utilizes Cloudinary for highly optimized, persistent cloud storage of all product catalogs and user profile imagery to ensure fast loading times.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Architecture & Challenges -->
+    <section class="reveal mt-24 lg:mt-32 mb-10">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.25em] text-white/40 font-display">Deep Dive</p>
+        <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Engineering <span class="accent-text">Complexities</span></h2>
+      </div>
+      <div class="grid gap-6 lg:grid-cols-[1fr_1fr]">
+        <article class="glass rounded-[2rem] p-8 sm:p-10">
+          <div class="space-y-8">
+            <div>
+              <h3 class="font-display text-2xl font-semibold text-white mb-3">Automated Background Processes (Cron Jobs)</h3>
+              <p class="text-base leading-relaxed text-white/60">
+                Orchestrating real-time inventory monitoring required implementing <strong class="text-white">node-cron</strong>. The backend executes scheduled background jobs that run complex database queries to identify low-stock items. This immediately triggers a concurrent workflow to compile HTML email templates and dispatch them via <strong class="text-white">Nodemailer</strong> without blocking the main event loop.
+              </p>
+            </div>
+            <div class="h-px w-full bg-white/10"></div>
+            <div>
+              <h3 class="font-display text-2xl font-semibold text-white mb-3">Transactional Integrity &amp; Payments</h3>
+              <p class="text-base leading-relaxed text-white/60">
+                Handling the checkout process required a highly synchronized state machine. The system seamlessly transitions cart data from the frontend, validates pricing against the database, securely processes transactions via the <strong class="text-white">Stripe API</strong>, and subsequently triggers updates to inventory levels, shipment statuses, and supplier ledgers while accounting for refunds and cancellations.
+              </p>
+            </div>
+          </div>
+        </article>
+        
+        <aside class="flex flex-col gap-6">
+          <article class="glass rounded-[2rem] p-8 sm:p-10 flex-1">
+            <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-500/30">
+              <i class="fas fa-project-diagram text-xl"></i>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-white mb-4">Architecture &amp; Aggregations</h3>
+            <p class="text-base leading-relaxed text-white/60 mb-6">
+              The backend strictly adheres to a modular <strong class="text-white">MVC pattern</strong>. The API relies on custom middleware chains for JWT verification, role authorization, and file uploading via Multer before controllers execute business logic.
+            </p>
+            <p class="text-base leading-relaxed text-white/60 mb-6">
+              To power the analytical dashboards, the application utilizes <strong class="text-white">MongoDB Aggregation Pipelines</strong> (<code class="bg-white/10 px-1 py-0.5 rounded text-sm font-mono text-emerald-300">$group</code>, <code class="bg-white/10 px-1 py-0.5 rounded text-sm font-mono text-emerald-300">$sum</code>, <code class="bg-white/10 px-1 py-0.5 rounded text-sm font-mono text-emerald-300">$avg</code>). This enables the database engine to rapidly compute revenues and order statuses without overloading the Node server's memory.
+            </p>
+            <ul class="space-y-3 text-sm text-white/70">
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check-circle text-emerald-400 mt-0.5"></i>
+                <span>Strict Mongoose schema definitions &amp; virtual fields</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check-circle text-emerald-400 mt-0.5"></i>
+                <span>React Hooks, Context API &amp; TanStack Query</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check-circle text-emerald-400 mt-0.5"></i>
+                <span>Component-based isolated RBAC workflow</span>
+              </li>
+            </ul>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="reveal pt-16 pb-8 text-center border-t border-white/10 mt-20">
+      <a href="index.html#projects" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/10 hover:-translate-y-1">
+        <i class="fas fa-arrow-left"></i> Return to Portfolio
+      </a>
+      <p class="mt-8 text-xs text-white/30 uppercase tracking-widest font-display">Achintha Edirisinghe • Sportify Case Study</p>
+    </footer>
+  </main>
+
+  <script>
+    // Intersection Observer for scroll animations
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

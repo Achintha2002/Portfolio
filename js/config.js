@@ -50,7 +50,8 @@ const PORTFOLIO_CONFIG = {
       image: "assets/brightpath.jpg",
       github: "https://github.com/Gagana0819/BrightPath-LMS-ITPM-.git",
       tags: ["Python", "Django", "React", "Supabase", "Celery"],
-      hasCaseStudy: true
+      hasCaseStudy: true,
+      caseStudyUrl: "project-details.html"
     },
     {
       id: "02",
@@ -60,7 +61,9 @@ const PORTFOLIO_CONFIG = {
       image: "assets/sportify.jpg",
       github: "https://github.com/Achintha2002/Sportifyweb",
       link: "https://sportify-frontend-eight.vercel.app",
-      tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"]
+      tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
+      hasCaseStudy: true,
+      caseStudyUrl: "sportify-details.html"
     },
     {
       id: "03",
