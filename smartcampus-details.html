@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Campus Hub - Project Details</title>
+  <meta name="description" content="Project details for Smart Campus Operations Hub, a full-stack Spring Boot and React application." />
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.8em%22 font-size=%2280%22 font-family=%22system-ui, sans-serif%22 font-weight=%22bold%22 fill=%22%23b084ff%22>AE</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            body: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          },
+          colors: {
+            ink: '#0f0d22',
+            panel: 'rgba(23,21,49,0.4)',
+            line: 'rgba(255,255,255,0.06)'
+          },
+          boxShadow: {
+            glow: '0 0 40px rgba(139,92,246,0.15), 0 24px 80px rgba(0,0,0,0.4)',
+            security: '0 0 30px rgba(79, 70, 229, 0.4)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --accent: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: 
+        radial-gradient(circle at 15% 20%, rgba(139, 92, 246, 0.12), transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(59, 130, 246, 0.10), transparent 28%),
+        radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.08), transparent 26%),
+        #0f0d22;
+      color: #f3f4f6;
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(23, 21, 49, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px) saturate(150%);
+    }
+
+    .accent-text {
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .grid-overlay {
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0.2) 100%);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .floaty { animation: floaty 8s ease-in-out infinite; }
+    .floaty-delay { animation: floaty 10s ease-in-out infinite; animation-delay: -4s; }
+    
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-15px) translateX(10px); }
+    }
+
+    .shine { position: relative; overflow: hidden; }
+    .shine::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+      transform: translateX(-120%);
+      animation: sweep 7s infinite;
+      pointer-events: none;
+    }
+    @keyframes sweep {
+      0% { transform: translateX(-120%); }
+      30%, 100% { transform: translateX(120%); }
+    }
+    
+    .tech-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.8);
+      transition: all 0.3s;
+    }
+    .tech-pill:hover {
+      background: rgba(139,92,246,0.1);
+      border-color: rgba(139,92,246,0.4);
+      color: #fff;
+    }
+    
+    .security-highlight {
+      background: linear-gradient(145deg, rgba(79, 70, 229, 0.15) 0%, rgba(139, 92, 246, 0.05) 100%);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .security-highlight::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.8), transparent);
+    }
+  </style>
+</head>
+<body class="font-body">
+  <div class="fixed inset-0 pointer-events-none grid-overlay opacity-50"></div>
+  <div class="fixed -top-32 -left-32 h-[30rem] w-[30rem] rounded-full bg-violet-500/10 blur-3xl floaty pointer-events-none"></div>
+  <div class="fixed top-40 right-0 h-[28rem] w-[28rem] rounded-full bg-blue-500/10 blur-3xl floaty-delay pointer-events-none"></div>
+
+  <header class="sticky top-0 z-50 border-b border-white/5 bg-[#0f0d22]/80 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="index.html#projects" class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/10">
+        <span class="text-lg leading-none">←</span>
+        Back to Portfolio
+      </a>
+      <div class="hidden items-center gap-3 md:flex">
+        <span class="h-2.5 w-2.5 rounded-full bg-violet-400 shadow-[0_0_15px_rgba(139,92,246,0.8)]"></span>
+        <span class="text-xs uppercase tracking-[0.25em] text-white/50 font-display">Project Details</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-6 py-12 lg:py-20">
+    <!-- Hero / Intro -->
+    <section class="reveal grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="space-y-8">
+        <div class="inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">
+          WEB APP
+        </div>
+        <div class="space-y-4">
+          <p class="text-sm uppercase tracking-[0.3em] text-white/40 font-display">Project Title</p>
+          <h1 class="font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+            <span class="accent-text">Smart Campus Hub</span>
+          </h1>
+          <p class="text-xl text-white/70 font-display mt-2">Comprehensive Operations &amp; Resource Management</p>
+          
+          <div class="flex justify-center w-full pt-8 pb-4 lg:justify-start">
+            <a href="https://github.com/sandundimantha/it3030-paf-2026-smart-campus-group54.git" target="_blank" aria-label="View on GitHub" class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-ink transition-all duration-300 hover:scale-[1.1] hover:bg-white/90 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+              <i class="fab fa-github text-3xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="glass rounded-[2rem] p-7 sm:p-9 shadow-glow mt-8">
+          <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display">Overview</p>
+          <p class="mt-4 text-base leading-relaxed text-white/70 sm:text-lg">
+            The Smart Campus Operations Hub is a comprehensive full-stack web application designed to streamline university resource management and incident reporting. It provides a centralized platform for users to book campus facilities and equipment, report campus incidents, and receive real-time updates, effectively solving the problem of fragmented and inefficient campus operations.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Side Visual / Mockup Area -->
+      <div class="reveal relative">
+        <div class="absolute -inset-8 rounded-[2.5rem] bg-gradient-to-br from-violet-500/10 via-blue-500/10 to-indigo-500/10 blur-2xl"></div>
+        <div class="glass shine relative overflow-hidden rounded-[2rem] border-white/10 p-5 shadow-glow">
+          <div class="rounded-[1.5rem] overflow-hidden bg-white relative group border border-white/5">
+            <img src="assets/smart-campus.png" alt="Smart Campus Hub Dashboard" class="w-full h-auto object-cover transition duration-700 group-hover:scale-105" />
+            <!-- Overlay gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent opacity-90"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="h-3 w-3 rounded-full bg-red-400"></span>
+                <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
+                <span class="h-3 w-3 rounded-full bg-green-400"></span>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-white mb-1">Unified Dashboard</h3>
+              <p class="text-sm text-white/70">A clean, intuitive React interface for seamless resource bookings and real-time updates.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dedicated Security Highlight -->
+    <section class="reveal mt-20 lg:mt-28">
+      <div class="security-highlight rounded-[2rem] p-8 sm:p-12 shadow-security flex flex-col md:flex-row items-center gap-10">
+        <div class="flex-shrink-0 h-24 w-24 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+          <i class="fab fa-google text-4xl text-white"></i>
+        </div>
+        <div class="flex-1">
+          <div class="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-indigo-300 mb-4">
+            <i class="fas fa-shield-alt"></i> Core Security Feature
+          </div>
+          <h2 class="font-display text-3xl font-bold text-white mb-4">Google OAuth 2.0 Authentication</h2>
+          <p class="text-lg leading-relaxed text-white/80">
+            Engineered a highly secure, passwordless authentication flow. Integrated <strong>Google OAuth 2.0</strong> utilizing a stateless <strong>JWT session management</strong> approach. This effectively bypasses the need for traditional CSRF tokens while providing a seamless user login experience and robust backend protection via <strong>Spring Security</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="reveal mt-20 lg:mt-28">
+      <div class="mb-10 text-center">
+        <p class="text-sm uppercase tracking-[0.25em] text-white/40 font-display">Technology</p>
+        <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Built With a <span class="accent-text">Robust Stack</span></h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+          <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Frontend</p>
+          <div class="flex flex-wrap gap-3">
+            <span class="tech-pill"><i class="fab fa-react text-cyan-400"></i> React 19</span>
+            <span class="tech-pill"><i class="fas fa-bolt text-yellow-400"></i> Vite</span>
+            <span class="tech-pill"><i class="fas fa-palette text-blue-400"></i> Ant Design</span>
+            <span class="tech-pill"><i class="fas fa-chart-bar text-green-400"></i> Recharts</span>
+            <span class="tech-pill"><i class="fas fa-network-wired text-orange-400"></i> Axios</span>
+            <span class="tech-pill"><i class="fas fa-icons text-purple-300"></i> Lucide React</span>
+          </div>
+        </article>
+        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+          <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Backend</p>
+          <div class="flex flex-wrap gap-3">
+            <span class="tech-pill"><i class="fab fa-java text-orange-500"></i> Java 17</span>
+            <span class="tech-pill"><i class="fas fa-leaf text-green-500"></i> Spring Boot 3.2.4</span>
+            <span class="tech-pill"><i class="fas fa-database text-blue-400"></i> Spring Data JPA</span>
+            <span class="tech-pill"><i class="fas fa-project-diagram text-indigo-400"></i> Spring WebFlux</span>
+            <span class="tech-pill"><i class="fas fa-shield-alt text-red-400"></i> Spring Security</span>
+          </div>
+        </article>
+        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+          <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Database &amp; DevOps</p>
+          <div class="flex flex-wrap gap-3">
+            <span class="tech-pill"><i class="fas fa-database text-blue-500"></i> PostgreSQL 15</span>
+            <span class="tech-pill"><i class="fas fa-server text-emerald-400"></i> Supabase Pooler</span>
+            <span class="tech-pill"><i class="fab fa-github text-white"></i> GitHub Actions</span>
+            <span class="tech-pill"><i class="fas fa-cloud text-blue-300"></i> Supabase Storage</span>
+            <span class="tech-pill"><i class="fas fa-tools text-orange-400"></i> Maven</span>
+            <span class="tech-pill"><i class="fas fa-cogs text-gray-400"></i> Lombok &amp; ESLint</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="reveal mt-24 lg:mt-32">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.25em] text-white/40 font-display">Features</p>
+        <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Core <span class="accent-text">Functionalities</span></h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mb-6">
+            <i class="fas fa-calendar-check text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-semibold mb-3">Resource Booking Engine</h3>
+          <p class="text-sm leading-relaxed text-white/60">Allows users to request reservations for campus resources with built-in conflict detection and a dedicated admin approval/rejection workflow.</p>
+        </article>
+        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-full bg-red-500/20 flex items-center justify-center text-red-400 mb-6">
+            <i class="fas fa-exclamation-triangle text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-semibold mb-3">Incident Ticketing System</h3>
+          <p class="text-sm leading-relaxed text-white/60">Enables users to report issues with up to 3 image attachments (max 5MB each), utilizing secure file storage and path traversal protection.</p>
+        </article>
+        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 mb-6">
+            <i class="fas fa-bell text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-semibold mb-3">Auto-triggered Notification System</h3>
+          <p class="text-sm leading-relaxed text-white/60">Sends automated, real-time alerts for booking status updates and incident progress, featuring a React-based notification panel with an unread badge counter.</p>
+        </article>
+        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-full bg-violet-500/20 flex items-center justify-center text-violet-400 mb-6">
+            <i class="fas fa-user-shield text-xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-semibold mb-3">Role-Based Access Control (RBAC)</h3>
+          <p class="text-sm leading-relaxed text-white/60">Secures endpoints by restricting sensitive actions—like status approvals and global data viewing—strictly to users with <code>ADMIN</code> privileges.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Architecture & Challenges -->
+    <section class="reveal mt-24 lg:mt-32 mb-10">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.25em] text-white/40 font-display">Deep Dive</p>
+        <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Engineering <span class="accent-text">Complexities</span></h2>
+      </div>
+      <div class="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
+        <aside class="flex flex-col gap-6">
+          <article class="glass rounded-[2rem] p-8 sm:p-10 flex-1">
+            <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center text-white mb-6 shadow-lg shadow-violet-500/30">
+              <i class="fas fa-layer-group text-xl"></i>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-white mb-4">Backend Architecture</h3>
+            <p class="text-base leading-relaxed text-white/60 mb-6">
+              Implements a robust structural pattern separated into distinct layers: Entities, Repositories, Services, Controllers, DTOs, and Exceptions. This ensures a clean separation of business logic, database operations, and API routing.
+            </p>
+            <p class="text-base leading-relaxed text-white/60 mb-6">
+              The <strong class="text-white">Spring Boot</strong> backend exposes well-defined RESTful endpoints that the React Single Page Application (SPA) consumes asynchronously via Axios. It utilizes Spring Data JPA with Hibernate for seamless ORM and schema management.
+            </p>
+            <ul class="space-y-3 text-sm text-white/70">
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check-circle text-violet-400 mt-0.5"></i>
+                <span>Layered MVC Architecture</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check-circle text-violet-400 mt-0.5"></i>
+                <span>Automated Data Modeling with JPA</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check-circle text-violet-400 mt-0.5"></i>
+                <span>RESTful API SPA Integration</span>
+              </li>
+            </ul>
+          </article>
+        </aside>
+
+        <article class="glass rounded-[2rem] p-8 sm:p-10">
+          <div class="space-y-8">
+            <div>
+              <h3 class="font-display text-2xl font-semibold text-white mb-3">Advanced Conflict Detection</h3>
+              <p class="text-base leading-relaxed text-white/60">
+                Engineered complex <strong>JPQL overlap queries</strong> to ensure no double-booking of resources occurs. This required handling intricate date-time overlap logic efficiently at the database level rather than the application level.
+              </p>
+            </div>
+            <div class="h-px w-full bg-white/10"></div>
+            <div>
+              <h3 class="font-display text-2xl font-semibold text-white mb-3">Secure File Handling &amp; Validation</h3>
+              <p class="text-base leading-relaxed text-white/60">
+                Implemented robust file upload mechanisms featuring <strong>UUID-based filename generation</strong> to prevent path traversal attacks. This is coupled with strict MIME-type validation (accepting only <code class="bg-white/10 px-1 py-0.5 rounded text-sm font-mono text-blue-300">image/*</code>) before routing to Supabase Storage Buckets.
+              </p>
+            </div>
+            <div class="h-px w-full bg-white/10"></div>
+            <div>
+              <h3 class="font-display text-2xl font-semibold text-white mb-3">Scalable Database Connectivity</h3>
+              <p class="text-base leading-relaxed text-white/60">
+                Integrated a <strong>Supabase Transaction Pooler</strong> (PgBouncer proxy on port 6543) instead of a direct connection. This architectural decision optimizes database performance and gracefully handles concurrent PostgreSQL connection scaling under high load.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="reveal pt-16 pb-8 text-center border-t border-white/10 mt-20">
+      <a href="index.html#projects" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/10 hover:-translate-y-1">
+        <i class="fas fa-arrow-left"></i> Return to Portfolio
+      </a>
+      <p class="mt-8 text-xs text-white/30 uppercase tracking-widest font-display">Achintha Edirisinghe • Smart Campus Hub Case Study</p>
+    </footer>
+  </main>
+
+  <script>
+    // Intersection Observer for scroll animations
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
