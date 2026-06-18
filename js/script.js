@@ -192,6 +192,11 @@ function setupPortfolioContent() {
               <i class="fas fa-external-link-alt"></i> Live Demo
             </a>
             ` : ''}
+            ${project.hasCaseStudy ? `
+            <button class="project-btn case-study-btn" onclick="window.openCaseStudyModal('${project.id}')">
+              <i class="fas fa-book-open"></i> Project Details
+            </button>
+            ` : ''}
           </div>
         </div>
       `;
@@ -705,6 +710,23 @@ function initModals() {
     modalOverlay.classList.remove("active");
     document.body.style.overflow = ""; // restore scrolling
   }
+
+  // Expose case study opener globally since buttons are dynamically rendered with onclick
+  window.openCaseStudyModal = function(projectId) {
+    const sections = modalBody.querySelectorAll(".modal-sec");
+    sections.forEach(s => s.style.display = "none");
+    
+    modalTitle.textContent = "Project Case Study";
+    modalSubtitle.textContent = "In-depth look at architecture, challenges, and implementation.";
+    
+    const csSec = document.getElementById("modal-sec-case-study");
+    if (csSec) {
+      csSec.style.display = "flex";
+    }
+    
+    modalOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+  };
 }
 
 // =========================================================================

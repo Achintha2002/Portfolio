@@ -49,7 +49,8 @@ const PORTFOLIO_CONFIG = {
       description: "Interactive Live Kuppi Sessions and peer-led learning platform for university networks. Built with Django & Celery.",
       image: "assets/brightpath.jpg",
       github: "https://github.com/Gagana0819/BrightPath-LMS-ITPM-.git",
-      tags: ["Python", "Django", "React", "Supabase", "Celery"]
+      tags: ["Python", "Django", "React", "Supabase", "Celery"],
+      hasCaseStudy: true
     },
     {
       id: "02",
