@@ -593,7 +593,7 @@ function initGuestbook() {
   if (!form || !list) return;
 
   const mockEntries = [
-    { name: "Saman Kumara", date: "2026-06-08 14:23", message: "Absolutely gorgeous design! The chatbot responses are so fluid." },
+    { name: "Sadun Weerarathne", date: "2026-06-08 14:23", message: "Absolutely gorgeous design! The chatbot responses are so fluid." },
     { name: "John Doe", date: "2026-06-09 09:12", message: "A highly premium portfolio. The 3D skills sphere is mind-blowing!" },
     { name: "Sophia Lopez", date: "2026-06-10 11:45", message: "Hi Achintha! Loved browsing through your projects. Let's collaborate soon!" }
   ];
