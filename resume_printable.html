@@ -2,187 +2,168 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Achintha Lihan Edirisinghe - Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achintha Edirisinghe - Resume</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            color: #111;
-            font-size: 11pt;
-            line-height: 1.4;
-            max-width: 800px;
+            font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            max-width: 850px;
             margin: 0 auto;
             padding: 40px;
-            background: white;
+            background: #fff;
         }
-        a {
-            color: #0056b3;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
+        .resume-container {
+            width: 100%;
         }
         h1 {
             text-align: center;
-            font-size: 24pt;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #111;
+        }
+        .role-title {
+            text-align: center;
+            color: #2563eb; /* Blue color matching the image */
+            font-size: 14px;
+            font-weight: 500;
             margin-bottom: 8px;
-            color: #000;
         }
         .contact-info {
             text-align: center;
-            font-size: 10pt;
-            margin-bottom: 12px;
-            color: #222;
+            font-size: 11px;
+            color: #444;
+            margin-bottom: 25px;
         }
-        .divider {
-            border-top: 2px solid #0056b3;
-            margin-bottom: 15px;
+        .contact-info a {
+            color: #2563eb;
+            text-decoration: underline;
         }
         h2 {
-            font-size: 12pt;
-            color: #0056b3;
+            font-size: 13px;
+            color: #2563eb; /* Blue color */
             text-transform: uppercase;
+            font-weight: 700;
+            border-bottom: 1px solid #2563eb;
+            padding-bottom: 4px;
             margin-top: 20px;
-            margin-bottom: 10px;
-            font-weight: bold;
+            margin-bottom: 12px;
         }
         p {
-            margin-bottom: 8px;
-            text-align: justify;
-        }
-        .row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 4px;
+            margin: 0 0 10px 0;
+            font-size: 11.5px;
         }
         .bold {
-            font-weight: bold;
-        }
-        .italic {
-            font-style: italic;
-        }
-        
-        /* Skills Table Layout */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: 6px;
-            margin-bottom: 8px;
-        }
-        .skill-category {
-            font-weight: bold;
-        }
-
-        /* Projects Layout */
-        .project-block {
-            margin-bottom: 15px;
+            font-weight: 600;
+            color: #222;
         }
         .project-header {
-            margin-bottom: 2px;
-        }
-        .project-links {
-            font-size: 10pt;
-            margin-bottom: 6px;
-        }
-        ul {
-            padding-left: 20px;
-            margin-bottom: 8px;
-        }
-        li {
+            margin-top: 14px;
             margin-bottom: 4px;
-            text-align: justify;
         }
-
-        /* Certifications Grid */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px;
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .cert-grid li {
-            position: relative;
-            padding-left: 12px;
-            margin-bottom: 6px;
-        }
-        .cert-grid li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
+        .project-title {
+            font-weight: 700;
+            font-size: 13px;
             color: #111;
         }
-
-        /* Activities Layout */
-        .activity-block {
+        .project-tech {
+            font-style: italic;
+            font-size: 11.5px;
+            color: #555;
+        }
+        .project-links {
+            font-size: 10.5px;
+            color: #2563eb;
             margin-bottom: 6px;
         }
-
+        .project-links a {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+        ul {
+            margin: 0 0 12px 0;
+            padding-left: 0;
+            list-style-type: none;
+        }
+        li {
+            font-size: 11.5px;
+            margin-bottom: 4px;
+            position: relative;
+            padding-left: 14px;
+            line-height: 1.5;
+        }
+        li::before {
+            content: "\25A1"; /* Empty square */
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #555;
+            font-size: 12px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+        .skills-grid div {
+            font-size: 11.5px;
+        }
     </style>
 </head>
 <body>
+    <div class="resume-container" id="resume-content">
+        <h1>Achintha Lihan Edirisinghe</h1>
+        <div class="role-title">Full-Stack Developer</div>
+        <div class="contact-info">
+            achintha.w101@gmail.com | 0742194850 | Colombo, Sri Lanka<br>
+            <a href="https://www.linkedin.com/in/achintha-edirisinghe-a4a23b3ab/">LinkedIn</a> | <a href="https://github.com/Achintha2002">github.com/Achintha2002</a>
+        </div>
 
-    <h1>Achintha Lihan Edirisinghe</h1>
-    <div class="contact-info">
-        achintha.w101@gmail.com | 0742194850 | Colombo, Sri Lanka | <a href="https://www.linkedin.com/in/achintha-edirisinghe-a4a23b3ab/">LinkedIn</a> | <a href="https://github.com/Achintha2002">GitHub</a>
-    </div>
+        <h2>PROFESSIONAL SUMMARY</h2>
+        <p>Full-Stack Developer with strong hands-on experience designing and delivering production-grade web applications using both the MERN stack and Django/Vue 3. Proven ability to architect secure backends, build responsive frontends, and manage end-to-end project delivery across e-commerce, education, and sports platforms. Passionate about writing clean, scalable code — actively seeking a Full-Stack Developer role to contribute immediately and grow within a high-performing engineering team.</p>
 
-    <div class="divider"></div>
+        <h2>EDUCATION</h2>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+            <span class="bold" style="font-size: 12px;">B.Sc. (Hons) in Information Technology</span>
+            <span style="font-size: 11.5px; font-style: italic;">Expected: 2027</span>
+        </div>
+        <p>Sri Lanka Institute of Information Technology (SLIIT), Malabe</p>
 
-    <h2>Professional Summary</h2>
-    <p>Full-Stack Developer with strong hands-on experience designing and delivering production-grade web applications using both the MERN stack and Django/Vue 3. Proven ability to architect secure backends, build responsive frontends, and manage end-to-end project delivery across e-commerce, education, and sports platforms. Passionate about writing clean, scalable code — actively seeking a Full-Stack Developer role to contribute immediately and grow within a high-performing engineering team.</p>
+        <h2>TECHNICAL SKILLS</h2>
+        <div class="skills-grid">
+            <div><span class="bold">Languages:</span> JavaScript (ES6+), Python, SQL, HTML5, CSS3</div>
+            <div><span class="bold">Backend:</span> Node.js, Express.js, Django, Django REST Framework</div>
+            <div><span class="bold">Frontend:</span> React.js, Vue 3, Astro, Tailwind CSS, Pinia</div>
+            <div><span class="bold">Databases:</span> MongoDB, PostgreSQL, SQLite, Supabase, Oracle SQL</div>
+            <div><span class="bold">Tools:</span> Git/GitHub, Docker, Redis, Celery, AWS S3, JWT</div>
+        </div>
 
-    <h2>Education</h2>
-    <div class="row">
-        <span class="bold">B.Sc. (Hons) in Information Technology</span>
-        <span>Expected: 2027</span>
-    </div>
-    <div style="margin-bottom: 10px;">Sri Lanka Institute of Information Technology (SLIIT), Malabe</div>
+        <h2>TECHNICAL PROJECTS</h2>
 
-    <h2>Technical Skills</h2>
-    <div class="skills-grid">
-        <div class="skill-category">Languages:</div>
-        <div>JavaScript (ES6+), Python, SQL, HTML5, CSS3</div>
-        
-        <div class="skill-category">Backend:</div>
-        <div>Node.js, Express.js, Django, Django REST Framework</div>
-        
-        <div class="skill-category">Frontend:</div>
-        <div>React.js, Vue 3, Astro, Tailwind CSS, Pinia</div>
-        
-        <div class="skill-category">Databases:</div>
-        <div>MongoDB, PostgreSQL, SQLite, Supabase, Oracle SQL</div>
-        
-        <div class="skill-category">Tools:</div>
-        <div>Git/GitHub, Docker, Redis, Celery, AWS S3, JWT</div>
-    </div>
-
-    <h2>Technical Projects</h2>
-
-    <div class="project-block">
         <div class="project-header">
-            <span class="bold">Cream Web — E-Commerce Platform</span> <span class="italic">| MERN Stack</span>
+            <span class="project-title">Cream Web — E-Commerce Platform</span>
+            <span style="color: #666; font-size: 11.5px;"> | MERN Stack</span>
         </div>
         <div class="project-links">
-            GitHub: <a href="https://github.com/Achintha2002/cream-web">github.com/Achintha2002/cream-web</a> | Live: <a href="https://cream-web-ten.vercel.app">cream-web-ten.vercel.app</a>
+            <a href="https://github.com/Achintha2002/cream-web">GitHub</a> | <a href="https://cream-web-ten.vercel.app">Live Demo</a>
         </div>
         <ul>
             <li>Architected a full-stack e-commerce platform with JWT-based authentication, protecting all user and order data.</li>
             <li>Built a RESTful API with Express.js handling product listings, cart state, and session management with real-time MongoDB sync.</li>
             <li>Engineered the complete checkout flow from product discovery to order confirmation, optimizing page load with React lazy-loading.</li>
         </ul>
-    </div>
 
-    <div class="project-block">
         <div class="project-header">
-            <span class="bold">BrightPath-LMS — Learning Management System</span> <span class="italic">| Vue 3 · Django · PostgreSQL</span>
+            <span class="project-title">BrightPath-LMS — Learning Management System</span>
+            <span style="color: #666; font-size: 11.5px;"> | Vue 3 · Django · PostgreSQL</span>
         </div>
         <div class="project-links">
-            GitHub: <a href="https://github.com/Gagana0819/BrightPath-LMS-ITPM-">github.com/Gagana0819/BrightPath-LMS-ITPM-</a>
+            <a href="https://github.com/Gagana0819/BrightPath-LMS-ITPM-">GitHub</a>
         </div>
         <ul>
             <li>Built a full-stack LMS for the Sri Lankan university ecosystem with role-based access control (Student, Lecturer, Staff) and NIC/credential verification via OCR (PyTesseract, PyPDF2, python-docx).</li>
@@ -190,46 +171,38 @@
             <li>Developed a custom AI Recommendation Engine that aggregates user activity metrics (module views, completions) to dynamically suggest relevant study materials, with a gamified Points Wallet to drive engagement.</li>
             <li>Implemented stateless JWT authentication, AWS S3 cloud storage, and a decoupled Vue 3 SPA frontend communicating via a RESTful Django REST Framework API.</li>
         </ul>
-    </div>
 
-    <div class="project-block">
         <div class="project-header">
-            <span class="bold">Sportify — Sports Web Platform</span> <span class="italic">| MERN · Tailwind CSS</span>
+            <span class="project-title">Sportify — Sports Web Platform</span>
+            <span style="color: #666; font-size: 11.5px;"> | MERN · Tailwind CSS</span>
         </div>
         <div class="project-links">
-            GitHub: <a href="https://github.com/Achintha2002/Sportifyweb">github.com/Achintha2002/Sportifyweb</a>
+            <a href="https://github.com/Achintha2002/Sportifyweb">GitHub</a>
         </div>
         <ul>
             <li>Built a full-stack sports community platform with dynamic event listings, user profiles, and interactive dashboards.</li>
             <li>Developed a scalable REST API using Node.js/Express with MongoDB, supporting concurrent user sessions and real-time data updates.</li>
             <li>Applied Redux state management and Tailwind CSS to deliver a responsive, accessible UI across all device sizes.</li>
         </ul>
+
+        <h2>CERTIFICATIONS</h2>
+        <ul>
+            <li>AI/ML Engineer — Stage 1 & Stage 2 (SLIIT)</li>
+            <li>MongoDB Node.js Developer Path (MongoDB)</li>
+            <li>MongoDB Java Developer Path (MongoDB)</li>
+            <li>Python for Beginners (University of Moratuwa — CODL)</li>
+        </ul>
+
+        <h2>SOFT SKILLS</h2>
+        <p>Team Collaboration · Problem Solving · Leadership · Analytical Thinking · Communication · Time Management · Agile / Scrum · Adaptability</p>
+
+        <h2>EXTRA-CURRICULAR ACTIVITIES</h2>
+        <p><span class="bold">Project Management:</span> Successfully scoped technical requirements, managed deliverables, and met strict deadlines across academic and full-stack projects.</p>
+        <p><span class="bold">Leadership & Collaboration:</span> Guided technical decision-making in multi-contributor teams with strong analytical and problem-solving skills.</p>
+        <p><span class="bold">Teamwork & Discipline:</span> Competitive cricket and volleyball player; developing team collaboration and discipline through structured tournaments.</p>
+
+        <h2>REFERENCES</h2>
+        <p><span class="bold">Ms. Minuli Samaraweera</span> | Instructor — IT, SLIIT Malabe | <a href="mailto:minuli.s@sliit.lk" style="color:#2563eb;">minuli.s@sliit.lk</a></p>
     </div>
-
-    <h2>Certifications</h2>
-    <ul class="cert-grid">
-        <li>AI/ML Engineer — Stage 1 & Stage 2 (SLIIT)</li>
-        <li>MongoDB Node.js Developer Path (MongoDB)</li>
-        <li>MongoDB Java Developer Path (MongoDB)</li>
-        <li>Python for Beginners (University of Moratuwa — CODL)</li>
-    </ul>
-
-    <h2>Soft Skills</h2>
-    <p>Team Collaboration · Problem Solving · Leadership · Analytical Thinking · Communication · Time Management · Agile / Scrum · Adaptability</p>
-
-    <h2>Extra-Curricular Activities</h2>
-    <div class="activity-block">
-        <span class="bold">Project Management:</span> Successfully scoped technical requirements, managed deliverables, and met strict deadlines across academic and full-stack projects.
-    </div>
-    <div class="activity-block">
-        <span class="bold">Leadership & Collaboration:</span> Guided technical decision-making in multi-contributor teams with strong analytical and problem-solving skills.
-    </div>
-    <div class="activity-block">
-        <span class="bold">Teamwork & Discipline:</span> Competitive cricket and volleyball player; developing team collaboration and discipline through structured tournaments.
-    </div>
-
-    <h2>References</h2>
-    <p><span class="bold">Ms. Minuli Samaraweera</span> | Instructor — IT, SLIIT Malabe | <a href="mailto:minuli.s@sliit.lk">minuli.s@sliit.lk</a></p>
-
 </body>
 </html>

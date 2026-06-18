@@ -846,3 +846,55 @@ function initTypewriter() {
   // Start the typing effect
   setTimeout(type, 500);
 }
+
+// =========================================================================
+// Auto-Download Resume as PDF
+// =========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  const downloadBtn = document.getElementById('download-resume-btn');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const originalHtml = downloadBtn.innerHTML;
+      
+      // Update button state to indicate processing
+      downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span class="desktop-text">Generating...</span><span class="mobile-text">Generating...</span>';
+      downloadBtn.style.pointerEvents = 'none';
+
+      fetch('resume_printable.html')
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const element = doc.getElementById('resume-content');
+          
+          // Inject styles temporarily so html2pdf can read them
+          const styles = doc.querySelectorAll('style');
+          styles.forEach(s => document.head.appendChild(s));
+          
+          const opt = {
+            margin:       0.5,
+            filename:     'Achintha_Edirisinghe_Resume.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2, useCORS: true },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+          };
+          
+          html2pdf().set(opt).from(element).save().then(() => {
+            // Restore button state
+            downloadBtn.innerHTML = originalHtml;
+            downloadBtn.style.pointerEvents = 'auto';
+            
+            // Clean up injected styles
+            styles.forEach(s => s.remove());
+          });
+        })
+        .catch(err => {
+          console.error("Failed to generate PDF:", err);
+          downloadBtn.innerHTML = originalHtml;
+          downloadBtn.style.pointerEvents = 'auto';
+          alert('Failed to generate PDF. Please try again later.');
+        });
+    });
+  }
+});
