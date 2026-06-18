@@ -2358,3 +2358,12 @@ footer {
   border-color: rgba(139, 92, 246, 0.8) !important;
   box-shadow: 0 0 15px rgba(139, 92, 246, 0.4) !important;
 }
+
+[data-theme="light"] .case-study-btn {
+  color: var(--text-primary) !important;
+  background: rgba(139, 92, 246, 0.15) !important;
+}
+[data-theme="light"] .case-study-btn:hover {
+  background: rgba(139, 92, 246, 0.25) !important;
+  color: #000 !important;
+}
