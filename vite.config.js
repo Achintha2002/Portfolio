@@ -9,7 +9,8 @@ export default defineConfig({
         projectDetails: resolve(__dirname, 'project-details.html'),
         sportifyDetails: resolve(__dirname, 'sportify-details.html'),
         raanicreamDetails: resolve(__dirname, 'raanicream-details.html'),
-        smartcampusDetails: resolve(__dirname, 'smartcampus-details.html')
+        smartcampusDetails: resolve(__dirname, 'smartcampus-details.html'),
+        resume: resolve(__dirname, 'resume_printable.html')
       }
     }
   }
