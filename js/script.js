@@ -855,10 +855,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (downloadBtn) {
     downloadBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      const originalHtml = downloadBtn.innerHTML;
       
-      // Update button state to indicate processing
-      downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span class="desktop-text">Generating...</span><span class="mobile-text">Generating...</span>';
+      const icon = downloadBtn.querySelector('i');
+      const originalIconClass = icon ? icon.className : 'fas fa-file-download';
+      
+      // Update button state to indicate processing without changing text length
+      if (icon) icon.className = 'fas fa-spinner fa-spin';
       downloadBtn.style.pointerEvents = 'none';
 
       fetch('resume_printable.html')
@@ -867,6 +869,14 @@ document.addEventListener('DOMContentLoaded', () => {
           const parser = new DOMParser();
           const doc = parser.parseFromString(html, 'text/html');
           const element = doc.getElementById('resume-content');
+          
+          // html2canvas requires the element to be in the live DOM to render it
+          const container = document.createElement('div');
+          container.style.position = 'absolute';
+          container.style.left = '-9999px';
+          container.style.top = '0';
+          container.appendChild(element);
+          document.body.appendChild(container);
           
           // Inject styles temporarily so html2pdf can read them
           const styles = doc.querySelectorAll('style');
@@ -882,16 +892,17 @@ document.addEventListener('DOMContentLoaded', () => {
           
           html2pdf().set(opt).from(element).save().then(() => {
             // Restore button state
-            downloadBtn.innerHTML = originalHtml;
+            if (icon) icon.className = originalIconClass;
             downloadBtn.style.pointerEvents = 'auto';
             
-            // Clean up injected styles
+            // Clean up injected element and styles
+            document.body.removeChild(container);
             styles.forEach(s => s.remove());
           });
         })
         .catch(err => {
           console.error("Failed to generate PDF:", err);
-          downloadBtn.innerHTML = originalHtml;
+          if (icon) icon.className = originalIconClass;
           downloadBtn.style.pointerEvents = 'auto';
           alert('Failed to generate PDF. Please try again later.');
         });
