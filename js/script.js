@@ -603,6 +603,18 @@ function initGuestbook() {
   if (!entries || entries.length === 0) {
     entries = mockEntries;
     localStorage.setItem("portfolio_guestbook", JSON.stringify(entries));
+  } else {
+    // Migrate old names if they exist in localStorage
+    let updated = false;
+    entries.forEach(entry => {
+      if (entry.name === "Saman Kumara") {
+        entry.name = "Sadun Weerarathne";
+        updated = true;
+      }
+    });
+    if (updated) {
+      localStorage.setItem("portfolio_guestbook", JSON.stringify(entries));
+    }
   }
 
   renderEntries();
