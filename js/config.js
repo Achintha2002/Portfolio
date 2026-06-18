@@ -73,7 +73,9 @@ const PORTFOLIO_CONFIG = {
       image: "assets/raani-cream.jpg",
       github: "https://github.com/Achintha2002/cream-web",
       link: "https://cream-web-ten.vercel.app/",
-      tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"]
+      tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
+      hasCaseStudy: true,
+      caseStudyUrl: "raanicream-details.html"
     },
     {
       id: "04",
