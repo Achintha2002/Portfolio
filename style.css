@@ -1162,6 +1162,7 @@ section {
 
 .project-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
@@ -2097,6 +2098,22 @@ footer {
   }
   
   /* Reset Desktop Spans and Apply Mobile Ordering */
+  .project-card {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .project-info {
+    text-align: center;
+  }
+  .project-tags {
+    justify-content: center;
+  }
   .name-card {
     grid-column: span 1;
     order: 1;
