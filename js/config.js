@@ -83,8 +83,9 @@ const PORTFOLIO_CONFIG = {
       title: "Smart Campus Hub",
       description: "Full-stack Smart Campus Management System featuring resource booking, incident ticketing, and an automated notification system.",
       image: "assets/smart-campus.png",
-      github: "https://github.com/sandundimantha/it3030-paf-2026-smart-campus-group54.git",
-      tags: ["Spring Boot", "React", "PostgreSQL", "Google OAuth"]
+      tags: ["Spring Boot", "React", "PostgreSQL", "Google OAuth"],
+      hasCaseStudy: true,
+      caseStudyUrl: "smartcampus-details.html"
     },
     {
       id: "05",
