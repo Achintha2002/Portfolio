@@ -12,6 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
+  <script>
+    // Prevent FOUC by setting theme immediately
+    const savedTheme = localStorage.getItem("portfolio_theme") || "dark";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -123,20 +128,60 @@
       border-color: rgba(139,92,246,0.4);
       color: #fff;
     }
+
+    /* Light Mode Overrides */
+    html[data-theme="light"] body {
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    html[data-theme="light"] .glass {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    }
+    html[data-theme="light"] .text-white { color: #0f172a !important; }
+    html[data-theme="light"] .text-white\/80 { color: #334155 !important; }
+    html[data-theme="light"] .text-white\/70,
+    html[data-theme="light"] .text-white\/60,
+    html[data-theme="light"] .text-white\/50,
+    html[data-theme="light"] .text-white\/40,
+    html[data-theme="light"] .text-white\/30 { color: #475569 !important; }
     
-    .security-highlight {
-      background: linear-gradient(145deg, rgba(79, 70, 229, 0.15) 0%, rgba(139, 92, 246, 0.05) 100%);
-      border: 1px solid rgba(139, 92, 246, 0.4);
-      position: relative;
-      overflow: hidden;
+    html[data-theme="light"] .bg-white\/5 { background-color: rgba(0, 0, 0, 0.05) !important; }
+    html[data-theme="light"] .bg-white\/10 { background-color: rgba(0, 0, 0, 0.1) !important; }
+    html[data-theme="light"] .border-white\/10 { border-color: rgba(0, 0, 0, 0.1) !important; }
+    html[data-theme="light"] .border-white\/5 { border-color: rgba(0, 0, 0, 0.05) !important; }
+    html[data-theme="light"] .bg-\[\#0f0d22\]\/80 { background-color: rgba(255, 255, 255, 0.85) !important; }
+    
+    html[data-theme="light"] .grid-overlay {
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
     }
-    .security-highlight::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.8), transparent);
+    
+    html[data-theme="light"] .tech-pill {
+      border: 1px solid rgba(0,0,0,0.1);
+      background: rgba(0,0,0,0.02);
+      color: #334155;
     }
+    html[data-theme="light"] .tech-pill:hover {
+      background: rgba(139,92,246,0.1);
+      border-color: rgba(139,92,246,0.4);
+      color: #0f172a;
+    }
+    
+    html[data-theme="light"] .bg-ink\/50, html[data-theme="light"] .bg-white { background-color: rgba(255, 255, 255, 0.8) !important; }
+    html[data-theme="light"] .from-ink { --tw-gradient-from: #ffffff var(--tw-gradient-from-position); --tw-gradient-to: rgba(255, 255, 255, 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+    html[data-theme="light"] .via-ink\/10 { --tw-gradient-to: rgba(255, 255, 255, 0)  var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), rgba(255, 255, 255, 0.8) var(--tw-gradient-via-position), var(--tw-gradient-to); }
+    
+    html[data-theme="light"] .hover\:bg-white\/10:hover { background-color: rgba(0, 0, 0, 0.1) !important; }
+    html[data-theme="light"] .hover\:border-white\/20:hover { border-color: rgba(0, 0, 0, 0.2) !important; }
+
+    html[data-theme="light"] a.bg-white { background-color: #0f172a !important; color: #ffffff !important; }
+    html[data-theme="light"] a.bg-white i { color: #ffffff !important; }
+    html[data-theme="light"] .hover\:bg-white\/90:hover { background-color: #1e293b !important; }
+    
+    html[data-theme="light"] .security-highlight { background: rgba(59, 130, 246, 0.05); }
   </style>
 </head>
 <body class="font-body">
@@ -146,10 +191,15 @@
 
   <header class="sticky top-0 z-50 border-b border-white/5 bg-[#0f0d22]/80 backdrop-blur-xl">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-      <a href="index.html#projects" class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/10">
-        <span class="text-lg leading-none">←</span>
-        Back to Portfolio
-      </a>
+      <div class="flex items-center gap-4">
+        <a href="index.html#projects" class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/10">
+          <span class="text-lg leading-none">←</span>
+          Back to Portfolio
+        </a>
+        <button id="theme-toggle-btn" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-white/20 hover:bg-white/10" aria-label="Toggle Theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
       <div class="hidden items-center gap-3 md:flex">
         <span class="h-2.5 w-2.5 rounded-full bg-violet-400 shadow-[0_0_15px_rgba(139,92,246,0.8)]"></span>
         <span class="text-xs uppercase tracking-[0.25em] text-white/50 font-display">Project Details</span>
@@ -390,6 +440,29 @@
       }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+      
+      // Theme Toggle Logic
+      const themeToggle = document.getElementById("theme-toggle-btn");
+      const themeIcon = themeToggle.querySelector("i");
+      
+      function updateIcon(theme) {
+        if (theme === "light") {
+          themeIcon.className = "fas fa-sun";
+        } else {
+          themeIcon.className = "fas fa-moon";
+        }
+      }
+      
+      updateIcon(document.documentElement.getAttribute("data-theme"));
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("portfolio_theme", newTheme);
+        updateIcon(newTheme);
+      });
     });
   </script>
 </body>
