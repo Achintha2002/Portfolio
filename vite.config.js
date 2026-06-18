@@ -7,7 +7,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         projectDetails: resolve(__dirname, 'project-details.html'),
-        sportifyDetails: resolve(__dirname, 'sportify-details.html')
+        sportifyDetails: resolve(__dirname, 'sportify-details.html'),
+        raanicreamDetails: resolve(__dirname, 'raanicream-details.html')
       }
     }
   }
