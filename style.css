@@ -29,9 +29,9 @@
 
 [data-theme="light"] {
   /* Light Theme variables */
-  --bg-primary: #e9e7f2;
-  --bg-secondary: #f5f4fa;
-  --bg-tertiary: #e0dceb;
+  --bg-primary: #e2e4e9;
+  --bg-secondary: #f4f5f8;
+  --bg-tertiary: #d1d5db;
   --bg-dot: rgba(0, 0, 0, 0.04);
   --border-color: rgba(0, 0, 0, 0.08);
   --border-hover: rgba(0, 0, 0, 0.16);
@@ -920,6 +920,10 @@ section {
   flex-direction: column;
   justify-content: flex-end;
   padding: 2rem;
+}
+
+[data-theme="light"] .photo-card-overlay {
+  background: linear-gradient(to bottom, transparent 30%, rgba(80, 85, 95, 0.85) 100%);
 }
 
 .photo-title {
