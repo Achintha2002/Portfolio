@@ -1046,13 +1046,17 @@ section {
 .location-map-bg {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 50%;
+  left: 0;
+  width: 100%;
   height: 100%;
-  opacity: 0.15;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M30,40 Q40,20 50,40 T70,40' fill='none' stroke='white' stroke-width='1'/%3E%3Cpath d='M10,80 Q30,60 50,80 T90,80' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
+  opacity: 0.6;
+  background-image: url('assets/earth-bg.png');
   background-size: cover;
+  background-position: center right;
+  filter: grayscale(100%);
   pointer-events: none;
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%);
 }
 
 /* Featured Projects Section */
