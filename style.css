@@ -331,7 +331,7 @@ section {
   overflow: hidden;
 }
 
-.home-page section:nth-child(odd)::before {
+#home::before {
   content: '';
   position: absolute;
   top: 0;
@@ -339,18 +339,6 @@ section {
   width: 40%;
   height: 100%;
   background: linear-gradient(90deg, rgba(255, 126, 95, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.home-page section:nth-child(even)::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40%;
-  height: 100%;
-  background: linear-gradient(-90deg, rgba(255, 126, 95, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
   pointer-events: none;
   z-index: 0;
 }
