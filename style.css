@@ -1805,7 +1805,7 @@ section {
 }
 
 /* Footer Section */
-footer {
+.home-page footer {
   padding: 4rem 0 2rem 0;
   background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(255, 126, 95, 0.15) 100%);
   border-top: 1px solid rgba(255, 126, 95, 0.1);
@@ -1816,7 +1816,7 @@ footer {
   overflow: hidden;
 }
 
-footer::before {
+.home-page footer::before {
   content: '';
   position: absolute;
   top: 0;
