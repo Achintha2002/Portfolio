@@ -723,22 +723,7 @@ function initModals() {
     document.body.style.overflow = ""; // restore scrolling
   }
 
-  // Expose case study opener globally since buttons are dynamically rendered with onclick
-  window.openCaseStudyModal = function(projectId) {
-    const sections = modalBody.querySelectorAll(".modal-sec");
-    sections.forEach(s => s.style.display = "none");
-    
-    modalTitle.textContent = "Project Case Study";
-    modalSubtitle.textContent = "In-depth look at architecture, challenges, and implementation.";
-    
-    const csSec = document.getElementById("modal-sec-case-study");
-    if (csSec) {
-      csSec.style.display = "flex";
-    }
-    
-    modalOverlay.classList.add("active");
-    document.body.style.overflow = "hidden";
-  };
+  // Note: Case studies are now handled via separate HTML files.
 }
 
 // =========================================================================
@@ -845,4 +830,272 @@ function initTypewriter() {
   
   // Start the typing effect
   setTimeout(type, 500);
+}
+
+/* ============================================
+   PARTICLE SPHERE ANIMATION
+   ============================================ */
+function initGalaxy(canvasId) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const container = canvas.parentElement;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+ 
+  let width, height, angle = 0;
+  let stars = [], planetDots = [], ringSet = [];
+ 
+  const planetColorDeep = [40, 28, 70];
+  const planetColorMid = [90, 60, 150];
+  const planetColorLight = [160, 130, 220];
+ 
+  function resize() {
+    const rect = container.getBoundingClientRect();
+    width = rect.width;
+    height = rect.height;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    generateStars();
+    generatePlanet();
+    generateRings();
+  }
+ 
+  function generateStars() {
+    stars = [];
+    const count = 220;
+    for (let i = 0; i < count; i++) {
+      stars.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size: Math.random() > 0.93 ? (1.4 + Math.random()*1.4) : (0.4 + Math.random()*0.8),
+        twinkle: Math.random() * Math.PI * 2,
+        twinkleSpeed: 0.008 + Math.random() * 0.02,
+        hue: Math.random() > 0.7 ? 'warm' : 'cool'
+      });
+    }
+  }
+ 
+  function generatePlanet() {
+    planetDots = [];
+    const count = 2600;
+    const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+    for (let i = 0; i < count; i++) {
+      const y = 1 - (i / (count - 1)) * 2;
+      const r = Math.sqrt(Math.max(0, 1 - y * y));
+      const theta = goldenAngle * i;
+      const x = Math.cos(theta) * r;
+      const z = Math.sin(theta) * r;
+      planetDots.push({
+        x0: x, y0: y, z0: z,
+        size: 0.5 + Math.random() * 0.7,
+        flicker: Math.random() * Math.PI * 2,
+        flickerSpeed: 0.005 + Math.random() * 0.01
+      });
+    }
+  }
+ 
+  function generateRings() {
+    // concentric tilted ellipses with varying radii, like the reference image
+    ringSet = [];
+    const ringCount = 10;
+    for (let i = 0; i < ringCount; i++) {
+      const t = i / (ringCount - 1);
+      ringSet.push({
+        rx: 1.3 + t * 2.2,    // relative to planetRadius
+        ry: 0.32 + t * 0.55,
+        opacity: 0.6 - t * 0.4,
+        width: 1.3 - t * 0.5,
+        phase: t * 0.6
+      });
+    }
+  }
+ 
+  function lerpColor(c1, c2, t) {
+    return [c1[0]+(c2[0]-c1[0])*t, c1[1]+(c2[1]-c1[1])*t, c1[2]+(c2[2]-c1[2])*t];
+  }
+ 
+  function drawStars() {
+    for (let s of stars) {
+      s.twinkle += s.twinkleSpeed;
+      const a = 0.35 + Math.sin(s.twinkle) * 0.35 + 0.3;
+      const col = s.hue === 'warm' ? '255,220,190' : '210,220,255';
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(${col},${Math.min(a,1)})`;
+      ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+ 
+  function drawNebula(cx, cy, planetRadius) {
+    // soft colored nebula clouds behind everything (native canvas radial gradients = smooth, no hard edges)
+    const blobs = [
+      { dx: -planetRadius*1.6, dy: -planetRadius*0.7, r: planetRadius*2.8, color: '76,90,170', a: 0.11 },
+      { dx: planetRadius*1.6,  dy: -planetRadius*1.1, r: planetRadius*2.4, color: '150,120,200', a: 0.09 },
+      { dx: planetRadius*2.0,  dy: planetRadius*1.0,  r: planetRadius*3.0, color: '200,140,90',  a: 0.08 },
+      { dx: -planetRadius*1.8, dy: planetRadius*1.2,  r: planetRadius*2.6, color: '90,110,180',  a: 0.09 }
+    ];
+    for (let b of blobs) {
+      const grad = ctx.createRadialGradient(cx+b.dx, cy+b.dy, 0, cx+b.dx, cy+b.dy, b.r);
+      grad.addColorStop(0, `rgba(${b.color},${b.a})`);
+      grad.addColorStop(1, `rgba(${b.color},0)`);
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(cx+b.dx, cy+b.dy, b.r, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+ 
+  function drawRingHalf(cx, cy, ring, planetRadius, behind) {
+    const rx = planetRadius * ring.rx;
+    const ry = planetRadius * ring.ry;
+    const tilt = -0.36; // radians, matches reference diagonal tilt
+ 
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(tilt);
+ 
+    ctx.beginPath();
+    if (behind) {
+      ctx.ellipse(0, 0, rx, ry, 0, Math.PI * 0.05, Math.PI * 0.95);
+    } else {
+      ctx.ellipse(0, 0, rx, ry, 0, Math.PI * 1.05, Math.PI * 1.95);
+    }
+ 
+    const grad = ctx.createLinearGradient(-rx, 0, rx, 0);
+    grad.addColorStop(0, `rgba(255,210,130,0)`);
+    grad.addColorStop(0.5, `rgba(255,225,160,${ring.opacity})`);
+    grad.addColorStop(1, `rgba(255,210,130,0)`);
+ 
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = ring.width;
+    ctx.shadowColor = 'rgba(255,210,140,0.5)';
+    ctx.shadowBlur = behind ? 1 : 4;
+    ctx.stroke();
+    ctx.restore();
+  }
+ 
+  function drawPlanet(cx, cy, planetRadius) {
+    const cosA = Math.cos(angle), sinA = Math.sin(angle);
+    const cosT = Math.cos(0.32), sinT = Math.sin(0.32);
+ 
+    // glow behind planet
+    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, planetRadius*1.5);
+    glow.addColorStop(0, 'rgba(255,225,180,0.35)');
+    glow.addColorStop(0.4, 'rgba(180,140,255,0.14)');
+    glow.addColorStop(1, 'rgba(10,8,16,0)');
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.arc(cx, cy, planetRadius*1.5, 0, Math.PI*2);
+    ctx.fill();
+ 
+    const projected = [];
+    for (let p of planetDots) {
+      let x = p.x0*cosA - p.z0*sinA;
+      let z = p.x0*sinA + p.z0*cosA;
+      let y = p.y0;
+      let y2 = y*cosT - z*sinT;
+      let z2 = y*sinT + z*cosT;
+      const perspective = 1/(1.8 - z2*0.55);
+      const px = cx + x*planetRadius*perspective;
+      const py = cy + y2*planetRadius*perspective;
+      projected.push({p, x:px, y:py, z:z2, perspective});
+    }
+    projected.sort((a,b) => a.z - b.z);
+ 
+    // planet base disc (slightly darker than dots for solid feel)
+    ctx.beginPath();
+    ctx.fillStyle = 'rgba(18,14,28,0.92)';
+    ctx.arc(cx, cy, planetRadius*0.99, 0, Math.PI*2);
+    ctx.fill();
+ 
+    for (let item of projected) {
+      const {p, x, y, z, perspective} = item;
+      const depthT = (z+1)/2;
+      p.flicker += p.flickerSpeed;
+      const flickerAlpha = 0.8 + Math.sin(p.flicker)*0.2;
+      let baseAlpha = (0.25 + depthT*0.6) * flickerAlpha;
+      let size = p.size * perspective * (0.7 + depthT*0.5);
+      const color = lerpColor(planetColorDeep, lerpColor(planetColorMid, planetColorLight, depthT), depthT*0.6);
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(${color[0]},${color[1]},${color[2]},${Math.min(baseAlpha,1)})`;
+      ctx.arc(x, y, size, 0, Math.PI*2);
+      ctx.fill();
+    }
+ 
+    // rim light
+    const rim = ctx.createRadialGradient(cx, cy, planetRadius*0.85, cx, cy, planetRadius*1.02);
+    rim.addColorStop(0, 'rgba(255,220,180,0)');
+    rim.addColorStop(1, 'rgba(255,225,190,0.25)');
+    ctx.fillStyle = rim;
+    ctx.beginPath();
+    ctx.arc(cx, cy, planetRadius*1.02, 0, Math.PI*2);
+    ctx.fill();
+  }
+ 
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    const cx = width/2, cy = height/2;
+    const planetRadius = Math.min(width, height) * 0.14; // Changed back to 0.14
+ 
+    drawNebula(cx, cy, planetRadius);
+    drawStars();
+ 
+    // rings behind planet
+    for (let i = ringSet.length - 1; i >= 0; i--) drawRingHalf(cx, cy, ringSet[i], planetRadius, true);
+ 
+    drawPlanet(cx, cy, planetRadius);
+ 
+    // rings in front of planet
+    for (let i = ringSet.length - 1; i >= 0; i--) drawRingHalf(cx, cy, ringSet[i], planetRadius, false);
+ 
+    angle += 0.0011;
+    requestAnimationFrame(draw);
+  }
+ 
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+}
+
+/* ============================================
+   DOTTED WORLD MAP BACKGROUND
+   ============================================ */
+function generateDotMap() {
+  const g = document.getElementById('dotMap');
+  const group = document.getElementById('worldSilhouetteGroup');
+  if (!g || !group) return;
+  const svgNS = "http://www.w3.org/2000/svg";
+  const paths = Array.from(group.querySelectorAll('path'));
+  const svgRoot = group.ownerSVGElement;
+
+  const viewW = 1000, viewH = 460;
+  const dotSpacing = 5.5;
+
+  for (let x = 0; x < viewW; x += dotSpacing) {
+    for (let y = 0; y < viewH; y += dotSpacing) {
+      const jx = x + (Math.random() - 0.5) * 3.5;
+      const jy = y + (Math.random() - 0.5) * 3.5;
+
+      const pt = svgRoot.createSVGPoint();
+      pt.x = jx;
+      pt.y = jy;
+
+      let inside = false;
+      for (let i = 0; i < paths.length; i++) {
+        if (paths[i].isPointInFill(pt)) { inside = true; break; }
+      }
+
+      if (inside && Math.random() > 0.15) {
+        const circle = document.createElementNS(svgNS, 'circle');
+        circle.setAttribute('cx', jx);
+        circle.setAttribute('cy', jy);
+        circle.setAttribute('r', Math.random() > 0.92 ? 1.5 : 0.85);
+        circle.setAttribute('opacity', 0.25 + Math.random() * 0.55);
+        g.appendChild(circle);
+      }
+    }
+  }
 }

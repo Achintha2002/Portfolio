@@ -8,8 +8,8 @@ const PORTFOLIO_CONFIG = {
     location: "Colombo, Sri Lanka",
     coordinates: "6.9271° N, 79.8612° E",
     timezone: "GMT+5:30",
-    avatar: "assets/avatar.png",
-    realPhoto: "assets/real_photo.png",
+    avatar: "/assets/avatar.png",
+    realPhoto: "/assets/real_photo.png",
     email: "achintha.w101@gmail.com",
     github: "https://github.com/Achintha2002",
     linkedin: "https://www.linkedin.com/in/achintha-edirisinghe-a4a23b3ab",
@@ -19,7 +19,7 @@ const PORTFOLIO_CONFIG = {
     title: "Mindset",
     quote: "Engineering elegant solutions through continuous learning. My mindset is driven by curiosity, discipline, and a passion for scalable architecture.",
     tagline: "Bridging the gap between complex problems and seamless user experiences.",
-    image: "assets/mindset.png",
+    image: "/assets/mindset.png",
   },
   craft: {
     title: "Craft",
@@ -47,7 +47,7 @@ const PORTFOLIO_CONFIG = {
       category: "WEB APP",
       title: "BrightPath LMS",
       description: "Interactive Live Kuppi Sessions and peer-led learning platform for university networks. Built with Django & Celery.",
-      image: "assets/brightpath.jpg",
+      image: "/assets/brightpath.jpg",
       github: "https://github.com/Gagana0819/BrightPath-LMS-ITPM-.git",
       tags: ["Python", "Django", "React", "Supabase", "Celery"],
       hasCaseStudy: true,
@@ -58,7 +58,7 @@ const PORTFOLIO_CONFIG = {
       category: "E-COMMERCE",
       title: "Sportify",
       description: "Modern e-commerce platform for sports equipment with role-based dashboards, Stripe payments, and Cloudinary integration.",
-      image: "assets/sportify.jpg",
+      image: "/assets/sportify.jpg",
       github: "https://github.com/Achintha2002/Sportifyweb",
       link: "https://sportify-frontend-eight.vercel.app",
       tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
@@ -70,7 +70,7 @@ const PORTFOLIO_CONFIG = {
       category: "E-COMMERCE",
       title: "Raani Cream",
       description: "Premium MERN stack e-commerce platform for an organic skincare brand featuring an admin console and interactive shopping experience.",
-      image: "assets/raani-cream.jpg",
+      image: "/assets/raani-cream.jpg",
       github: "https://github.com/Achintha2002/cream-web",
       link: "https://cream-web-ten.vercel.app/",
       tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
@@ -82,7 +82,7 @@ const PORTFOLIO_CONFIG = {
       category: "WEB APP",
       title: "Smart Campus Hub",
       description: "Full-stack Smart Campus Management System featuring resource booking, incident ticketing, and an automated notification system.",
-      image: "assets/smart-campus.png",
+      image: "/assets/smart-campus.png",
       tags: ["Spring Boot", "React", "PostgreSQL", "Google OAuth"],
       hasCaseStudy: true,
       caseStudyUrl: "smartcampus-details.html"
@@ -92,7 +92,7 @@ const PORTFOLIO_CONFIG = {
       category: "WEB APP",
       title: "Photo Home",
       description: "A modern photography portfolio website to showcase galleries, featured works, and photography services.",
-      image: "assets/photo-home.png",
+      image: "/assets/photo-home.png",
       github: "https://github.com/Achintha2002/PhotoFrameWeb.git",
       link: "https://photo-frame-web.vercel.app/",
       tags: ["React", "Vite", "Tailwind CSS"]
@@ -103,7 +103,7 @@ const PORTFOLIO_CONFIG = {
     "React", "JavaScript", "HTML5", "CSS3", "Docker", "Figma", "Git", "C++"
   ],
   chatbot: {
-    avatar: "assets/real_photo.png",
+    avatar: "/assets/real_photo.png",
     welcome: "Hi, I'm Achintha. Ask me anything about my work, skills, mindset, or how we can collaborate!",
     defaultQuestions: [
       { text: "Work", keyword: "work" },
