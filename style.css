@@ -1195,6 +1195,12 @@ section {
   box-shadow: var(--card-shadow);
   transition: all var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
+}
+
+[data-theme="light"] .project-card,
+[data-theme="light"] .cert-card {
+  background: #f1f5f9;
+}
   flex-direction: column;
   position: relative;
 }
