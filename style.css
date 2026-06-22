@@ -331,7 +331,7 @@ section {
   overflow: hidden;
 }
 
-section:nth-child(odd)::before {
+.home-page section:nth-child(odd)::before {
   content: '';
   position: absolute;
   top: 0;
@@ -343,7 +343,7 @@ section:nth-child(odd)::before {
   z-index: 0;
 }
 
-section:nth-child(even)::before {
+.home-page section:nth-child(even)::before {
   content: '';
   position: absolute;
   top: 0;
