@@ -1136,9 +1136,10 @@ section {
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-12px);
   border-color: var(--border-hover);
-  box-shadow: var(--glow-shadow);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  z-index: 10;
 }
 
 .project-media {
