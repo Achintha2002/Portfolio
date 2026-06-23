@@ -1114,8 +1114,7 @@ function updateLocationTime() {
   const ampm = raw >= 12 ? 'PM' : 'AM';
   const h = String(raw % 12 || 12).padStart(2, '0');
   const m = String(sl.getMinutes()).padStart(2, '0');
-  
-  timeEl.textContent = \`\${h}:\${m} \${ampm}\`;
+  timeEl.textContent = `${h}:${m} ${ampm}`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
