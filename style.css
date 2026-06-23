@@ -702,14 +702,14 @@ section {
 /* Hover Cards Wrapper */
 .hover-cards-wrapper {
   position: relative;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.03), var(--card-shadow) !important;
   padding: 0 !important;
   display: flex;
   justify-content: center;
   align-items: flex-end; /* Stack at bottom */
-  overflow: visible !important;
+  overflow: hidden !important;
 }
 
 .hover-cards-badge {
