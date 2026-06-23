@@ -987,8 +987,8 @@ section {
 .craft-tech-slider {
   overflow: hidden;
   position: relative;
-  margin: 1rem -2.5rem; /* Break out of padding */
-  padding: 1rem 0;
+  margin: 3rem -2.5rem -1rem; /* Push down further and break out of padding */
+  padding: 1.5rem 0; /* slightly taller */
   background: var(--bg-tertiary);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
@@ -997,8 +997,8 @@ section {
 }
 .tech-track {
   display: flex;
-  gap: 2rem;
-  animation: techSlide 15s linear infinite;
+  gap: 3rem; /* little more space between items */
+  animation: techSlide 40s linear infinite; /* slower animation */
   white-space: nowrap;
   padding: 0 2.5rem;
   width: max-content;
