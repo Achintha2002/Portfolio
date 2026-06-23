@@ -109,12 +109,15 @@ function setupPortfolioContent() {
   
   // Bento Grid: Craft Card
   const bentoCraftDesc = document.getElementById("bento-craft-desc");
+  // We removed the id from desc to hardcode it beautifully, but if it exists we can update it.
   if (bentoCraftDesc) bentoCraftDesc.textContent = config.craft.bullets[0];
   
   const craftTechList = document.getElementById("bento-craft-techs");
   if (craftTechList) {
     craftTechList.innerHTML = "";
-    config.craft.technologies.forEach(tech => {
+    // Duplicate the technologies a few times to create a seamless infinite marquee
+    const repeatedTechs = [...config.craft.technologies, ...config.craft.technologies, ...config.craft.technologies, ...config.craft.technologies];
+    repeatedTechs.forEach(tech => {
       const tag = document.createElement("div");
       tag.className = "tech-icon-tag";
       tag.innerHTML = `
@@ -130,17 +133,11 @@ function setupPortfolioContent() {
 
   // Bento Grid: Mindset Card
   const bentoMindsetQuote = document.getElementById("bento-mindset-quote");
-  if (bentoMindsetQuote) bentoMindsetQuote.textContent = config.mindset.quote;
-  const bentoMindsetQuoteBack = document.getElementById("bento-mindset-quote-back");
-  if (bentoMindsetQuoteBack) bentoMindsetQuoteBack.textContent = config.mindset.quote;
+  if (bentoMindsetQuote) bentoMindsetQuote.innerHTML = `<strong>${config.mindset.quote.split('.')[0]}.</strong>${config.mindset.quote.substring(config.mindset.quote.indexOf('.'))}`;
 
   const bentoMindsetTagline = document.getElementById("bento-mindset-tagline");
-  if (bentoMindsetTagline) bentoMindsetTagline.textContent = config.mindset.tagline;
-  const bentoMindsetTaglineBack = document.getElementById("bento-mindset-tagline-back");
-  if (bentoMindsetTaglineBack) bentoMindsetTaglineBack.textContent = config.mindset.tagline;
+  if (bentoMindsetTagline) bentoMindsetTagline.innerHTML = `<strong>${config.mindset.tagline.split('is')[0]}</strong> is ${config.mindset.tagline.split('is')[1]}`;
 
-  const mindsetOverlay = document.querySelector(".mindset-img-overlay");
-  if (mindsetOverlay) mindsetOverlay.style.backgroundImage = `url('${config.mindset.image}')`;
 
   // Bento Grid: Photo Card
   const photoCardImg = document.getElementById("bento-photo-img");

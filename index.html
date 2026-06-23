@@ -168,126 +168,91 @@
 
         <div class="bento-grid">
 
-          <!-- Card 1: Name and Title (span 4 columns, 1 row) -->
-          <div class="bento-card card-4 name-card">
-            <div class="name-card-subtitle">Developer Profile</div>
-            <h3 class="name-card-title" id="bento-name">Achintha Edirisinghe</h3>
-            <p class="name-card-role" id="bento-role">Full Stack Developer</p>
-            <a href="/assets/Achintha_Lihan_Resume.pdf" download="Achintha_Lihan_Resume.pdf" target="_blank"
-              class="resume-btn">
-              <i class="fas fa-file-download"></i>
-              <span class="desktop-text">Download Resume</span>
-              <span class="mobile-text">Resume</span>
-            </a>
-            <div class="bento-socials">
-              <a href="https://github.com/Achintha2002" target="_blank" class="bento-social-link" aria-label="GitHub"><i
-                  class="fab fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/achintha-edirisinghe-a4a23b3ab" target="_blank"
-                class="bento-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-              <a href="mailto:achintha.w101@gmail.com" class="bento-social-link" aria-label="Email"><i
-                  class="fas fa-envelope"></i></a>
-            </div>
+          <!-- Row 1: Name Card and Hover Cards -->
+          <!-- Card 1: Name Card (span 4) -->
+          <div class="bento-card card-4 name-card sleek-name-card">
+            <h3 class="name-card-title sleek-title">ACHINTHA<br>EDIRISINGHE</h3>
+            <div class="name-card-subtitle sleek-subtitle">FULLSTACK DEVELOPER</div>
           </div>
 
-          <!-- Card 2: Education (span 8 cols) -->
-          <div class="bento-card card-8 education-card">
-            <div class="education-header">
-              <div class="edu-date-badge">2023 - Present</div>
-            </div>
-            <div class="education-content">
-              <h3 class="edu-title">Bachelor of Science (Hons) in Information Technology</h3>
-              <p class="edu-subtitle">Sri Lanka Institute of Information Technology &bull; SLIIT</p>
-              <hr class="edu-divider">
-              <p class="edu-description">Pursuing a Bachelor of Science (Honours) in Information Technology with a
-                strong focus on web development, database systems, networking, and project management. Gaining hands on
-                experience through academic and personal projects while continuously developing technical and problem
-                solving skills.</p>
-
-              <div class="edu-section-title">Key Areas of Study</div>
-              <div class="edu-grid">
-                <div class="edu-grid-item">Web Development</div>
-                <div class="edu-grid-item">UI/UX Design</div>
-                <div class="edu-grid-item">IT Project Management</div>
-                <div class="edu-grid-item">Responsive Web Design</div>
-                <div class="edu-grid-item">Database Management Systems</div>
-                <div class="edu-grid-item">Mobile Application Development</div>
-                <div class="edu-grid-item">Component Based Development</div>
-                <div class="edu-grid-item">Network Management</div>
+          <!-- Card 2: Hover Cards Wrapper (span 8) -->
+          <div class="bento-card card-8 hover-cards-wrapper">
+            <div class="hover-cards-badge">HOVER TO READ MORE</div>
+            <div class="hover-cards-container">
+              <!-- Card 1: University -->
+              <div class="hover-card hc-1">
+                <h4>UNIVERSITY</h4>
+                <p>Pursuing a Bachelor of Science (Honours) in Information Technology at SLIIT. Gaining hands-on experience through academic and personal projects while continuously developing technical skills.</p>
               </div>
-
-            </div>
-          </div>
-
-          <!-- Card 3: Mindset (span 4, span 2 rows) -->
-          <div class="bento-card card-4 row-2 mindset-card" onclick="this.classList.toggle('flipped')">
-            <div class="mindset-card-inner">
-              <!-- Front Face -->
-              <div class="mindset-card-front">
-                <div class="mindset-img-overlay"></div>
-                <div class="mindset-card-content">
-                  <h3 class="mindset-title">Mindset</h3>
-                  <p class="mindset-quote" id="bento-mindset-quote">Building more than software. My passions provide the
-                    discipline and focus I need to grow.</p>
-                  <p class="mindset-tagline" id="bento-mindset-tagline">Mastering body and mind is my path to
-                    excellence.</p>
-                </div>
-                <div class="mindset-badge">FITNESS &amp; FOCUS</div>
-                <div class="mindset-click-hint"><i class="fas fa-hand-pointer"></i> Tap <i class="fas fa-redo"></i>
-                </div>
+              <!-- Card 2: Skills -->
+              <div class="hover-card hc-2">
+                <h4>SKILLS</h4>
+                <p>Strong focus on web development, UI/UX Design, database systems, networking, and IT project management. Specialized in modern frameworks and scalable architecture.</p>
               </div>
-              <!-- Back Face -->
-              <div class="mindset-card-back">
-                <div class="mindset-card-content">
-                  <h3 class="mindset-title">Mindset</h3>
-                  <p class="mindset-quote" id="bento-mindset-quote-back">Building more than software. My passions
-                    provide the discipline and focus I need to grow.</p>
-                  <p class="mindset-tagline" id="bento-mindset-tagline-back">Mastering body and mind is my path to
-                    excellence.</p>
-                </div>
+              <!-- Card 3: Experience -->
+              <div class="hover-card hc-3">
+                <h4>EXPERIENCE</h4>
+                <p>Active participant in personal projects and freelance development. Passionate about mastering body and mind, applying discipline to solve complex software engineering challenges.</p>
               </div>
             </div>
           </div>
 
-          <!-- Card 4: Central Avatar/Photo (span 4, span 1.5 rows) -->
-          <div class="bento-card card-4 row-1-5 photo-card">
-            <div class="photo-card-inner">
-              <img id="bento-photo-img" src="/assets/real_photo.png" alt="Achintha Portrait" class="photo-card-img">
-              <div class="photo-card-overlay">
-                <h3 class="photo-title" id="bento-photo-name">Achintha</h3>
-                <p class="photo-subtitle">Crafting software solutions daily</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 5: Craft Details (span 4, span 2 rows) -->
-          <div class="bento-card card-4 row-2 craft-card">
-            <div>
-              <h3 class="craft-title">Craft</h3>
-              <p class="craft-desc" id="bento-craft-desc">Building scalable apps and websites.</p>
-              <p class="text-muted" style="font-size: 0.9rem;">My primary technologies:</p>
-              <div class="craft-tech-list" id="bento-craft-techs">
-                <!-- Populated dynamically -->
-              </div>
-            </div>
-            <div>
-              <p class="craft-collaborate" id="bento-craft-cta">Passionate about building scalable web applications and
-                seamless user experiences. Feel free to reach out for collaborations.</p>
-              <div class="craft-status">
-                <div class="status-indicator"></div>
-                <span>Open to collaboration &amp; freelance</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 6: Coordinates Location (span 4, span 0.5 rows) -->
-          <div class="bento-card card-4 location-card">
-            <div class="location-map-bg"></div>
-            <div class="location-scan-line"></div>
+          <!-- Row 2: Mindset, Middle Column (Photo+Location), Craft -->
+          <!-- Card 3: Mindset (span 4) -->
+          <div class="bento-card card-4 mindset-card sleek-mindset-card">
+            <h3 class="mindset-title sleek-mindset-title">Mindset</h3>
+            <p class="mindset-quote"><strong>Building more than software.</strong> My passions provide the <strong>discipline and focus</strong> I need to grow.</p>
             
-            <div class="location-content">
-              <h3 class="location-city">COLOMBO, SRI LANKA</h3>
-              <p class="location-coords">6.9271° N, 79.8612° E</p>
-              <p class="location-time"><span class="pulse-dot"></span> GMT+5:30 <span id="live-time-compact" style="margin-left: 5px;"></span></p>
+            <div class="mindset-floating-graphic">
+              <div class="floating-phone-card">
+                <div class="phone-map-bg"></div>
+                <div class="phone-content">
+                  <div class="phone-title">Fitness & Focus</div>
+                  <div class="phone-stats">
+                    <div><span>Discipline</span><strong>100%</strong></div>
+                    <div><span>Consistency</span><strong>Daily</strong></div>
+                  </div>
+                  <div class="phone-bottom-tag">MIND & BODY</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="mindset-tagline"><strong>Mastering body and mind</strong> is my path to <strong>excellence</strong>.</p>
+          </div>
+
+          <!-- Middle Column: Photo & Location (span 4) -->
+          <div class="bento-column card-4">
+            <div class="bento-card photo-card sleek-photo-card">
+              <img id="bento-photo-img" src="/assets/real_photo.png" alt="Achintha Portrait" class="photo-card-img sleek-img">
+            </div>
+            
+            <div class="bento-card location-card">
+              <div class="location-map-bg"></div>
+              <div class="location-scan-line"></div>
+              <div class="location-content">
+                <h3 class="location-city">COLOMBO, SRI LANKA</h3>
+                <p class="location-coords">6.9271° N, 79.8612° E</p>
+                <p class="location-time"><span class="pulse-dot"></span> GMT+5:30 <span id="live-time-compact" style="margin-left: 5px;"></span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Craft Details (span 4) -->
+          <div class="bento-card card-4 craft-card sleek-craft-card">
+            <h3 class="craft-title sleek-craft-title">Craft</h3>
+            <p class="craft-desc sleek-craft-desc">Building scalable <strong>apps, websites, and automations.</strong></p>
+            <p class="craft-subtext">I understand what advantages modern tech can provide, helping me advise on the solutions a business actually needs.</p>
+            
+            <div class="craft-tech-slider">
+              <div class="tech-track" id="bento-craft-techs">
+                <!-- Logos will be injected via JS or hardcoded -->
+              </div>
+            </div>
+            
+            <p class="craft-collaborate sleek-collaborate">Passionate about building scalable web applications. Feel free to invite me to collaborate.</p>
+            <div class="craft-status sleek-status">
+              <div class="status-indicator"></div>
+              <span>Open to collaboration & freelance</span>
             </div>
           </div>
 
