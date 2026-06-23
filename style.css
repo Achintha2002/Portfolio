@@ -976,7 +976,7 @@ section {
 .craft-tech-slider {
   overflow: hidden;
   position: relative;
-  margin: 3rem -2.5rem -1rem; /* Push down further and break out of padding */
+  margin: 6rem -2.5rem -1rem; /* Push down further (approx 1.5cm) */
   padding: 0.8rem 0; /* thinner */
   background: var(--bg-tertiary);
   border-top: 1px solid var(--border-color);
