@@ -512,9 +512,19 @@ function initSkillsSphere() {
     div.appendChild(iconWrapper);
     div.appendChild(textLabel);
 
-    // Optional: we can still keep the bottom label or remove it, I'll remove the bottom label interaction since it's now inline
+    const itemObj = { el: div, x: x0, y: y0, z: z0, isHovered: false };
+
+    div.addEventListener("mouseenter", () => {
+      itemObj.isHovered = true;
+      speedX = 0;
+      speedY = 0;
+    });
+    div.addEventListener("mouseleave", () => {
+      itemObj.isHovered = false;
+    });
+
     iconsLayer.appendChild(div);
-    return { el: div, x: x0, y: y0, z: z0 };
+    return itemObj;
   });
 
   // Rotation state
@@ -524,6 +534,10 @@ function initSkillsSphere() {
   let mouseActive = false;
 
   scene.addEventListener("mousemove", (e) => {
+    // If we are hovering an icon, don't change speed with mouse move
+    const anyHovered = items.some(it => it.isHovered);
+    if (anyHovered) return;
+
     const rect = scene.getBoundingClientRect();
     const mx = e.clientX - rect.left - CX;
     const my = e.clientY - rect.top - CY;
@@ -537,8 +551,10 @@ function initSkillsSphere() {
   });
 
   function animate() {
-    // Ease back to default speed when mouse leaves
-    if (!mouseActive) {
+    const anyHovered = items.some(it => it.isHovered);
+
+    // Ease back to default speed when mouse leaves, unless hovering an icon
+    if (!mouseActive && !anyHovered) {
       speedX += (0.0005 - speedX) * 0.05;
       speedY += (0.003 - speedY) * 0.05;
     }
@@ -571,14 +587,21 @@ function initSkillsSphere() {
 
       item.el.style.left = `${50 + (sx / CX) * 50}%`;
       item.el.style.top  = `${50 + (sy / CY) * 50}%`;
-      item.el.style.opacity = opacity;
-      item.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
-      item.el.style.zIndex = idx;
+      
+      if (item.isHovered) {
+        item.el.style.opacity = 1;
+        item.el.style.transform = `translate(-50%, -50%) scale(${scale * 1.8})`;
+        item.el.style.zIndex = 1000;
+        item.el.style.filter = "none";
+      } else {
+        item.el.style.opacity = opacity;
+        item.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        item.el.style.zIndex = idx;
+        item.el.style.filter = norm < 0.25 ? "grayscale(80%) brightness(0.6)" : "none";
+      }
       
       const iconElem = item.el.querySelector("i") || item.el.querySelector("svg");
       if (iconElem) iconElem.style.fontSize = `${fontSize}rem`;
-      
-      item.el.style.filter = norm < 0.25 ? "grayscale(80%) brightness(0.6)" : "none";
     });
 
     requestAnimationFrame(animate);
