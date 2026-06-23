@@ -495,20 +495,24 @@ function initSkillsSphere() {
 
     const div = document.createElement("div");
     div.className = "sphere-icon-item";
+
+    const iconWrapper = document.createElement("div");
+    iconWrapper.className = "sphere-icon-wrapper";
     const iconData = iconMap[skill] || "fas fa-code";
     if (iconData.startsWith("<svg")) {
-      div.innerHTML = iconData;
+      iconWrapper.innerHTML = iconData;
     } else {
-      div.innerHTML = `<i class="${iconData}"></i>`;
+      iconWrapper.innerHTML = `<i class="${iconData}"></i>`;
     }
 
-    div.addEventListener("mouseenter", () => {
-      if (label) label.textContent = skill;
-    });
-    div.addEventListener("mouseleave", () => {
-      if (label) label.textContent = "\u00a0";
-    });
+    const textLabel = document.createElement("span");
+    textLabel.className = "sphere-icon-text";
+    textLabel.textContent = skill;
 
+    div.appendChild(iconWrapper);
+    div.appendChild(textLabel);
+
+    // Optional: we can still keep the bottom label or remove it, I'll remove the bottom label interaction since it's now inline
     iconsLayer.appendChild(div);
     return { el: div, x: x0, y: y0, z: z0 };
   });
