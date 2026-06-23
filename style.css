@@ -1166,18 +1166,26 @@ section {
 .location-scan-line {
   position: absolute;
   top: 0;
+  left: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(to bottom, transparent, var(--accent-orange), transparent);
-  animation: lineScan 4s linear infinite;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(232,128,58,0.0) 5%,
+    rgba(232,128,58,0.8) 35%,
+    rgba(255,180,110,1) 50%,
+    rgba(232,128,58,0.8) 65%,
+    rgba(232,128,58,0.0) 95%,
+    transparent 100%);
+  animation: lineScan 4.5s ease-in-out infinite;
   z-index: 10;
   pointer-events: none;
 }
 
 @keyframes lineScan {
   0%   { left: -2px; opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 1; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
   100% { left: 100%; opacity: 0; }
 }
 
@@ -1217,16 +1225,16 @@ section {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--accent-orange);
+  background-color: #e8803a;
   margin-right: 8px;
-  box-shadow: 0 0 0 rgba(255, 126, 95, 0.4);
+  box-shadow: 0 0 0 rgba(232, 128, 58, 0.4);
   animation: pulse-dot-anim 2s infinite;
 }
 
 @keyframes pulse-dot-anim {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 126, 95, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 126, 95, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 126, 95, 0); }
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(232, 128, 58, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(232, 128, 58, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(232, 128, 58, 0); }
 }
 
 /* Featured Projects Section */
