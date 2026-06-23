@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GitHub Stats | Achintha Edirisinghe</title>
-  <meta name="description" content="GitHub statistics, top languages, and commit streaks for Achintha Edirisinghe." />
+  <meta name="description" content="GitHub open source activity and contribution graph for Achintha Edirisinghe." />
   
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.8em%22 font-size=%2280%22 font-family=%22system-ui, sans-serif%22 font-weight=%22bold%22 fill=%22%23b084ff%22>AE</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,18 @@
     document.documentElement.setAttribute("data-theme", savedTheme);
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
-  
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            ghgreen: '#10B981'
+          }
+        }
+      }
+    }
+  </script>
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -28,93 +39,153 @@
       min-height: 100vh;
       background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
       background-size: 40px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1rem;
     }
     
-    .glass-card {
+    .os-card {
       background: var(--bg-secondary);
       border: 1px solid var(--border-color);
-      transition: all 0.3s ease;
       border-radius: 24px;
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 1000px;
       overflow: hidden;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
+      flex-direction: column;
+      md:flex-direction: row;
     }
-    
-    .glass-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
-      border-color: rgba(16, 185, 129, 0.4);
-    }
-    
-    .glass-card img {
-      max-width: 100%;
+
+    .graph-container img {
+      width: 100%;
       height: auto;
+      border-radius: 12px;
     }
   </style>
 </head>
-<body class="relative overflow-x-hidden flex flex-col items-center py-12 px-4 sm:px-6">
+<body class="relative overflow-x-hidden">
 
-  <div class="w-full max-w-4xl absolute top-6 left-6 sm:left-12 flex justify-start z-10">
+  <div class="w-full max-w-[1000px] flex justify-start z-10 mb-8">
     <a href="/" class="inline-flex items-center gap-3 px-6 py-2.5 rounded-full font-bold text-black transition-all hover:scale-105" style="background: rgba(224, 242, 254, 0.8); border: 1px solid rgba(186, 230, 253, 0.8);">
       <i class="fas fa-arrow-left"></i> Back to Portfolio
     </a>
   </div>
 
-  <div class="w-full max-w-4xl mt-20 text-center mb-12">
-    <h4 class="text-xs font-bold tracking-widest uppercase mb-4" style="color: #10B981;">GITHUB ACTIVITY</h4>
+  <div class="w-full max-w-2xl text-center mb-10">
+    <h4 class="text-xs font-bold tracking-widest uppercase mb-4" style="color: #10B981;">CONNECT WITH ME</h4>
     <h1 class="text-5xl sm:text-6xl font-bold mb-4" style="font-family: 'Outfit', sans-serif;">
-      GitHub <span style="color: #10B981;">Stats</span>
+      My Git <span style="color: #10B981;">Stats</span>
     </h1>
-    <p class="text-gray-500 text-lg">Commits, streaks, and top languages</p>
+    <p class="text-gray-500 text-lg">Commits, streaks, and open source activity</p>
   </div>
 
-  <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 pb-20">
+  <div class="os-card flex flex-col md:flex-row gap-8 p-8 md:p-10">
     
-    <!-- GitHub Stats Card -->
-    <div class="glass-card md:col-span-1">
-      <img src="https://github-readme-stats.vercel.app/api?username=Achintha2002&show_icons=true&theme=transparent&hide_border=true&title_color=10B981&text_color=9ca3af&icon_color=10B981&bg_color=00000000" alt="GitHub Stats" />
+    <!-- Left Column: Profile Info -->
+    <div class="w-full md:w-[35%] flex flex-col gap-6">
+      
+      <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wider" style="font-family: 'Outfit', sans-serif;">
+        Open Source <span class="text-ghgreen">Activity</span>
+      </h2>
+
+      <div class="flex items-center gap-4 mt-2">
+        <div class="relative w-16 h-16 rounded-full p-[2px] bg-ghgreen">
+          <img id="gh-avatar" src="https://avatars.githubusercontent.com/u/1?v=4" alt="Profile" class="w-full h-full rounded-full object-cover border-2 border-white dark:border-gray-800" />
+        </div>
+        <div class="flex flex-col">
+          <h3 id="gh-name" class="text-xl font-bold text-gray-900 dark:text-white">Loading...</h3>
+          <span class="text-gray-500 text-sm">@Achintha2002</span>
+        </div>
+      </div>
+
+      <p id="gh-bio" class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed min-h-[60px]">
+        Loading bio...
+      </p>
+
+      <div class="grid grid-cols-3 gap-2 mt-4">
+        <div class="flex flex-col items-center justify-start">
+          <span id="gh-repos" class="text-3xl font-bold text-blue-500 mb-2">...</span>
+          <span class="text-[0.65rem] font-bold text-gray-500 tracking-wider text-center leading-tight">PUBLIC<br/>REPOS</span>
+        </div>
+        
+        <div class="flex flex-col items-center justify-start">
+          <span id="gh-commits" class="text-3xl font-bold text-orange-500 mb-2">-</span>
+          <span class="text-[0.65rem] font-bold text-gray-500 tracking-wider text-center leading-tight">TOTAL<br/>COMMITS</span>
+        </div>
+
+        <div class="flex flex-col items-center justify-start">
+          <span id="gh-followers" class="text-3xl font-bold text-ghgreen mb-2">...</span>
+          <span class="text-[0.65rem] font-bold text-gray-500 tracking-wider text-center leading-tight">FOLLOWERS</span>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Top Languages Card -->
-    <div class="glass-card md:col-span-1">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Achintha2002&layout=compact&theme=transparent&hide_border=true&title_color=10B981&text_color=9ca3af&bg_color=00000000" alt="Top Languages" />
-    </div>
+    <!-- Right Column: Graph -->
+    <div class="w-full md:w-[65%] flex flex-col pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-gray-200 dark:border-gray-800 md:pl-8">
+      
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-2 font-bold text-gray-800 dark:text-gray-200">
+          <i class="fab fa-github text-xl"></i>
+          <span>Contribution Graph</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-gray-500">
+          <span class="w-2 h-2 rounded-full bg-ghgreen animate-pulse"></span>
+          Live Data
+        </div>
+      </div>
 
-    <!-- GitHub Streak Card -->
-    <div class="glass-card md:col-span-2">
-      <img src="https://github-readme-streak-stats.herokuapp.com/?user=Achintha2002&theme=transparent&hide_border=true&title_color=10B981&text_color=9ca3af&icon_color=10B981&background=00000000" alt="GitHub Streak" style="width: 100%; max-width: 600px; margin: 0 auto; display: block;" />
+      <!-- Graph Container -->
+      <div class="graph-container bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl p-4 md:p-6 w-full overflow-x-auto shadow-sm">
+        <img id="gh-chart" src="https://ghchart.rshah.org/10B981/Achintha2002" alt="GitHub Contribution Graph" />
+      </div>
+
     </div>
 
   </div>
 
   <script>
-    // Dynamically adjust theme of github stat images based on body theme
-    function updateImagesTheme() {
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      const textColor = isLight ? '374151' : '9ca3af';
-      
-      const images = document.querySelectorAll('.glass-card img');
-      images.forEach(img => {
-        let url = img.src;
-        url = url.replace(/text_color=[A-Za-z0-9]+/, `text_color=${textColor}`);
-        img.src = url;
-      });
+    // Fetch Real-time GitHub Profile Data
+    async function fetchGitHubProfile() {
+      try {
+        const res = await fetch('https://api.github.com/users/Achintha2002');
+        if (!res.ok) throw new Error('Failed to fetch data');
+        const data = await res.json();
+        
+        document.getElementById('gh-avatar').src = data.avatar_url;
+        document.getElementById('gh-name').textContent = data.name || data.login;
+        document.getElementById('gh-bio').textContent = data.bio || 'Passionate developer building awesome things for the web.';
+        document.getElementById('gh-repos').textContent = data.public_repos;
+        document.getElementById('gh-followers').textContent = data.followers;
+        
+      } catch (err) {
+        console.error('Error fetching GitHub data:', err);
+        // Fallbacks
+        document.getElementById('gh-name').textContent = 'Achintha Edirisinghe';
+        document.getElementById('gh-bio').textContent = 'IT Undergraduate with strong skills in Full-Stack Development and Cloud Computing.';
+        document.getElementById('gh-repos').textContent = '19';
+        document.getElementById('gh-followers').textContent = '5';
+      }
+
+      // Fetch Real-time Total Commits
+      try {
+        const commitsRes = await fetch('https://api.github.com/search/commits?q=author:Achintha2002', {
+          headers: {
+            'Accept': 'application/vnd.github.cloak-preview'
+          }
+        });
+        if (commitsRes.ok) {
+          const commitsData = await commitsRes.json();
+          document.getElementById('gh-commits').textContent = commitsData.total_count || '-';
+        }
+      } catch (err) {
+        console.error('Error fetching commits data:', err);
+      }
     }
 
-    // Run on load
-    document.addEventListener('DOMContentLoaded', updateImagesTheme);
-    
-    // Listen for theme changes if your script.js fires an event or mutates the attribute
-    const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        if (mutation.attributeName === "data-theme") {
-          updateImagesTheme();
-        }
-      });
-    });
-    observer.observe(document.documentElement, { attributes: true });
+    document.addEventListener('DOMContentLoaded', fetchGitHubProfile);
   </script>
 
 </body>
