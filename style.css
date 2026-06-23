@@ -973,10 +973,44 @@ section {
   line-height: 1.6;
   margin-bottom: 2rem;
 }
+.craft-resume-btn-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.craft-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.7rem 1.6rem;
+  border-radius: 99px;
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-smooth), border-color 0.3s var(--ease-smooth);
+}
+
+.craft-resume-btn i {
+  font-size: 1.1rem;
+}
+
+.craft-resume-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  border-color: rgba(255, 126, 95, 0.4);
+}
+
 .craft-tech-slider {
   overflow: hidden;
   position: relative;
-  margin: 6rem -2.5rem -1rem; /* Push down further (approx 1.5cm) */
+  margin: 1rem -2.5rem -1rem; /* Reduced top margin since button fills space */
   padding: 0.8rem 0; /* thinner */
   background: var(--bg-tertiary);
   border-top: 1px solid var(--border-color);
