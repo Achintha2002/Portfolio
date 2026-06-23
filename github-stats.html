@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GitHub Stats | Achintha Edirisinghe</title>
   <meta name="description" content="GitHub open source activity and contribution graph for Achintha Edirisinghe." />
-  
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.8em%22 font-size=%2280%22 font-family=%22system-ui, sans-serif%22 font-weight=%22bold%22 fill=%22%23b084ff%22>AE</text></svg>">
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.8em%22 font-size=%2280%22 font-family=%22system-ui, sans-serif%22 font-weight=%22bold%22 fill=%22%23b084ff%22>AE</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=5">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <script>
     // Prevent FOUC by setting theme immediately
     const savedTheme = localStorage.getItem("portfolio_theme") || "dark";
@@ -44,18 +48,18 @@
       align-items: center;
       padding: 3rem 1rem;
     }
-    
+
     .os-card {
       background: var(--bg-secondary);
       border: 1px solid var(--border-color);
       border-radius: 24px;
-      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 1000px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      md:flex-direction: row;
+      md: flex-direction: row;
     }
 
     .graph-container img {
@@ -65,10 +69,13 @@
     }
   </style>
 </head>
+
 <body class="relative overflow-x-hidden">
 
   <div class="w-full max-w-3xl absolute top-6 left-6 flex justify-start z-10">
-    <a href="/" class="inline-flex items-center gap-3 px-6 py-2.5 rounded-full font-bold text-black transition-all hover:scale-105" style="background: rgba(224, 242, 254, 0.8); border: 1px solid rgba(186, 230, 253, 0.8);">
+    <a href="/"
+      class="inline-flex items-center gap-3 px-6 py-2.5 rounded-full font-bold text-black transition-all hover:scale-105"
+      style="background: rgba(224, 254, 237, 0.8); border: 1px solid rgba(186, 253, 222, 0.8);">
       <i class="fas fa-arrow-left"></i> Back to Portfolio
     </a>
   </div>
@@ -82,17 +89,18 @@
   </div>
 
   <div class="os-card flex flex-col md:flex-row gap-8 p-8 md:p-10">
-    
+
     <!-- Left Column: Profile Info -->
     <div class="w-full md:w-[35%] flex flex-col gap-6">
-      
+
       <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wider" style="font-family: 'Outfit', sans-serif;">
         Open Source <span class="text-ghgreen">Activity</span>
       </h2>
 
       <div class="flex items-center gap-4 mt-2">
         <div class="relative w-16 h-16 rounded-full p-[2px] bg-ghgreen">
-          <img id="gh-avatar" src="https://avatars.githubusercontent.com/u/1?v=4" alt="Profile" class="w-full h-full rounded-full object-cover border-2 border-white dark:border-gray-800" />
+          <img id="gh-avatar" src="https://avatars.githubusercontent.com/u/1?v=4" alt="Profile"
+            class="w-full h-full rounded-full object-cover border-2 border-white dark:border-gray-800" />
         </div>
         <div class="flex flex-col">
           <h3 id="gh-name" class="text-xl font-bold text-gray-900 dark:text-white">Loading...</h3>
@@ -107,12 +115,14 @@
       <div class="grid grid-cols-3 gap-2 mt-4">
         <div class="flex flex-col items-center justify-start">
           <span id="gh-repos" class="text-3xl font-bold text-blue-500 mb-2">...</span>
-          <span class="text-[0.65rem] font-bold text-gray-500 tracking-wider text-center leading-tight">PUBLIC<br/>REPOS</span>
+          <span
+            class="text-[0.65rem] font-bold text-gray-500 tracking-wider text-center leading-tight">PUBLIC<br />REPOS</span>
         </div>
-        
+
         <div class="flex flex-col items-center justify-start">
           <span id="gh-commits" class="text-3xl font-bold text-orange-500 mb-2">-</span>
-          <span class="text-[0.65rem] font-bold text-gray-500 tracking-wider text-center leading-tight">TOTAL<br/>COMMITS</span>
+          <span
+            class="text-[0.65rem] font-bold text-gray-500 tracking-wider text-center leading-tight">TOTAL<br />COMMITS</span>
         </div>
 
         <div class="flex flex-col items-center justify-start">
@@ -124,8 +134,9 @@
     </div>
 
     <!-- Right Column: Graph -->
-    <div class="w-full md:w-[65%] flex flex-col pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-gray-200 dark:border-gray-800 md:pl-8">
-      
+    <div
+      class="w-full md:w-[65%] flex flex-col pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-gray-200 dark:border-gray-800 md:pl-8">
+
       <div class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-2 font-bold text-gray-800 dark:text-gray-200">
           <i class="fab fa-github text-xl"></i>
@@ -138,7 +149,8 @@
       </div>
 
       <!-- Graph Container -->
-      <div class="graph-container bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl p-4 md:p-6 w-full overflow-x-auto shadow-sm">
+      <div
+        class="graph-container bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl p-4 md:p-6 w-full overflow-x-auto shadow-sm">
         <img id="gh-chart" src="https://ghchart.rshah.org/10B981/Achintha2002" alt="GitHub Contribution Graph" />
       </div>
 
@@ -153,13 +165,13 @@
         const res = await fetch('https://api.github.com/users/Achintha2002');
         if (!res.ok) throw new Error('Failed to fetch data');
         const data = await res.json();
-        
+
         document.getElementById('gh-avatar').src = data.avatar_url;
         document.getElementById('gh-name').textContent = data.name || data.login;
         document.getElementById('gh-bio').textContent = data.bio || 'Passionate developer building awesome things for the web.';
         document.getElementById('gh-repos').textContent = data.public_repos;
         document.getElementById('gh-followers').textContent = data.followers;
-        
+
       } catch (err) {
         console.error('Error fetching GitHub data:', err);
         // Fallbacks
@@ -171,17 +183,17 @@
 
       // Fetch Real-time Total Commits
       try {
-        const commitsRes = await fetch('https://api.github.com/search/commits?q=author:Achintha2002', {
-          headers: {
-            'Accept': 'application/vnd.github.cloak-preview'
-          }
-        });
+        const commitsRes = await fetch('https://api.github.com/search/commits?q=author:Achintha2002');
         if (commitsRes.ok) {
           const commitsData = await commitsRes.json();
           document.getElementById('gh-commits').textContent = commitsData.total_count || '-';
+        } else {
+          console.error('GitHub API rate limit exceeded or error:', commitsRes.status);
+          document.getElementById('gh-commits').textContent = '281'; // Fallback to last known good value if rate limited
         }
       } catch (err) {
         console.error('Error fetching commits data:', err);
+        document.getElementById('gh-commits').textContent = '281';
       }
     }
 
@@ -189,4 +201,5 @@
   </script>
 
 </body>
+
 </html>
