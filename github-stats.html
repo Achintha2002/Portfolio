@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Stats | Achintha Edirisinghe</title>
+  <meta name="description" content="GitHub statistics, top languages, and commit streaks for Achintha Edirisinghe." />
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.8em%22 font-size=%2280%22 font-family=%22system-ui, sans-serif%22 font-weight=%22bold%22 fill=%22%23b084ff%22>AE</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    // Prevent FOUC by setting theme immediately
+    const savedTheme = localStorage.getItem("portfolio_theme") || "dark";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    
+    .glass-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+    
+    .glass-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+    
+    .glass-card img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body class="relative overflow-x-hidden flex flex-col items-center py-12 px-4 sm:px-6">
+
+  <div class="w-full max-w-4xl absolute top-6 left-6 sm:left-12 flex justify-start z-10">
+    <a href="/" class="inline-flex items-center gap-3 px-6 py-2.5 rounded-full font-bold text-black transition-all hover:scale-105" style="background: rgba(224, 242, 254, 0.8); border: 1px solid rgba(186, 230, 253, 0.8);">
+      <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+  </div>
+
+  <div class="w-full max-w-4xl mt-20 text-center mb-12">
+    <h4 class="text-xs font-bold tracking-widest uppercase mb-4" style="color: #10B981;">GITHUB ACTIVITY</h4>
+    <h1 class="text-5xl sm:text-6xl font-bold mb-4" style="font-family: 'Outfit', sans-serif;">
+      GitHub <span style="color: #10B981;">Stats</span>
+    </h1>
+    <p class="text-gray-500 text-lg">Commits, streaks, and top languages</p>
+  </div>
+
+  <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 pb-20">
+    
+    <!-- GitHub Stats Card -->
+    <div class="glass-card md:col-span-1">
+      <img src="https://github-readme-stats.vercel.app/api?username=Achintha2002&show_icons=true&theme=transparent&hide_border=true&title_color=10B981&text_color=9ca3af&icon_color=10B981&bg_color=00000000" alt="GitHub Stats" />
+    </div>
+
+    <!-- Top Languages Card -->
+    <div class="glass-card md:col-span-1">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Achintha2002&layout=compact&theme=transparent&hide_border=true&title_color=10B981&text_color=9ca3af&bg_color=00000000" alt="Top Languages" />
+    </div>
+
+    <!-- GitHub Streak Card -->
+    <div class="glass-card md:col-span-2">
+      <img src="https://github-readme-streak-stats.herokuapp.com/?user=Achintha2002&theme=transparent&hide_border=true&title_color=10B981&text_color=9ca3af&icon_color=10B981&background=00000000" alt="GitHub Streak" style="width: 100%; max-width: 600px; margin: 0 auto; display: block;" />
+    </div>
+
+  </div>
+
+  <script>
+    // Dynamically adjust theme of github stat images based on body theme
+    function updateImagesTheme() {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      const textColor = isLight ? '374151' : '9ca3af';
+      
+      const images = document.querySelectorAll('.glass-card img');
+      images.forEach(img => {
+        let url = img.src;
+        url = url.replace(/text_color=[A-Za-z0-9]+/, `text_color=${textColor}`);
+        img.src = url;
+      });
+    }
+
+    // Run on load
+    document.addEventListener('DOMContentLoaded', updateImagesTheme);
+    
+    // Listen for theme changes if your script.js fires an event or mutates the attribute
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === "data-theme") {
+          updateImagesTheme();
+        }
+      });
+    });
+    observer.observe(document.documentElement, { attributes: true });
+  </script>
+
+</body>
+</html>
