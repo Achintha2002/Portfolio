@@ -464,7 +464,7 @@ function initSkillsSphere() {
     "Node.js":    "devicon-nodejs-plain colored",
     "Python":     "devicon-python-original colored",
     "Docker":     "devicon-docker-plain colored",
-    "Next.js":    `<svg viewBox="0 0 512 512" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" r="256" fill="white"/><path d="M380.5 407.7L194.2 153.8H148v204.4h39.6V226l165 225.8c9.5-13.6 19.3-27.5 27.9-44.1zM324.5 153.8h39.6v204.4h-39.6z" fill="black"/></svg>`,
+    "Next.js":    `<svg viewBox="0 0 512 512" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" r="256" fill="currentColor"/><path d="M380.5 407.7L194.2 153.8H148v204.4h39.6V226l165 225.8c9.5-13.6 19.3-27.5 27.9-44.1zM324.5 153.8h39.6v204.4h-39.6z" fill="var(--bg-primary)"/></svg>`,
     "Git":        "devicon-git-plain colored",
     "JavaScript": "devicon-javascript-plain colored",
     "HTML5":      "devicon-html5-plain colored",
@@ -473,8 +473,8 @@ function initSkillsSphere() {
     "MongoDB":    "devicon-mongodb-plain-wordmark colored",
     "GitHub":     "devicon-github-original",
     "C++":        "devicon-cplusplus-plain colored",
-    "Vercel":     `<svg viewBox="0 0 512 512" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 48L496 464H16Z" fill="white"/></svg>`,
-    "Expo":       `<svg viewBox="0 0 256 256" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M141.04 18.17l96.65 174.56c8.53 15.42-2.6 34.61-20.16 34.61H214.3c-7.31 0-14.18-3.92-17.75-10.15L127.97 97.43l-68.42 119.7c-3.61 6.32-10.45 10.21-17.75 10.21H18.66c-17.58 0-28.71-19.16-20.2-34.56l96.53-174.61c8.89-16.08 31.96-16.05 40.85 0z"/></svg>`
+    "Vercel":     `<svg viewBox="0 0 512 512" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 48L496 464H16Z" fill="currentColor"/></svg>`,
+    "Expo":       `<svg viewBox="0 0 256 256" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M141.04 18.17l96.65 174.56c8.53 15.42-2.6 34.61-20.16 34.61H214.3c-7.31 0-14.18-3.92-17.75-10.15L127.97 97.43l-68.42 119.7c-3.61 6.32-10.45 10.21-17.75 10.21H18.66c-17.58 0-28.71-19.16-20.2-34.56l96.53-174.61c8.89-16.08 31.96-16.05 40.85 0z"/></svg>`
   };
 
   const skills = PORTFOLIO_CONFIG.skills;
