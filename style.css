@@ -1611,6 +1611,16 @@ section {
   transform: translateY(-6px);
 }
 
+.explore-card.hire-card:hover {
+  border-color: #A855F7;
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.15);
+}
+
+.explore-card.github-stats-card:hover {
+  border-color: #10B981;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
+}
+
 .explore-icon-wrapper {
   width: 64px;
   height: 64px;
