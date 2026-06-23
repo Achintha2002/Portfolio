@@ -168,38 +168,42 @@ function setupPortfolioContent() {
       const card = document.createElement("div");
       card.className = "project-card";
       card.innerHTML = `
-        <div class="project-media">
-          <img class="project-img" src="${project.image}" alt="${project.title}">
-        </div>
-        <div class="project-info">
-          <div>
-            <div class="project-num">${project.id}</div>
-            <div class="project-category">${project.category}</div>
-            <h3 class="project-title">${project.title}</h3>
-            <p class="project-desc">${project.description}</p>
-            ${project.tags ? `
-            <div class="project-tags">
-              ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
-            </div>
-            ` : ''}
+          <div class="project-meta">
+            <span class="project-num">${project.id}</span>
+            <span class="project-line"></span>
+            <span class="project-category">${project.category}</span>
           </div>
-          <div class="project-links">
-            <a href="${project.github}" target="_blank" class="project-btn">
-              <i class="fab fa-github"></i> GitHub
+          <h3 class="project-title-new">${project.title}</h3>
+          
+          <div class="project-visual-block" style="background-color: ${project.color};">
+            <p class="project-desc-overlay">${project.description}</p>
+            <div class="project-img-wrapper">
+              <img class="project-img-mockup" src="${project.image}" alt="${project.title}">
+            </div>
+          </div>
+          
+          ${project.tags ? `
+          <div class="project-tags-new">
+            ${project.tags.map(tag => `<span class="project-tag-pill">${tag}</span>`).join('')}
+          </div>
+          ` : ''}
+          
+          <div class="project-links-new">
+            <a href="${project.github}" target="_blank" class="project-btn-new">
+              <i class="fab fa-github"></i>
             </a>
             ${project.link ? `
-            <a href="${project.link}" target="_blank" class="project-btn primary-btn">
+            <a href="${project.link}" target="_blank" class="project-btn-new primary">
               <i class="fas fa-external-link-alt"></i> Live Demo
             </a>
             ` : ''}
             ${project.hasCaseStudy ? `
-            <a href="${project.caseStudyUrl || (project.id === '01' ? 'project-details.html' : project.id === '02' ? 'sportify-details.html' : project.id === '03' ? 'raanicream-details.html' : project.id === '04' ? 'smartcampus-details.html' : '#')}" class="project-btn case-study-btn">
-              <i class="fas fa-book-open"></i> Project Details
+            <a href="${project.caseStudyUrl}" class="project-btn-new outline">
+              <i class="fas fa-book-open"></i> Details
             </a>
             ` : ''}
           </div>
-        </div>
-      `;
+        `;
       projectsContainer.appendChild(card);
     });
   }

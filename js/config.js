@@ -51,7 +51,8 @@ const PORTFOLIO_CONFIG = {
       github: "https://github.com/Gagana0819/BrightPath-LMS-ITPM-.git",
       tags: ["Python", "Django", "React", "Supabase", "Celery"],
       hasCaseStudy: true,
-      caseStudyUrl: "project-details.html"
+      caseStudyUrl: "project-details.html",
+      color: "#FF7E5F"
     },
     {
       id: "02",
@@ -63,7 +64,8 @@ const PORTFOLIO_CONFIG = {
       link: "https://sportify-frontend-eight.vercel.app",
       tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
       hasCaseStudy: true,
-      caseStudyUrl: "sportify-details.html"
+      caseStudyUrl: "sportify-details.html",
+      color: "#10B981"
     },
     {
       id: "03",
@@ -75,7 +77,8 @@ const PORTFOLIO_CONFIG = {
       link: "https://cream-web-ten.vercel.app/",
       tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
       hasCaseStudy: true,
-      caseStudyUrl: "raanicream-details.html"
+      caseStudyUrl: "raanicream-details.html",
+      color: "#8B5CF6"
     },
     {
       id: "04",
@@ -85,7 +88,8 @@ const PORTFOLIO_CONFIG = {
       image: "/assets/smart-campus.png",
       tags: ["Spring Boot", "React", "PostgreSQL", "Google OAuth"],
       hasCaseStudy: true,
-      caseStudyUrl: "smartcampus-details.html"
+      caseStudyUrl: "smartcampus-details.html",
+      color: "#3B82F6"
     },
     {
       id: "05",
@@ -95,7 +99,8 @@ const PORTFOLIO_CONFIG = {
       image: "/assets/photo-home.png",
       github: "https://github.com/Achintha2002/PhotoFrameWeb.git",
       link: "https://photo-frame-web.vercel.app/",
-      tags: ["React", "Vite", "Tailwind CSS"]
+      tags: ["React", "Vite", "Tailwind CSS"],
+      color: "#EC4899"
     }
   ],
   skills: [
