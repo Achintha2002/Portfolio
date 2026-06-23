@@ -1202,7 +1202,7 @@ section {
 [data-theme="light"] .project-card,
 [data-theme="light"] .cert-card,
 [data-theme="light"] .bento-card {
-  background: #f1f5f9;
+  background: #e2e8f0;
 }
 
 .project-card:hover {
