@@ -280,11 +280,53 @@
           </div>
 
           <!-- Card 6: Coordinates Location (span 4, span 0.5 rows) -->
-          <div class="bento-card card-4 location-card">
-            <h4 class="location-title" id="bento-location-title">Colombo, Sri Lanka</h4>
-            <div class="location-coord" id="bento-location-coord">6.9271° N, 79.8612° E</div>
-            <div class="location-timezone" id="bento-location-timezone">GMT+5:30</div>
-            <div class="location-map-bg"></div>
+          <div class="bento-card card-4 location-card" style="padding: 0 !important;">
+            <div class="globe-glow"></div>
+            <div class="globe-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/600px-The_Earth_seen_from_Apollo_17.jpg" alt="Earth" />
+            </div>
+            <div class="globe-fade"></div>
+            <div class="grid-overlay-loc"></div>
+            <div class="scan-line"></div>
+
+            <div class="top-bar-loc">
+              <span class="tag-loc">Location · Active</span>
+            </div>
+
+            <div class="content-loc">
+              <div class="city-name">Colombo</div>
+              <div class="country-loc">Sri Lanka</div>
+              <div class="divider-loc"></div>
+              <div class="info-row-loc">
+                <div class="info-item-loc">
+                  <label>Latitude</label>
+                  <span>6.9271° N</span>
+                </div>
+                <div class="info-item-loc">
+                  <label>Longitude</label>
+                  <span>79.8612° E</span>
+                </div>
+              </div>
+              <div class="badges-loc">
+                <div class="tz-badge">
+                  <div class="tz-dot"></div>
+                  GMT +5:30
+                </div>
+                <div class="live-badge">
+                  <div class="live-dot"></div>
+                  <span id="live-time">--:-- --</span>
+                </div>
+                <div class="temp-badge">
+                  <div class="temp-dot"></div>
+                  <span id="live-temp">--°C</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bottom-bar-loc">
+              <span class="status-loc">Signal acquired</span>
+              <span class="coords-small-loc">6.9271° N · 79.8612° E</span>
+            </div>
           </div>
 
         </div>

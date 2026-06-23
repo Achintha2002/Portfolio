@@ -1138,46 +1138,280 @@ section {
   animation: pulse 2s infinite;
 }
 
-/* Location Card */
+/* NEW LOCATION CARD */
 .location-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: #1e1e1e !important; /* Dark mode override */
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 0 60px rgba(180,180,180,0.05);
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-.location-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin-bottom: 0.25rem;
+[data-theme="light"] .location-card {
+  background: #1e1e1e !important;
 }
 
-.location-coord {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.25rem;
-}
-
-.location-timezone {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.location-map-bg {
+.globe-wrap {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -30px;
+  right: -40px;
+  width: 300px;
+  height: 300px;
+  opacity: 0.38;
+  filter: saturate(0) brightness(0.85);
+  pointer-events: none;
+}
+
+.globe-wrap img {
   width: 100%;
   height: 100%;
-  opacity: 0.6;
-  background-image: url('assets/earth-bg.png');
-  background-size: cover;
-  background-position: center right;
-  filter: grayscale(100%);
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.globe-glow {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(180,180,180,0.1) 0%, transparent 65%);
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0) 100%);
-  mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0) 100%);
+}
+
+.globe-fade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, #1e1e1e 30%, transparent 70%),
+    linear-gradient(to top, #1e1e1e 15%, transparent 60%);
+  pointer-events: none;
+}
+
+@keyframes lineScan {
+  0%   { left: -2px; opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(232,128,58,0.0) 5%,
+    rgba(232,128,58,0.8) 35%,
+    rgba(255,180,110,1) 50%,
+    rgba(232,128,58,0.8) 65%,
+    rgba(232,128,58,0.0) 95%,
+    transparent 100%);
+  animation: lineScan 4.5s ease-in-out infinite;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.grid-overlay-loc {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 32px 32px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.top-bar-loc {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.6rem 0.6rem;
+}
+
+.tag-loc {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: rgba(180,180,180,0.7);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.content-loc {
+  position: relative;
+  z-index: 5;
+  padding: 0.6rem 1.6rem 1.4rem;
+}
+
+.city-name {
+  font-size: 36px;
+  font-weight: 700;
+  color: #f0f0f0;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.country-loc {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.28);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.divider-loc {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, rgba(180,180,180,0.3), transparent);
+  margin-bottom: 1.1rem;
+}
+
+.info-row-loc {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.1rem;
+}
+
+.info-item-loc label {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.info-item-loc span {
+  font-size: 14px;
+  color: rgba(255,255,255,0.78);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.badges-loc {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tz-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(180,180,180,0.08);
+  border: 1px solid rgba(180,180,180,0.2);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: rgba(200,200,200,0.85);
+  letter-spacing: 0.08em;
+}
+
+.tz-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #aaaaaa;
+  animation: tzPulse 2s ease-in-out infinite;
+}
+
+@keyframes tzPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes livePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232,128,58,0.0); border-color: rgba(232,128,58,0.25); }
+  50% { box-shadow: 0 0 12px 3px rgba(232,128,58,0.2); border-color: rgba(232,128,58,0.6); }
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(232,128,58,0.07);
+  border: 1px solid rgba(232,128,58,0.3);
+  border-radius: 8px;
+  padding: 6px 14px;
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+.live-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #e8803a;
+  animation: tzPulse 1.4s ease-in-out infinite;
+}
+
+#live-time {
+  font-size: 17px;
+  font-weight: 700;
+  color: rgba(255,200,150,0.95);
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  min-width: 85px;
+}
+
+.temp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(100,180,255,0.07);
+  border: 1px solid rgba(100,180,255,0.25);
+  border-radius: 8px;
+  padding: 6px 14px;
+  animation: tempPulse 3s ease-in-out infinite;
+}
+
+@keyframes tempPulse {
+  0%, 100% { border-color: rgba(100,180,255,0.2); }
+  50% { border-color: rgba(100,180,255,0.55); box-shadow: 0 0 10px 2px rgba(100,180,255,0.12); }
+}
+
+.temp-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #64b4ff;
+  animation: tzPulse 2.2s ease-in-out infinite;
+}
+
+#live-temp {
+  font-size: 17px;
+  font-weight: 700;
+  color: rgba(150,210,255,0.95);
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  min-width: 48px;
+}
+
+.bottom-bar-loc {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.6rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.status-loc {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: rgba(255,255,255,0.18);
+  text-transform: uppercase;
+}
+
+.coords-small-loc {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.06em;
 }
 
 /* Featured Projects Section */
