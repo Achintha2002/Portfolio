@@ -988,7 +988,7 @@ section {
   overflow: hidden;
   position: relative;
   margin: 3rem -2.5rem -1rem; /* Push down further and break out of padding */
-  padding: 1.5rem 0; /* slightly taller */
+  padding: 0.8rem 0; /* thinner */
   background: var(--bg-tertiary);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
