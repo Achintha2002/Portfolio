@@ -1439,7 +1439,7 @@ section {
 
 .sphere-icon-text {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 80%;
   font-family: var(--font-display);
   font-size: 0.85rem;
   font-weight: 700;
