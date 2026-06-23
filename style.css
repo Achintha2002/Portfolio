@@ -67,17 +67,17 @@
   --bg-tertiary: #eef0f5;
   --bg-card: rgba(244, 245, 248, 0.9);
   --bg-glass: rgba(0, 0, 0, 0.02);
-  --bg-dot: rgba(109, 72, 255, 0.05);
+  --bg-dot: rgba(0, 0, 0, 0.05);
 
   --border-color: rgba(0, 0, 0, 0.07);
-  --border-hover: rgba(109, 72, 255, 0.28);
+  --border-hover: rgba(255, 126, 95, 0.4);
 
   --text-primary: #0d0f1a;
   --text-secondary: #4b5568;
   --text-muted: #9ca3af;
 
-  --card-shadow: 0 4px 24px rgba(109, 72, 255, 0.07), 0 1px 0 rgba(0, 0, 0, 0.04);
-  --glow-shadow: 0 0 30px rgba(109, 72, 255, 0.1);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(0, 0, 0, 0.04);
+  --glow-shadow: 0 0 30px rgba(255, 126, 95, 0.15);
 }
 
 /* Lit Dots Overlay — dots near cursor light up */
@@ -806,20 +806,20 @@ section {
   .hover-cards-wrapper:hover .hc-1:hover {
     transform: translateX(-220px) translateY(-10px) scale(1.05);
     z-index: 10;
-    box-shadow: 0 -10px 40px rgba(168, 85, 247, 0.4);
-    border: 1px solid rgba(168, 85, 247, 0.4);
+    box-shadow: 0 -10px 40px rgba(255, 126, 95, 0.4);
+    border: 1px solid rgba(255, 126, 95, 0.4);
   }
   .hover-cards-wrapper:hover .hc-2:hover {
     transform: translateX(0) translateY(-10px) scale(1.05);
     z-index: 10;
-    box-shadow: 0 -10px 40px rgba(168, 85, 247, 0.4);
-    border: 1px solid rgba(168, 85, 247, 0.4);
+    box-shadow: 0 -10px 40px rgba(255, 126, 95, 0.4);
+    border: 1px solid rgba(255, 126, 95, 0.4);
   }
   .hover-cards-wrapper:hover .hc-3:hover {
     transform: translateX(220px) translateY(-10px) scale(1.05);
     z-index: 10;
-    box-shadow: 0 -10px 40px rgba(168, 85, 247, 0.4);
-    border: 1px solid rgba(168, 85, 247, 0.4);
+    box-shadow: 0 -10px 40px rgba(255, 126, 95, 0.4);
+    border: 1px solid rgba(255, 126, 95, 0.4);
   }
 }
 
