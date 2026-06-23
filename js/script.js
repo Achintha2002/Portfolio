@@ -590,7 +590,7 @@ function initSkillsSphere() {
       
       if (item.isHovered) {
         item.el.style.opacity = 1;
-        item.el.style.transform = `translate(-50%, -50%) scale(${scale * 1.8})`;
+        item.el.style.transform = `translate(-50%, -50%) scale(${scale * 1.25})`;
         item.el.style.zIndex = 1000;
         item.el.style.filter = "none";
       } else {

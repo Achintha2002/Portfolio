@@ -1453,10 +1453,6 @@ section {
   pointer-events: none;
 }
 
-.sphere-icon-item:hover i,
-.sphere-icon-item:hover svg {
-  transform: scale(1.4);
-}
 
 .sphere-icon-item:hover .sphere-icon-text {
   opacity: 1;
