@@ -743,29 +743,29 @@ section {
 
 .hover-card {
   position: absolute;
-  bottom: 0;
+  bottom: -20px; /* pull down slightly so rounded bottom isn't visible */
   width: 100%;
-  max-width: 320px;
-  height: 220px;
+  max-width: 260px; /* narrower to fit 3 cards in the container */
+  height: 250px;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 16px 16px 0 0;
-  padding: 2rem;
+  padding: 1.5rem;
   box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
-  transition: all 0.5s var(--ease-spring);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   transform-origin: bottom center;
 }
 
 .hover-card h4 {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 800;
   margin-bottom: 0.8rem;
   color: var(--text-primary);
 }
 
 .hover-card p {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -779,31 +779,47 @@ section {
   pointer-events: none;
 }
 
-.hc-1 { z-index: 1; transform: translateX(-160px) translateY(50px) scale(0.9); opacity: 0.6; }
-.hc-2 { z-index: 3; transform: translateX(0) translateY(20px) scale(0.95); opacity: 1; }
-.hc-3 { z-index: 1; transform: translateX(160px) translateY(50px) scale(0.9); opacity: 0.6; }
+/* Tightly stacked in normal state */
+.hc-1 { z-index: 1; transform: translateX(-100px) translateY(50px) scale(0.9); opacity: 0.6; }
+.hc-2 { z-index: 3; transform: translateX(0) translateY(30px) scale(0.95); opacity: 1; }
+.hc-3 { z-index: 1; transform: translateX(100px) translateY(50px) scale(0.9); opacity: 0.6; }
 
 /* Fan out on hover for Desktop */
 @media (min-width: 992px) {
+  /* Base fanned state (when wrapper is hovered) */
   .hover-cards-wrapper:hover .hc-1 {
-    transform: translateX(-310px) translateY(10px) scale(0.95);
-    opacity: 1;
-    z-index: 3;
-    border-radius: 16px;
+    transform: translateX(-220px) translateY(20px) scale(0.95);
+    opacity: 1; z-index: 3; border-radius: 16px;
   }
   .hover-cards-wrapper:hover .hc-2 {
-    transform: translateX(0) translateY(-30px) scale(1.05);
-    opacity: 1;
-    z-index: 4;
-    box-shadow: 0 -10px 40px rgba(168, 85, 247, 0.4);
-    border: 1px solid rgba(168, 85, 247, 0.4);
-    border-radius: 16px;
+    transform: translateX(0) translateY(20px) scale(0.95);
+    opacity: 1; z-index: 3; border-radius: 16px;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
   }
   .hover-cards-wrapper:hover .hc-3 {
-    transform: translateX(310px) translateY(10px) scale(0.95);
-    opacity: 1;
-    z-index: 3;
-    border-radius: 16px;
+    transform: translateX(220px) translateY(20px) scale(0.95);
+    opacity: 1; z-index: 3; border-radius: 16px;
+  }
+
+  /* Specific card hovered (pops up and glows) */
+  .hover-cards-wrapper:hover .hc-1:hover {
+    transform: translateX(-220px) translateY(-10px) scale(1.05);
+    z-index: 10;
+    box-shadow: 0 -10px 40px rgba(168, 85, 247, 0.4);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+  }
+  .hover-cards-wrapper:hover .hc-2:hover {
+    transform: translateX(0) translateY(-10px) scale(1.05);
+    z-index: 10;
+    box-shadow: 0 -10px 40px rgba(168, 85, 247, 0.4);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+  }
+  .hover-cards-wrapper:hover .hc-3:hover {
+    transform: translateX(220px) translateY(-10px) scale(1.05);
+    z-index: 10;
+    box-shadow: 0 -10px 40px rgba(168, 85, 247, 0.4);
+    border: 1px solid rgba(168, 85, 247, 0.4);
   }
 }
 
