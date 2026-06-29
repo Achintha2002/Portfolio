@@ -926,22 +926,29 @@ section {
   .hover-cards-wrapper:hover .hc-1:hover {
     transform: translateX(-220px) translateY(-10px) scale(1.05);
     z-index: 10;
-    box-shadow: 0 -10px 40px rgba(255, 126, 95, 0.4);
-    border: 1px solid rgba(255, 126, 95, 0.4);
+    box-shadow: 0 -10px 40px var(--border-hover);
+    border: 1px solid var(--border-hover);
   }
 
   .hover-cards-wrapper:hover .hc-2:hover {
     transform: translateX(0) translateY(-10px) scale(1.05);
     z-index: 10;
-    box-shadow: 0 -10px 40px rgba(255, 126, 95, 0.4);
-    border: 1px solid rgba(255, 126, 95, 0.4);
+    box-shadow: 0 -10px 40px var(--border-hover);
+    border: 1px solid var(--border-hover);
   }
 
   .hover-cards-wrapper:hover .hc-3:hover {
     transform: translateX(220px) translateY(-10px) scale(1.05);
     z-index: 10;
-    box-shadow: 0 -10px 40px rgba(255, 126, 95, 0.4);
-    border: 1px solid rgba(255, 126, 95, 0.4);
+    box-shadow: 0 -10px 40px var(--border-hover);
+    border: 1px solid var(--border-hover);
+  }
+
+  [data-theme="dark"] .hover-cards-wrapper:hover .hc-1:hover,
+  [data-theme="dark"] .hover-cards-wrapper:hover .hc-2:hover,
+  [data-theme="dark"] .hover-cards-wrapper:hover .hc-3:hover {
+    box-shadow: 0 -10px 40px rgba(0, 229, 255, 0.45);
+    border: 1px solid rgba(0, 229, 255, 0.6);
   }
 }
 
