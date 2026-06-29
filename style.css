@@ -1337,6 +1337,18 @@ section {
   pointer-events: none;
 }
 
+/* Dark mode: change scan line from orange to cyan */
+[data-theme="dark"] .location-scan-line {
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(0, 229, 255, 0.0) 5%,
+      rgba(0, 229, 255, 0.8) 35%,
+      rgba(0, 229, 255, 1) 50%,
+      rgba(0, 229, 255, 0.8) 65%,
+      rgba(0, 229, 255, 0.0) 95%,
+      transparent 100%);
+}
+
 @keyframes lineScan {
   0% {
     left: -2px;
@@ -1387,6 +1399,7 @@ section {
   font-weight: 600;
   color: var(--accent-purple);
 }
+[data-theme="dark"] .location-time { color: #ffffff; }
 
 .pulse-dot {
   display: inline-block;
@@ -1397,6 +1410,31 @@ section {
   margin-right: 8px;
   box-shadow: 0 0 0 rgba(232, 128, 58, 0.4);
   animation: pulse-dot-anim 2s infinite;
+}
+
+/* Dark mode override – blue pulse dot */
+[data-theme="dark"] .pulse-dot {
+  background-color: #00E5FF;
+  /* cyan */
+  box-shadow: 0 0 0 rgba(0, 229, 255, 0.4);
+  animation: pulse-dot-anim-dark 2s infinite;
+}
+
+@keyframes pulse-dot-anim-dark {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(0, 229, 255, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0);
+  }
 }
 
 @keyframes pulse-dot-anim {
