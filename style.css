@@ -1468,7 +1468,7 @@ section {
 }
 
 [data-theme="dark"] .project-visual-block {
-  border: 4px solid #1a1a1a;
+  border: 4px solid #fff9f9;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
