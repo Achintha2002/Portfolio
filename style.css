@@ -2395,16 +2395,25 @@ footer {
 
 @media (max-width: 768px) {
 
-  /* Global Spacing */
+  /* ====== Global ====== */
   .container {
     padding: 0 1.2rem;
   }
 
-  .section-container {
-    padding: 4rem 0;
+  section {
+    padding: 5rem 0 3rem 0;
+    min-height: auto;
   }
 
-  /* Mobile Side Navigation Drawer */
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* ====== Navigation - Mobile Drawer ====== */
   .mobile-menu-btn {
     display: flex;
     align-items: center;
@@ -2455,7 +2464,6 @@ footer {
     position: fixed;
     top: 0;
     right: -280px;
-    /* Hidden by default */
     width: 280px;
     height: 100vh;
     background: rgba(10, 8, 25, 0.35);
@@ -2494,7 +2502,6 @@ footer {
     cursor: pointer;
   }
 
-  /* Reset capsule to be a vertical menu */
   .nav-capsule {
     position: static;
     flex-direction: column;
@@ -2526,14 +2533,6 @@ footer {
     border-radius: var(--radius-md);
   }
 
-  .desktop-text {
-    display: inline;
-  }
-
-  .mobile-text {
-    display: none;
-  }
-
   .theme-toggle-btn {
     position: relative;
     top: auto;
@@ -2553,34 +2552,260 @@ footer {
     transform: scale(1.05);
   }
 
-  .book-call-btn {
-    padding: 10px;
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .book-call-btn span {
-    display: none;
-    /* Icon only */
-  }
-
-  /* Header & Theme Button */
-  .nav-logo {
-    left: 1.2rem;
-  }
-
   header {
-    top: 6.5rem;
+    top: 0;
   }
 
-  /* Hero Section */
-  /* Hero Section Media Queries Removed */
+  /* ====== Hero Section - Mobile ====== */
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 0;
+  }
 
-  /* Chatbot */
+  .hero-left {
+    order: 2;
+    text-align: center;
+    width: 100%;
+  }
+
+  .visual {
+    order: 1;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
+    line-height: 1.05;
+    text-align: center;
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    text-align: center;
+    max-width: 90%;
+    margin: 0.8rem auto;
+  }
+
+  .actions {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .glass-prism-visual {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  /* ====== About / Bento Grid - Mobile ====== */
+  .bento-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Reset all card spans */
+  .bento-card,
+  .bento-column,
+  .card-4,
+  .card-8 {
+    grid-column: unset !important;
+    grid-row: unset !important;
+    width: 100%;
+  }
+
+  /* Card ordering for mobile - matches reference site feel */
+  .sleek-name-card {
+    order: 1;
+    padding: 1.8rem;
+    min-height: auto;
+  }
+
+  .hover-cards-wrapper {
+    order: 2;
+    padding: 1.2rem;
+    min-height: auto;
+  }
+
+  .hover-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .hover-card {
+    position: static;
+    opacity: 1;
+    transform: none;
+    width: 100%;
+    padding: 1.2rem;
+  }
+
+  /* Middle column - split into two side-by-side */
+  .bento-column {
+    order: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .photo-card {
+    aspect-ratio: 1;
+    min-height: 180px;
+  }
+
+  .photo-card-img,
+  .sleek-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .location-card {
+    min-height: 180px;
+  }
+
+  .location-city {
+    font-size: 1rem;
+  }
+
+  .sleek-mindset-card {
+    order: 4;
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .mindset-floating-graphic {
+    display: none;
+  }
+
+  .sleek-craft-card {
+    order: 5;
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .craft-tech-slider {
+    overflow: hidden;
+  }
+
+  /* Bento card padding */
+  .bento-card {
+    padding: 1.4rem;
+    border-radius: 16px;
+  }
+
+  /* Name card text */
+  .name-card-title,
+  .sleek-title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    line-height: 1.05;
+  }
+
+  .name-card-subtitle,
+  .sleek-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+  }
+
+  /* Mindset card */
+  .mindset-title,
+  .sleek-mindset-title {
+    font-size: 1.5rem;
+  }
+
+  .mindset-quote {
+    font-size: 0.9rem;
+  }
+
+  .mindset-tagline {
+    font-size: 0.85rem;
+  }
+
+  /* Craft card */
+  .craft-title,
+  .sleek-craft-title {
+    font-size: 1.5rem;
+  }
+
+  .craft-desc {
+    font-size: 0.95rem;
+  }
+
+  .craft-subtext {
+    font-size: 0.85rem;
+  }
+
+  /* Resume btn */
+  .craft-resume-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  /* ====== Projects - Mobile ====== */
+  .project-card {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.6rem;
+  }
+
+  .project-info {
+    text-align: left;
+  }
+
+  .project-tags {
+    justify-content: flex-start;
+  }
+
+  /* ====== Skills Sphere ====== */
+  .sphere-scene {
+    width: 100% !important;
+    max-width: 300px;
+    height: 300px !important;
+    margin: 0 auto;
+  }
+
+  .skills-sphere-container {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* ====== Certificates ====== */
+  .certs-carousel {
+    padding-bottom: 1rem;
+  }
+
+  /* ====== Contact / Explore ====== */
+  .explore-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .explore-card.links-card {
+    grid-column: span 1;
+  }
+
+  /* ====== Footer ====== */
+  .designer-text {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ====== Chatbot ====== */
   .chatbot-wrapper {
     padding: 0;
   }
@@ -2597,206 +2822,33 @@ footer {
     padding: 0.4rem 0.8rem;
     font-size: 0.85rem;
   }
+}
 
-  /* Section Titles */
-  .section-title {
-    font-size: 2.2rem;
+/* Extra small screens */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
   }
 
-  /* Bento & Grids */
-  /* Bento & Grids - 2 Column Layout */
-  .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .bento-card {
-    padding: 1.2rem;
-  }
-
-  /* Reset Desktop Spans and Apply Mobile Ordering */
-  .project-card {
+  .bento-column {
     grid-template-columns: 1fr;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .project-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .project-info {
-    text-align: center;
-  }
-
-  .project-tags {
-    justify-content: center;
-  }
-
-  .name-card {
-    grid-column: span 1;
-    order: 1;
-    align-items: flex-start;
-    text-align: left;
   }
 
   .photo-card {
-    grid-column: span 1;
-    order: 2;
-  }
-
-  .education-card {
-    grid-column: span 2;
-    order: 3;
-  }
-
-  .craft-card {
-    grid-column: span 1;
-    grid-row: span 2;
-    order: 4;
+    min-height: 220px;
+    aspect-ratio: auto;
   }
 
   .location-card {
-    grid-column: span 1;
-    order: 5;
+    min-height: 160px;
   }
 
-  .mindset-card {
-    grid-column: span 1;
-    order: 6;
-    cursor: pointer;
-    min-height: 350px;
-  }
-
-  .mindset-card.flipped .mindset-card-inner {
-    transform: rotateY(180deg);
-  }
-
-  .mindset-card-back {
-    display: block;
-    overflow-y: auto;
-    padding: 1.2rem;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .mindset-card-back::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  .mindset-card-back::-webkit-scrollbar-thumb {
-    background: var(--bg-tertiary);
-    border-radius: 4px;
-  }
-
-  .mindset-card-back .mindset-quote {
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
-
-  .mindset-card-back .mindset-tagline {
-    font-size: 0.8rem;
-  }
-
-  .mindset-card-front .mindset-quote {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .mindset-card-front .mindset-tagline {
-    display: none;
-  }
-
-  .mindset-click-hint {
-    display: inline-flex;
-    position: absolute;
-    top: 130px;
-    left: 1.2rem;
-    transform: none;
-    z-index: 4;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.75rem;
-    color: var(--accent-blue);
-    font-weight: 700;
-    text-transform: uppercase;
-    background: rgba(14, 13, 31, 0.85);
-    backdrop-filter: blur(8px);
-    padding: 8px 14px;
-    border-radius: 99px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-
-  /* Fix Name Card Overlapping on Mobile */
-  .name-card-subtitle {
-    position: static;
-    font-size: 0.6rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .name-card-title {
-    font-size: clamp(1.4rem, 4vw, 2rem);
-    margin-top: 0;
-  }
-
-  .name-card-role {
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .resume-btn {
-    padding: 6px 12px;
-    font-size: 0.75rem;
-    margin-top: 0.5rem;
-  }
-
-  .bento-socials {
-    position: static;
-    margin-top: 1rem;
-    gap: 8px;
-  }
-
-  .bento-social-link {
-    width: 30px;
-    height: 30px;
-    font-size: 0.9rem;
-  }
-
-  .explore-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .explore-card.links-card {
-    grid-column: span 1;
-  }
-
-  /* Skills Sphere */
-  .sphere-scene {
-    width: 100% !important;
-    max-width: 320px;
-    height: 320px !important;
-    margin: 0 auto;
-  }
-
-  .skills-sphere-container {
-    height: 320px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* Footer mobile sizing */
-  .designer-text {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
+  .name-card-title,
+  .sleek-title {
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
   }
 }
+
 
 /* Case Study Modal Styles */
 .cs-container {
