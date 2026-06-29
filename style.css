@@ -1773,6 +1773,13 @@ section {
   box-shadow: 0 12px 30px rgba(255, 126, 95, 0.15);
 }
 
+/* Dark mode: replace orange hover with cyan */
+[data-theme="dark"] .cert-card:hover {
+  border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 229, 255, 0.15);
+}
+
+
 .cert-image-wrapper {
   width: 100%;
   aspect-ratio: 1.4;
