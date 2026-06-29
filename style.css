@@ -778,6 +778,11 @@ section {
     0 0 20px rgba(255, 126, 95, 0.3);
 }
 
+[data-theme="dark"] .name-card-title {
+  text-shadow: 2px 2px 14px rgba(0, 229, 255, 0.7),
+    0 0 28px rgba(0, 229, 255, 0.4);
+}
+
 .sleek-subtitle {
   font-family: 'Outfit', sans-serif;
   text-transform: uppercase;
