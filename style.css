@@ -2662,15 +2662,16 @@ footer {
   .sleek-name-card {
     display: flex !important;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 14px !important;
+    justify-content: center;
+    padding: 16px 14px !important;
     overflow: hidden;
   }
 
   .name-card-title,
   .sleek-title {
-    font-size: clamp(1.05rem, 5.2vw, 1.75rem);
-    line-height: 1.06;
+    font-size: clamp(0.95rem, 4.2vw, 1.35rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
     word-break: keep-all;
     hyphens: none;
     overflow-wrap: normal;
@@ -2679,9 +2680,9 @@ footer {
   .name-card-subtitle,
   .sleek-subtitle {
     font-size: 0.5rem;
-    letter-spacing: 0.18em;
-    line-height: 1.7;
-    margin-top: 7px;
+    letter-spacing: 0.16em;
+    line-height: 1.6;
+    margin-top: 8px;
   }
 
   /* ══════════════════════════════════════
