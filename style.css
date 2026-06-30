@@ -3767,11 +3767,16 @@ footer {
   letter-spacing: 0.02em;
 }
 
+pre.prism-body,
 .prism-body {
-  padding: 20px 22px;
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
-  font-size: 13px;
-  line-height: 2;
+  margin: 0 !important;
+  padding: 16px 20px !important;
+  font-family: 'JetBrains Mono', 'Courier New', monospace !important;
+  font-size: 13.5px !important;
+  line-height: 1.6 !important;
+  overflow-x: auto !important;
+  white-space: pre !important;
+  color: var(--text-primary) !important;
 }
 
 .prism-line {
@@ -4094,14 +4099,16 @@ footer {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
   }
 
+  pre.prism-body,
   .prism-body {
+    margin: 0 !important;
     overflow-x: auto !important;
     white-space: pre !important;
     max-width: 100% !important;
     -webkit-overflow-scrolling: touch !important;
     font-size: 13.5px !important;
     line-height: 1.6 !important;
-    padding: 16px 18px !important;
+    padding: 16px 20px !important;
   }
 
   .prism-line {
