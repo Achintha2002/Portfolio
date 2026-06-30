@@ -2807,11 +2807,11 @@ footer {
     margin: 0;
   }
 
-  .hover-card p .text-desktop {
+  .text-desktop {
     display: none !important;
   }
 
-  .hover-card p .text-mobile {
+  .text-mobile {
     display: inline !important;
   }
 
