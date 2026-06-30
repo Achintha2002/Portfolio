@@ -2603,95 +2603,116 @@ footer {
     margin: 0 auto;
   }
 
-  /* ====== About / Bento Grid - Mobile (Reference Layout) ====== */
+  /* ====== ABOUT — MOBILE BENTO GRID (grid-template-areas) ======
+     Layout:
+     ┌─────────────┬─────────────┐
+     │    name     │    photo    │  row 1
+     ├─────────────┴─────────────┤
+     │       info (3-col)        │  row 2
+     ├─────────────┬─────────────┤
+     │             │     loc     │  row 3
+     │   craft     ├─────────────┤
+     │   (tall)    │    mind     │  row 4
+     └─────────────┴─────────────┘
+  ====================================================== */
 
-  /* 2-column grid — explicit placement, matches reference proportions */
+  /* ── Outer grid ── */
   .bento-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows:
+      minmax(175px, auto)   /* row 1: name + photo    */
+      auto                   /* row 2: info cards      */
+      minmax(148px, auto)   /* row 3: craft + loc     */
+      minmax(148px, auto);  /* row 4: craft + mindset */
+    grid-template-areas:
+      "name  photo"
+      "info  info"
+      "craft loc"
+      "craft mind";
     gap: 8px;
     align-items: stretch;
   }
 
-  /* Targeted reset for desktop span classes */
-  .card-4,
-  .card-8 {
+  /* Reset any desktop span classes */
+  .card-4, .card-8 {
     grid-column: unset;
     grid-row: unset;
   }
 
-  /* bento-column: display:contents → children join the grid directly */
+  /* bento-column disappears — photo & location join the outer grid */
   .bento-column {
     display: contents !important;
-    grid-column: unset;
-    grid-row: unset;
-    width: auto;
   }
 
-  /* ══════════════════════════════════════════
-     ROW 1 — Name card (left) + Photo (right)
-  ══════════════════════════════════════════ */
+  /* ── Named grid-area assignments ── */
+  .sleek-name-card     { grid-area: name  !important; }
+  .hover-cards-wrapper { grid-area: info  !important; }
+  .photo-card          { grid-area: photo !important; }
+  .location-card       { grid-area: loc   !important; }
+  .sleek-mindset-card  { grid-area: mind  !important; }
+  .sleek-craft-card    { grid-area: craft !important; }
+
+  /* ── Shared card base: one radius, one subtle border ── */
+  .bento-card {
+    border-radius: 14px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  /* ════════════════════════════════
+     ROW 1 — Name card (left)
+  ════════════════════════════════ */
   .sleek-name-card {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    min-height: 185px;
-    padding: 1.1rem 1rem 1.1rem 1.1rem;
     display: flex !important;
     flex-direction: column;
     justify-content: flex-end;
-    border-radius: 16px;
+    padding: 14px !important;
     overflow: hidden;
   }
 
-  /* Name — never breaks mid-word, shrinks to fit */
   .name-card-title,
   .sleek-title {
-    font-size: clamp(1rem, 4.8vw, 1.65rem);
-    line-height: 1.1;
+    font-size: clamp(1.05rem, 5.2vw, 1.75rem);
+    line-height: 1.06;
     word-break: keep-all;
-    overflow-wrap: normal;
     hyphens: none;
-    white-space: pre-line;  /* respects <br> but not wrapping mid-word */
+    overflow-wrap: normal;
   }
 
   .name-card-subtitle,
   .sleek-subtitle {
-    font-size: 0.52rem;
-    letter-spacing: 0.16em;
-    margin-top: 0.5rem;
-    line-height: 1.6;
+    font-size: 0.5rem;
+    letter-spacing: 0.18em;
+    line-height: 1.7;
+    margin-top: 7px;
   }
 
+  /* ════════════════════════════════
+     ROW 1 — Photo card (right)
+  ════════════════════════════════ */
   .photo-card {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    min-height: 185px;
-    height: 100%;
-    border-radius: 16px;
-    overflow: hidden;
     padding: 0 !important;
     background: transparent !important;
     border: none !important;
+    overflow: hidden;
+    border-radius: 14px;
   }
 
   .photo-card-img,
   .sleek-img {
     width: 100%;
     height: 100%;
-    min-height: 185px;
     object-fit: cover;
     object-position: top center;
     display: block;
-    border-radius: 16px;
+    border-radius: 14px;
   }
 
-  /* ══════════════════════════════════════════
-     ROW 2 — 3 info cards all visible (like reference)
-  ══════════════════════════════════════════ */
+  /* ════════════════════════════════
+     ROW 2 — Three info cards
+  ════════════════════════════════ */
   .hover-cards-wrapper {
-    grid-column: 1 / -1 !important;
-    grid-row: 2 !important;
     padding: 0 !important;
     background: transparent !important;
     border: none !important;
@@ -2699,19 +2720,16 @@ footer {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     border-radius: 0 !important;
-    overflow: visible;
-    width: 100%;
   }
 
-  /* 3-column grid — all 3 cards visible without scrolling */
+  /* 3-column inner grid → all cards equal height automatically */
   .hover-cards-container {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 8px;
-    overflow-x: visible;
+    overflow: visible;
     padding: 0;
-    width: 100%;
-    /* remove scroll behaviour */
+    align-items: stretch;
     scroll-snap-type: none;
   }
 
@@ -2723,95 +2741,139 @@ footer {
     width: 100%;
     min-width: 0;
     max-width: none;
-    padding: 0.75rem 0.65rem;
-    border-radius: 12px;
+    padding: 10px 9px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     background: var(--bg-card);
-    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
     scroll-snap-align: none;
   }
 
   .hover-card h4 {
-    font-size: 0.55rem;
-    letter-spacing: 0.12em;
-    margin-bottom: 0.45rem;
-    color: var(--text-muted);
+    font-size: 0.5rem;
+    letter-spacing: 0.13em;
     font-weight: 700;
     text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+    line-height: 1.3;
+    flex-shrink: 0;
   }
 
   .hover-card p {
-    font-size: 0.7rem;
-    line-height: 1.5;
+    font-size: 0.66rem;
+    line-height: 1.52;
     color: var(--text-secondary);
     display: -webkit-box;
-    -webkit-line-clamp: 7;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin: 0;
   }
 
-  /* ══════════════════════════════════════════
-     ROW 3 — Craft (left tall) + Location (right)
-     ROW 4 — Craft continues    + Mindset (right)
-  ══════════════════════════════════════════ */
+  /* ════════════════════════════════
+     ROWS 3-4 — Craft card (tall left)
+  ════════════════════════════════ */
   .sleek-craft-card {
-    grid-column: 1 !important;
-    grid-row: 3 / 5 !important;
-    min-height: 340px;
-    padding: 1.2rem 1rem;
     display: flex !important;
     flex-direction: column;
-    border-radius: 16px;
+    padding: 14px !important;
   }
 
-  .location-card {
-    grid-column: 2 !important;
-    grid-row: 3 !important;
-    min-height: 155px;
-    border-radius: 16px;
+  .craft-title,
+  .sleek-craft-title {
+    font-size: 1.28rem;
+    margin-bottom: 5px;
   }
 
-  .sleek-mindset-card {
-    grid-column: 2 !important;
-    grid-row: 4 !important;
-    min-height: 175px;
-    padding: 1rem;
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
-  /* ── Location card ── */
-  .location-city {
+  .craft-desc {
     font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .craft-subtext {
+    font-size: 0.73rem;
+    line-height: 1.5;
+    margin-top: 5px;
+    color: var(--text-secondary);
+  }
+
+  .craft-resume-btn-container {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .craft-resume-btn {
+    padding: 6px 13px;
+    font-size: 0.73rem;
+  }
+
+  .craft-tech-slider {
+    overflow: hidden;
+    margin-top: 8px;
+  }
+
+  .craft-collaborate {
+    font-size: 0.7rem;
+    margin-top: 7px;
+    line-height: 1.4;
+  }
+
+  .craft-status {
+    margin-top: 7px;
+    font-size: 0.7rem;
+  }
+
+  /* ════════════════════════════════
+     ROW 3 — Location card (top right)
+  ════════════════════════════════ */
+  .location-card {
+    overflow: hidden;
+    border-radius: 14px;
+  }
+
+  .location-city {
+    font-size: 0.83rem;
     line-height: 1.2;
+    font-weight: 700;
     word-break: break-word;
   }
 
   .location-coords {
-    font-size: 0.62rem;
-    margin-top: 0.3rem;
+    font-size: 0.6rem;
+    margin-top: 3px;
   }
 
   .location-time {
-    font-size: 0.68rem;
-    margin-top: 0.3rem;
+    font-size: 0.63rem;
+    margin-top: 4px;
   }
 
-  /* ── Mindset card ── */
+  /* ════════════════════════════════
+     ROW 4 — Mindset card (bottom right)
+  ════════════════════════════════ */
+  .sleek-mindset-card {
+    overflow: hidden;
+    padding: 12px !important;
+    border-radius: 14px;
+  }
+
   .mindset-floating-graphic {
     display: none;
   }
 
   .mindset-title,
   .sleek-mindset-title {
-    font-size: 1.05rem;
-    margin-bottom: 0.4rem;
+    font-size: 1rem;
+    margin-bottom: 5px;
   }
 
   .mindset-quote {
-    font-size: 0.76rem;
+    font-size: 0.72rem;
     line-height: 1.5;
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -2819,59 +2881,6 @@ footer {
   .mindset-tagline {
     display: none;
   }
-
-  /* ── Craft card ── */
-  .craft-title,
-  .sleek-craft-title {
-    font-size: 1.35rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .craft-desc {
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
-
-  .craft-subtext {
-    font-size: 0.76rem;
-    margin-top: 0.4rem;
-    line-height: 1.5;
-    color: var(--text-secondary);
-  }
-
-  .craft-resume-btn-container {
-    margin-top: 0.7rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .craft-resume-btn {
-    padding: 0.42rem 0.9rem;
-    font-size: 0.76rem;
-  }
-
-  .craft-tech-slider {
-    overflow: hidden;
-    margin-top: 0.5rem;
-  }
-
-  .craft-collaborate {
-    font-size: 0.73rem;
-    margin-top: 0.45rem;
-    line-height: 1.4;
-  }
-
-  .craft-status {
-    margin-top: 0.5rem;
-    font-size: 0.72rem;
-  }
-
-  /* ── Shared bento card ── */
-  .bento-card {
-    padding: 1.1rem;
-    border-radius: 16px;
-  }
-
-
 
 
   /* ====== Projects - Mobile ====== */
