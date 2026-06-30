@@ -2590,10 +2590,10 @@ footer {
 
   .hero-title {
     order: 1 !important;
-    font-size: clamp(1.9rem, 8.5vw, 2.5rem) !important;
-    font-weight: 800 !important;
-    letter-spacing: -0.02em !important;
-    line-height: 1.08 !important;
+    font-size: clamp(2.5rem, 11.5vw, 3.5rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.04 !important;
     text-align: left !important;
     width: 100% !important;
     margin: 0 !important;
@@ -4043,10 +4043,10 @@ footer {
 
   .hero-title {
     order: 1 !important;
-    font-size: clamp(2.0rem, 8.8vw, 2.6rem) !important;
-    font-weight: 800 !important;
-    letter-spacing: -0.02em !important;
-    line-height: 1.08 !important;
+    font-size: clamp(2.5rem, 11.5vw, 3.5rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.04 !important;
     text-align: left !important;
     width: 100% !important;
     margin: 0 !important;
