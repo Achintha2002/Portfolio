@@ -2706,28 +2706,24 @@ footer {
   }
 
   /* ══════════════════════════════════════
-     ROW 2 — ONE card with 3 internal columns
-     (hover-cards-wrapper = the single outer card)
-     (hover-cards-container = flex row, gap:0)
-     (hover-card = internal col, border-right divider)
+     ROW 2 — Info strip matching reference image
+     Compact height, padded container, distinct inner cards with top accent glow
   ══════════════════════════════════════ */
   .hover-cards-wrapper {
-    /* Becomes the single outer card */
     background: var(--bg-card) !important;
     border: 1px solid rgba(255, 255, 255, 0.07) !important;
     border-radius: 12px !important;
-    padding: 0 !important;
+    padding: 6px !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     overflow: hidden !important;
   }
 
-  /* Inner flex row — columns fill equally, dividers via border-right */
   .hover-cards-container {
-    display: flex !important;
-    flex-direction: row;
-    gap: 0;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
     align-items: stretch;
     padding: 0;
     overflow: visible;
@@ -2735,46 +2731,46 @@ footer {
     height: 100%;
   }
 
-  /* Each column: transparent bg, no individual radius, border-right as divider */
   .hover-card {
     position: static !important;
     opacity: 1 !important;
     transform: none !important;
-    flex: 1;
+    flex: unset;
+    width: 100%;
     min-width: 0;
     max-width: none;
-    padding: 10px 8px;
-    border-radius: 0 !important;
-    background: transparent !important;
-    border: none !important;
-    border-right: 1px solid rgba(255, 255, 255, 0.07) !important;
+    padding: 8px 7px !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-top: 1.5px solid rgba(168, 85, 247, 0.4) !important;
     display: flex;
     flex-direction: column;
     scroll-snap-align: none;
   }
 
-  /* Remove divider from last column */
-  .hover-card:last-child {
-    border-right: none !important;
+  .hover-card.hc-2 {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-top: 2px solid #a855f7 !important;
   }
 
   .hover-card h4 {
-    font-size: 0.5rem;
-    letter-spacing: 0.13em;
-    font-weight: 700;
+    font-size: 0.54rem;
+    letter-spacing: 0.12em;
+    font-weight: 800;
     text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 5px;
-    line-height: 1.3;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.2;
     flex-shrink: 0;
   }
 
   .hover-card p {
-    font-size: 0.65rem;
-    line-height: 1.5;
+    font-size: 0.58rem;
+    line-height: 1.35;
     color: var(--text-secondary);
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin: 0;
