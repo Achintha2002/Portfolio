@@ -2876,8 +2876,13 @@ footer {
      ROW 3 — Location card (top right)
   ══════════════════════════════════════ */
   .location-card {
+    min-height: 0 !important;
+    max-height: 125px !important;
+    height: 125px !important;
+    padding: 12px !important;
     overflow: hidden;
     border-radius: 12px;
+    align-self: start !important;
   }
 
   .location-city {
@@ -3022,15 +3027,6 @@ footer {
   .photo-card {
     min-height: 220px;
     aspect-ratio: auto;
-  }
-
-  .location-card {
-    min-height: 160px;
-  }
-
-  .name-card-title,
-  .sleek-title {
-    font-size: clamp(1.6rem, 8vw, 2.2rem);
   }
 }
 
