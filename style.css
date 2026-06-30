@@ -2592,6 +2592,21 @@ footer {
 
   [data-theme="light"] .theme-toggle-btn {
     background: rgba(255, 255, 255, 0.8);
+    color: #1a1a2e;
+  }
+
+  [data-theme="light"] .theme-toggle-btn.mobile-only-theme {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    color: #1a1a2e !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+  }
+
+  [data-theme="light"] .mobile-menu-btn {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    color: #1a1a2e !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
   }
 
   .theme-toggle-btn:hover {
