@@ -2712,7 +2712,10 @@ footer {
      (hover-card = internal col, border-right divider)
   ══════════════════════════════════════ */
   .hover-cards-wrapper {
-    /* Becomes the single outer card */
+    grid-area: info !important;
+    height: auto !important;
+    min-height: 0 !important;
+    align-self: start !important;
     background: var(--bg-card) !important;
     border: 1px solid rgba(255, 255, 255, 0.07) !important;
     border-radius: 12px !important;
@@ -2732,7 +2735,8 @@ footer {
     padding: 0;
     overflow: visible;
     scroll-snap-type: none;
-    height: 100%;
+    height: auto !important;
+    min-height: 0 !important;
   }
 
   /* Each column: transparent bg, no individual radius, border-right as divider */
@@ -2743,7 +2747,7 @@ footer {
     flex: 1;
     min-width: 0;
     max-width: none;
-    padding: 8px 7px;
+    padding: 16px 12px;
     border-radius: 0 !important;
     background: transparent !important;
     border: none !important;
@@ -2751,6 +2755,8 @@ footer {
     display: flex;
     flex-direction: column;
     scroll-snap-align: none;
+    height: auto !important;
+    min-height: 0 !important;
   }
 
   /* Remove divider from last column */
@@ -2759,22 +2765,22 @@ footer {
   }
 
   .hover-card h4 {
-    font-size: 0.48rem;
-    letter-spacing: 0.12em;
+    font-size: 0.5rem;
+    letter-spacing: 0.13em;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--text-muted);
-    margin-bottom: 3px;
-    line-height: 1.2;
+    margin-bottom: 5px;
+    line-height: 1.3;
     flex-shrink: 0;
   }
 
   .hover-card p {
-    font-size: 0.58rem;
-    line-height: 1.38;
+    font-size: 0.65rem;
+    line-height: 1.5;
     color: var(--text-secondary);
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin: 0;
