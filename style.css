@@ -754,21 +754,17 @@ section {
 /* Name Card Specifics */
 /* Sleek Name Card */
 .sleek-name-card {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  text-align: left !important;
-  padding: 2.5rem 2.2rem !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem !important;
   background: var(--bg-tertiary) !important;
 }
 
-.sleek-name-card .craft-resume-btn-container {
-  display: flex !important;
-  justify-content: flex-start !important;
-  margin-top: 18px !important;
-  margin-bottom: 0 !important;
-  width: fit-content !important;
+.resume-btn-mobile {
+  display: none !important;
 }
 
 .sleek-title {
@@ -2681,11 +2677,9 @@ footer {
   ══════════════════════════════════════ */
   .sleek-name-card {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: column;
     justify-content: center !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    padding: 18px 10px !important;
+    padding: 14px 2px !important;
     overflow: hidden;
   }
 
@@ -2707,7 +2701,11 @@ footer {
     margin-top: 6px;
   }
 
-  .sleek-name-card .craft-resume-btn-container {
+  .resume-btn-desktop {
+    display: none !important;
+  }
+
+  .resume-btn-mobile {
     display: flex !important;
     justify-content: flex-start !important;
     margin-top: 18px !important;
