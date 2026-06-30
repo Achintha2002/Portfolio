@@ -3985,8 +3985,8 @@ pre.prism-body,
 }
 
 .badge-available {
-  bottom: -22px;
-  right: -10px;
+  bottom: -20px;
+  right: -12px;
   animation: badgeFloat 6s ease-in-out infinite;
 }
 
