@@ -870,6 +870,14 @@ section {
   line-height: 1.6;
 }
 
+.text-mobile {
+  display: none !important;
+}
+
+.text-desktop {
+  display: inline !important;
+}
+
 /* Base stack (Normal State) */
 .hover-cards-badge {
   transition: opacity 0.3s ease;
@@ -2796,12 +2804,15 @@ footer {
     font-size: 0.65rem;
     line-height: 1.5;
     color: var(--text-secondary);
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    line-clamp: 6;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
     margin: 0;
+  }
+
+  .hover-card p .text-desktop {
+    display: none !important;
+  }
+
+  .hover-card p .text-mobile {
+    display: inline !important;
   }
 
   /* ══════════════════════════════════════
