@@ -763,12 +763,8 @@ section {
   background: var(--bg-tertiary) !important;
 }
 
-.sleek-name-card .craft-resume-btn-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 0;
-  width: fit-content;
+.resume-btn-mobile {
+  display: none !important;
 }
 
 .sleek-title {
@@ -2670,8 +2666,8 @@ footer {
   .sleek-name-card {
     display: flex !important;
     flex-direction: column;
-    justify-content: center;
-    padding: 14px 10px !important;
+    justify-content: center !important;
+    padding: 18px 12px !important;
     overflow: hidden;
   }
 
@@ -2693,7 +2689,11 @@ footer {
     margin-top: 6px;
   }
 
-  .sleek-name-card .craft-resume-btn-container {
+  .resume-btn-desktop {
+    display: none !important;
+  }
+
+  .resume-btn-mobile {
     display: flex !important;
     justify-content: flex-start !important;
     margin-top: 18px !important;
