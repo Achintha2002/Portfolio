@@ -267,6 +267,14 @@ header {
   transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
   margin-left: 20px;
   position: relative;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle-btn:focus,
+.theme-toggle-btn:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 
 .theme-toggle-btn:hover {
