@@ -2600,9 +2600,14 @@ footer {
   }
 
   .hero-title .accent-text {
+    color: #ff7e5f !important;
+    text-shadow: 0 0 25px rgba(255, 126, 95, 0.45) !important;
+    display: inline-block !important;
+  }
+
+  [data-theme="dark"] .hero-title .accent-text {
     color: #00E5FF !important;
     text-shadow: 0 0 25px rgba(0, 229, 255, 0.45) !important;
-    display: inline-block !important;
   }
 
   .hero-sub {
@@ -2642,9 +2647,14 @@ footer {
     margin: 0 !important;
     overflow: hidden !important;
     border-radius: 16px !important;
-    border: 1px solid rgba(0, 229, 255, 0.35) !important;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 229, 255, 0.15) !important;
+    border: 1.5px solid #ff7e5f !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12), 0 0 25px rgba(255, 126, 95, 0.25) !important;
     animation: mobilePrismFloat 6s ease-in-out infinite !important;
+  }
+
+  [data-theme="dark"] .prism-card {
+    border: 1.5px solid rgba(0, 229, 255, 0.45) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 229, 255, 0.25) !important;
   }
 
   pre.prism-body,
@@ -3513,8 +3523,9 @@ footer {
   font-size: 14.5px;
   font-weight: 600;
   color: var(--text-primary);
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 126, 95, 0.08);
+  border: 1.5px solid #ff7e5f !important;
+  box-shadow: 0 0 15px rgba(255, 126, 95, 0.2);
   padding: 14px 26px;
   border-radius: 30px;
   cursor: pointer;
@@ -3525,9 +3536,22 @@ footer {
 }
 
 .btn-ghost:hover {
-  background: rgba(0, 0, 0, 0.06);
-  border-color: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 126, 95, 0.18);
+  border-color: #ff7e5f !important;
+  box-shadow: 0 0 25px rgba(255, 126, 95, 0.45);
   transform: translateY(-1px);
+}
+
+[data-theme="dark"] .btn-ghost {
+  background: rgba(0, 229, 255, 0.08) !important;
+  border: 1.5px solid #00E5FF !important;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.2) !important;
+}
+
+[data-theme="dark"] .btn-ghost:hover {
+  background: rgba(0, 229, 255, 0.18) !important;
+  border-color: #00E5FF !important;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.45) !important;
 }
 
 /* stats */
@@ -4067,9 +4091,14 @@ pre.prism-body,
   }
 
   .hero-title .accent-text {
+    color: #ff7e5f !important;
+    text-shadow: 0 0 25px rgba(255, 126, 95, 0.45) !important;
+    display: inline-block !important;
+  }
+
+  [data-theme="dark"] .hero-title .accent-text {
     color: #00E5FF !important;
     text-shadow: 0 0 25px rgba(0, 229, 255, 0.45) !important;
-    display: inline-block !important;
   }
 
   .hero-sub {
@@ -4110,9 +4139,14 @@ pre.prism-body,
     margin: 0 !important;
     overflow: hidden !important;
     border-radius: 16px !important;
-    border: 1px solid rgba(0, 229, 255, 0.35) !important;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 229, 255, 0.15) !important;
+    border: 1.5px solid #ff7e5f !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12), 0 0 25px rgba(255, 126, 95, 0.25) !important;
     animation: mobilePrismFloat 6s ease-in-out infinite !important;
+  }
+
+  [data-theme="dark"] .prism-card {
+    border: 1.5px solid rgba(0, 229, 255, 0.45) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 229, 255, 0.25) !important;
   }
 
   pre.prism-body,
@@ -4173,6 +4207,20 @@ pre.prism-body,
     padding: 12px 14px !important;
     font-size: 14px !important;
     white-space: nowrap !important;
+  }
+
+  .actions .btn-ghost {
+    border: 1.5px solid #ff7e5f !important;
+    background: rgba(255, 126, 95, 0.08) !important;
+    box-shadow: 0 0 15px rgba(255, 126, 95, 0.25) !important;
+    color: var(--text-primary) !important;
+  }
+
+  [data-theme="dark"] .actions .btn-ghost {
+    border: 1.5px solid #00E5FF !important;
+    background: rgba(0, 229, 255, 0.08) !important;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.25) !important;
+    color: #ffffff !important;
   }
 
   .sphere-wrap {
