@@ -1415,7 +1415,10 @@ section {
   font-weight: 600;
   color: var(--accent-purple);
 }
-[data-theme="dark"] .location-time { color: #ffffff; }
+
+[data-theme="dark"] .location-time {
+  color: #ffffff;
+}
 
 .pulse-dot {
   display: inline-block;
@@ -2561,7 +2564,7 @@ footer {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: rgba(14, 13, 31, 0.7);
+    background: rgba(13, 27, 31, 0.7);
     backdrop-filter: blur(10px);
     border: 1px solid var(--border-color);
     box-shadow: var(--card-shadow);
@@ -2643,8 +2646,15 @@ footer {
   }
 
   @keyframes mobilePrismFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-6px); }
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-6px);
+    }
   }
 
   .prism-card {
@@ -2743,10 +2753,7 @@ footer {
     display: grid !important;
     grid-template-columns: 1fr 1fr;
     grid-template-rows:
-      minmax(175px, auto)
-      auto
-      125px
-      1fr;
+      minmax(175px, auto) auto 125px 1fr;
     grid-template-areas:
       "name  photo"
       "info  info"
@@ -2757,18 +2764,41 @@ footer {
   }
 
   /* Reset desktop span classes */
-  .card-4, .card-8 { grid-column: unset; grid-row: unset; }
+  .card-4,
+  .card-8 {
+    grid-column: unset;
+    grid-row: unset;
+  }
 
   /* bento-column → disappears; children join the outer grid */
-  .bento-column { display: contents !important; }
+  .bento-column {
+    display: contents !important;
+  }
 
   /* ── Named area assignments ── */
-  .sleek-name-card     { grid-area: name  !important; }
-  .hover-cards-wrapper { grid-area: info  !important; }
-  .photo-card          { grid-area: photo !important; }
-  .location-card       { grid-area: loc   !important; }
-  .sleek-mindset-card  { grid-area: mind  !important; }
-  .sleek-craft-card    { grid-area: craft !important; }
+  .sleek-name-card {
+    grid-area: name !important;
+  }
+
+  .hover-cards-wrapper {
+    grid-area: info !important;
+  }
+
+  .photo-card {
+    grid-area: photo !important;
+  }
+
+  .location-card {
+    grid-area: loc !important;
+  }
+
+  .sleek-mindset-card {
+    grid-area: mind !important;
+  }
+
+  .sleek-craft-card {
+    grid-area: craft !important;
+  }
 
   /* ── Shared card base — one radius, one border everywhere ── */
   .bento-card {
@@ -4149,8 +4179,15 @@ pre.prism-body,
   }
 
   @keyframes mobilePrismFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-6px); }
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-6px);
+    }
   }
 
   .prism-card {
