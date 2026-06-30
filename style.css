@@ -2673,8 +2673,8 @@ footer {
 
   .sleek-name-card .name-card-title,
   .sleek-name-card .sleek-title {
-    font-size: clamp(0.68rem, 3.1vw, 0.96rem) !important;
-    line-height: 1.18 !important;
+    font-size: clamp(0.75rem, 3.4vw, 1.05rem) !important;
+    line-height: 1.16 !important;
     letter-spacing: -0.01em !important;
     word-break: keep-all !important;
     hyphens: none !important;
