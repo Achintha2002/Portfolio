@@ -2550,14 +2550,21 @@ footer {
   }
 
   .theme-toggle-btn {
-    position: relative;
-    top: auto;
-    left: auto;
-    margin-top: 1rem;
-    width: 48px;
-    height: 48px;
-    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 1rem;
+    left: 1.2rem;
+    z-index: 1000;
+    margin-top: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(14, 13, 31, 0.7);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
   }
 
   [data-theme="light"] .theme-toggle-btn {
