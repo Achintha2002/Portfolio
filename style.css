@@ -2623,10 +2623,16 @@ footer {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 10px !important;
+    gap: 14px !important;
     position: relative !important;
-    overflow: hidden !important;
-    margin: 2px 0 !important;
+    overflow: visible !important;
+    padding: 12px 0 !important;
+    margin: 8px 0 !important;
+  }
+
+  @keyframes mobilePrismFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
   }
 
   .prism-card {
@@ -2635,19 +2641,22 @@ footer {
     max-width: 100% !important;
     margin: 0 !important;
     overflow: hidden !important;
-    border-radius: 14px !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(0, 229, 255, 0.35) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 229, 255, 0.15) !important;
+    animation: mobilePrismFloat 6s ease-in-out infinite !important;
   }
 
+  pre.prism-body,
   .prism-body {
+    margin: 0 !important;
     overflow-x: auto !important;
     white-space: pre !important;
     max-width: 100% !important;
     -webkit-overflow-scrolling: touch !important;
-    font-size: 13.5px !important;
-    line-height: 1.6 !important;
-    padding: 16px 18px !important;
+    font-size: 14.5px !important;
+    line-height: 1.85 !important;
+    padding: 20px 22px !important;
   }
 
   .prism-line {
@@ -4081,11 +4090,17 @@ pre.prism-body,
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 10px !important;
+    gap: 14px !important;
     position: relative !important;
-    overflow: hidden !important;
-    margin: 2px 0 !important;
+    overflow: visible !important;
+    padding: 12px 0 !important;
+    margin: 8px 0 !important;
     height: auto !important;
+  }
+
+  @keyframes mobilePrismFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
   }
 
   .prism-card {
@@ -4094,9 +4109,10 @@ pre.prism-body,
     max-width: 100% !important;
     margin: 0 !important;
     overflow: hidden !important;
-    border-radius: 14px !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(0, 229, 255, 0.35) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 229, 255, 0.15) !important;
+    animation: mobilePrismFloat 6s ease-in-out infinite !important;
   }
 
   pre.prism-body,
@@ -4106,9 +4122,9 @@ pre.prism-body,
     white-space: pre !important;
     max-width: 100% !important;
     -webkit-overflow-scrolling: touch !important;
-    font-size: 13.5px !important;
-    line-height: 1.6 !important;
-    padding: 16px 20px !important;
+    font-size: 14.5px !important;
+    line-height: 1.85 !important;
+    padding: 20px 22px !important;
   }
 
   .prism-line {
