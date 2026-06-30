@@ -2721,12 +2721,11 @@ footer {
   .prism-body {
     margin: 0 !important;
     overflow-x: hidden !important;
-    white-space: pre-wrap !important;
-    word-break: break-word !important;
+    white-space: pre !important;
     max-width: 100% !important;
-    font-size: 14.5px !important;
-    line-height: 1.85 !important;
-    padding: 20px 22px !important;
+    font-size: 11.5px !important;
+    line-height: 1.7 !important;
+    padding: 16px 12px !important;
   }
 
   .prism-line {
