@@ -2866,11 +2866,26 @@ footer {
     line-height: 1.4;
   }
 
-  .craft-status {
-    margin-top: 7px;
-    font-size: 0.7rem;
-    margin-top: auto;   /* push to bottom of card */
-    padding-top: 10px;
+  .craft-status,
+  .sleek-status {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    margin-top: auto !important;
+    background: rgba(16, 217, 160, 0.08) !important;
+    border: 1px solid rgba(16, 217, 160, 0.25) !important;
+    padding: 6px 8px !important;
+    border-radius: 8px !important;
+    font-size: 0.62rem !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    color: #10d9a0 !important;
+    width: 100% !important;
+    box-shadow: 0 0 15px rgba(16, 217, 160, 0.1) !important;
+    letter-spacing: 0.01em !important;
+    text-align: center !important;
+    white-space: nowrap !important;
   }
 
   /* ══════════════════════════════════════
