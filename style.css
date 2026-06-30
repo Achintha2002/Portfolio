@@ -2603,11 +2603,14 @@ footer {
     margin: 0 auto;
   }
 
-  /* ====== About / Bento Grid - Mobile ====== */
+  /* ====== About / Bento Grid - Mobile (Reference Layout) ====== */
+
+  /* The bento grid: 2-column CSS grid for masonry feel */
   .bento-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0.75rem;
   }
 
   /* Reset all card spans */
@@ -2620,44 +2623,33 @@ footer {
     width: 100%;
   }
 
-  /* Card ordering for mobile - matches reference site feel */
+  /* ── Row 1: Name card (left) + Photo (right) ── */
   .sleek-name-card {
-    order: 1;
-    padding: 1.8rem;
-    min-height: auto;
-  }
-
-  .hover-cards-wrapper {
-    order: 2;
-    padding: 1.2rem;
-    min-height: auto;
-  }
-
-  .hover-cards-container {
+    grid-column: 1;
+    grid-row: 1;
+    order: unset;
+    padding: 1.4rem 1.2rem;
+    min-height: 160px;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    justify-content: flex-end;
   }
 
-  .hover-card {
-    position: static;
-    opacity: 1;
-    transform: none;
-    width: 100%;
-    padding: 1.2rem;
-  }
-
-  /* Middle column - split into two side-by-side */
+  /* Photo card pulled from .bento-column — we need to separate it */
   .bento-column {
-    order: 3;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-column: 2;
+    grid-row: 1;
+    order: unset;
+    display: contents; /* let children flow into the grid */
   }
 
   .photo-card {
-    aspect-ratio: 1;
-    min-height: 180px;
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 160px;
+    aspect-ratio: auto;
+    border-radius: 16px;
+    overflow: hidden;
   }
 
   .photo-card-img,
@@ -2665,88 +2657,191 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top;
+  }
+
+  /* ── Row 2: Hover cards — horizontal scroll strip (full width) ── */
+  .hover-cards-wrapper {
+    grid-column: 1 / -1;  /* span full width */
+    grid-row: 2;
+    order: unset;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    overflow: hidden;
+  }
+
+  .hover-cards-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0.6rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hover-cards-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hover-card {
+    position: static;
+    opacity: 1;
+    transform: none;
+    flex: 0 0 55vw;
+    max-width: 200px;
+    min-width: 150px;
+    padding: 1rem;
+    border-radius: 14px;
+    scroll-snap-align: start;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+  }
+
+  .hover-card h4 {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .hover-card p {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+
+  /* ── Row 3 + 4: Craft (left, tall 2 rows) + Location top-right + Mindset bottom-right ── */
+  .sleek-craft-card {
+    grid-column: 1;
+    grid-row: 3 / 5;   /* span rows 3 and 4 */
+    order: unset;
+    min-height: 320px;
+    padding: 1.4rem 1.2rem;
+    display: flex;
+    flex-direction: column;
   }
 
   .location-card {
-    min-height: 180px;
+    grid-column: 2;
+    grid-row: 3;
+    min-height: 150px;
+    border-radius: 14px;
   }
 
   .location-city {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+
+  .location-coords {
+    font-size: 0.7rem;
+  }
+
+  .location-time {
+    font-size: 0.75rem;
   }
 
   .sleek-mindset-card {
-    order: 4;
-    min-height: auto;
-    padding: 1.5rem;
+    grid-column: 2;
+    grid-row: 4;
+    order: unset;
+    min-height: 170px;
+    padding: 1.2rem;
   }
 
+  /* Hide the floating graphic on mobile */
   .mindset-floating-graphic {
     display: none;
   }
 
-  .sleek-craft-card {
-    order: 5;
-    min-height: auto;
-    padding: 1.5rem;
-  }
-
+  /* Craft tech slider */
   .craft-tech-slider {
     overflow: hidden;
+    margin-top: auto;
   }
 
-  /* Bento card padding */
+  .craft-collaborate {
+    font-size: 0.8rem;
+  }
+
+  .craft-status {
+    margin-top: 0.8rem;
+  }
+
+  /* ── Bento card shared styles ── */
   .bento-card {
-    padding: 1.4rem;
+    padding: 1.2rem;
     border-radius: 16px;
   }
 
   /* Name card text */
   .name-card-title,
   .sleek-title {
-    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    font-size: clamp(1.5rem, 6.5vw, 2.2rem);
     line-height: 1.05;
+    word-break: break-word;
   }
 
   .name-card-subtitle,
   .sleek-subtitle {
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
   }
 
   /* Mindset card */
   .mindset-title,
   .sleek-mindset-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
   }
 
   .mindset-quote {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
   }
 
   .mindset-tagline {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
+    margin-top: 0.5rem;
   }
 
   /* Craft card */
   .craft-title,
   .sleek-craft-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
   }
 
   .craft-desc {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 
   .craft-subtext {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    line-height: 1.5;
   }
 
   /* Resume btn */
   .craft-resume-btn {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    margin-top: 0.8rem;
   }
+
+  .craft-resume-btn-container {
+    margin-bottom: 0.6rem;
+  }
+
+
 
   /* ====== Projects - Mobile ====== */
   .project-card {
