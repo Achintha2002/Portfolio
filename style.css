@@ -763,6 +763,14 @@ section {
   background: var(--bg-tertiary) !important;
 }
 
+.sleek-name-card .craft-resume-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 0;
+  width: fit-content;
+}
+
 .sleek-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3.2rem);
@@ -2685,6 +2693,14 @@ footer {
     margin-top: 6px;
   }
 
+  .sleek-name-card .craft-resume-btn-container {
+    display: flex !important;
+    justify-content: flex-start !important;
+    margin-top: 18px !important;
+    margin-bottom: 0 !important;
+    width: fit-content !important;
+  }
+
   /* ══════════════════════════════════════
      ROW 1 — Photo card (right)
   ══════════════════════════════════════ */
@@ -2782,6 +2798,7 @@ footer {
     color: var(--text-secondary);
     display: -webkit-box;
     -webkit-line-clamp: 6;
+    line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin: 0;
@@ -2893,6 +2910,7 @@ footer {
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 7;
+    line-clamp: 7;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }

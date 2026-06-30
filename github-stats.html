@@ -59,7 +59,12 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      md: flex-direction: row;
+    }
+
+    @media (min-width: 768px) {
+      .os-card {
+        flex-direction: row;
+      }
     }
 
     .graph-container img {
