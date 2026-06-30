@@ -2856,12 +2856,13 @@ footer {
 
   .craft-tech-slider {
     overflow: hidden;
-    margin-top: 8px;
+    margin: 10px -14px 12px -14px !important;
   }
 
   .craft-collaborate {
     font-size: 0.7rem;
-    margin-top: 7px;
+    margin-top: 6px !important;
+    margin-bottom: 8px !important;
     line-height: 1.4;
   }
 
