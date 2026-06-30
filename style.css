@@ -2636,8 +2636,8 @@ footer {
     grid-template-rows:
       minmax(175px, auto)
       auto
-      minmax(145px, auto)
-      minmax(145px, auto);
+      125px
+      1fr;
     grid-template-areas:
       "name  photo"
       "info  info"
@@ -2877,12 +2877,11 @@ footer {
   ══════════════════════════════════════ */
   .location-card {
     min-height: 0 !important;
-    max-height: 125px !important;
-    height: 125px !important;
+    height: 100% !important;
     padding: 12px !important;
     overflow: hidden;
     border-radius: 12px;
-    align-self: start !important;
+    align-self: stretch !important;
   }
 
   .location-city {
@@ -2909,6 +2908,11 @@ footer {
     overflow: hidden;
     padding: 12px !important;
     border-radius: 12px;
+    align-self: stretch !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
   }
 
   .mindset-floating-graphic {
