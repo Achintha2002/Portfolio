@@ -1053,6 +1053,10 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+[data-theme="light"] .floating-mindset-img img {
+  border: none !important;
+}
+
 /* Glow effect underneath */
 .floating-mindset-img::after {
   content: '';
@@ -2946,6 +2950,9 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
   .floating-mindset-img img {
@@ -2953,6 +2960,14 @@ footer {
     max-height: 120px;
     object-fit: cover;
     border-radius: 8px;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  [data-theme="light"] .floating-mindset-img img {
+    border: none !important;
+    background: transparent !important;
+    mix-blend-mode: darken;
   }
 
   .mindset-title,
