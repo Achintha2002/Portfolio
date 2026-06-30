@@ -2720,10 +2720,10 @@ footer {
   pre.prism-body,
   .prism-body {
     margin: 0 !important;
-    overflow-x: auto !important;
-    white-space: pre !important;
+    overflow-x: hidden !important;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
     max-width: 100% !important;
-    -webkit-overflow-scrolling: touch !important;
     font-size: 14.5px !important;
     line-height: 1.85 !important;
     padding: 20px 22px !important;
