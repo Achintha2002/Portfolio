@@ -2734,8 +2734,8 @@ footer {
     white-space: pre !important;
     max-width: 100% !important;
     -webkit-overflow-scrolling: touch !important;
-    font-size: 14.5px !important;
-    line-height: 1.85 !important;
+    font-size: clamp(11px, 2.8vw, 13px) !important;
+    line-height: 1.6 !important;
     padding: 20px 22px !important;
   }
 
@@ -3893,10 +3893,10 @@ footer {
 pre.prism-body,
 .prism-body {
   margin: 0 !important;
-  padding: 22px 28px !important;
+  padding: 20px 22px !important;
   font-family: 'JetBrains Mono', 'Courier New', monospace !important;
-  font-size: 14.5px !important;
-  line-height: 1.7 !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
   overflow-x: auto !important;
   white-space: pre !important;
   color: var(--text-primary) !important;
