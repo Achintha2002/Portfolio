@@ -2590,8 +2590,8 @@ footer {
 
   .hero-title {
     order: 1 !important;
-    font-size: clamp(1.8rem, 8vw, 2.2rem) !important;
-    line-height: 1.1 !important;
+    font-size: clamp(2.3rem, 11vw, 3.4rem) !important;
+    line-height: 1.04 !important;
     text-align: left !important;
     width: 100% !important;
     margin: 0 !important;
@@ -2599,8 +2599,8 @@ footer {
 
   .hero-sub {
     order: 2 !important;
-    font-size: 14px !important;
-    line-height: 1.5 !important;
+    font-size: 16px !important;
+    line-height: 1.55 !important;
     text-align: left !important;
     width: 100% !important;
     max-width: 100% !important;
