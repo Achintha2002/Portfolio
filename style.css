@@ -245,6 +245,14 @@ header {
   color: var(--accent-cyan);
 }
 
+.mobile-only-theme {
+  display: none !important;
+}
+
+.desktop-only-theme {
+  display: flex !important;
+}
+
 .theme-toggle-btn {
   width: 38px;
   height: 38px;
@@ -2552,7 +2560,15 @@ footer {
     border-radius: var(--radius-md);
   }
 
-  .theme-toggle-btn {
+  .mobile-only-theme {
+    display: flex !important;
+  }
+
+  .desktop-only-theme {
+    display: none !important;
+  }
+
+  .theme-toggle-btn.mobile-only-theme {
     display: flex;
     align-items: center;
     justify-content: center;

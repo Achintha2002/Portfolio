@@ -224,29 +224,36 @@ function setupPortfolioContent() {
 // Light / Dark Theme Switcher
 // =========================================================================
 function initThemeToggle() {
-  const themeToggle = document.getElementById("theme-toggle-btn");
-  const themeIcon = themeToggle.querySelector("i");
+  const themeToggles = document.querySelectorAll(".theme-toggle-btn");
+  if (themeToggles.length === 0) return;
   
   // Set initial theme
   const savedTheme = localStorage.getItem("portfolio_theme") || "dark";
   document.documentElement.setAttribute("data-theme", savedTheme);
-  updateThemeIcon(savedTheme);
+  updateThemeIcons(savedTheme);
 
-  themeToggle.addEventListener("click", () => {
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-    const newTheme = currentTheme === "light" ? "dark" : "light";
-    
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("portfolio_theme", newTheme);
-    updateThemeIcon(newTheme);
+  themeToggles.forEach(themeToggle => {
+    themeToggle.addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("portfolio_theme", newTheme);
+      updateThemeIcons(newTheme);
+    });
   });
 
-  function updateThemeIcon(theme) {
-    if (theme === "light") {
-      themeIcon.className = "fas fa-sun";
-    } else {
-      themeIcon.className = "fas fa-moon";
-    }
+  function updateThemeIcons(theme) {
+    themeToggles.forEach(themeToggle => {
+      const themeIcon = themeToggle.querySelector("i");
+      if (themeIcon) {
+        if (theme === "light") {
+          themeIcon.className = "fas fa-sun";
+        } else {
+          themeIcon.className = "fas fa-moon";
+        }
+      }
+    });
   }
 }
 
