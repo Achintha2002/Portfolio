@@ -2578,7 +2578,7 @@ footer {
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 16px !important;
-    padding: 85px 18px 20px !important;
+    padding: 120px 18px 20px !important;
     text-align: left !important;
     width: 100% !important;
   }
@@ -4082,7 +4082,7 @@ pre.prism-body,
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 16px !important;
-    padding: 85px 18px 20px !important;
+    padding: 120px 18px 20px !important;
     text-align: left !important;
     width: 100% !important;
     grid-template-columns: 1fr !important;
