@@ -2590,8 +2590,10 @@ footer {
 
   .hero-title {
     order: 1 !important;
-    font-size: clamp(2.3rem, 11vw, 3.4rem) !important;
-    line-height: 1.04 !important;
+    font-size: clamp(2.7rem, 13vw, 4.2rem) !important;
+    line-height: 0.98 !important;
+    font-weight: 850 !important;
+    letter-spacing: -0.03em !important;
     text-align: left !important;
     width: 100% !important;
     margin: 0 !important;
@@ -2599,7 +2601,7 @@ footer {
 
   .hero-sub {
     order: 2 !important;
-    font-size: 16px !important;
+    font-size: 17px !important;
     line-height: 1.55 !important;
     text-align: left !important;
     width: 100% !important;
@@ -2618,7 +2620,7 @@ footer {
     gap: 12px !important;
     position: relative !important;
     overflow: hidden !important;
-    margin: 0 !important;
+    margin: 4px 0 0 0 !important;
   }
 
   .prism-card {
@@ -2627,6 +2629,9 @@ footer {
     max-width: 100% !important;
     margin: 0 !important;
     overflow: hidden !important;
+    border-radius: 18px !important;
+    border: 1px solid rgba(0, 229, 255, 0.28) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 28px rgba(0, 229, 255, 0.12) !important;
   }
 
   .prism-body {
