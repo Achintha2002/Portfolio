@@ -412,6 +412,16 @@ section {
   overflow: hidden;
 }
 
+/* Desktop hero fits in one screen */
+#home {
+  height: 100dvh;
+  min-height: unset;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
 #home::before {
   content: '';
   position: absolute;
@@ -3420,14 +3430,13 @@ footer {
   position: relative;
   z-index: 5;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  padding: 10px 72px 60px;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 32px;
+  padding: 0 72px;
   align-items: center;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  transform: translateY(-60px);
 }
 
 /* left column */
@@ -3761,11 +3770,11 @@ footer {
 .glass-prism-visual {
   position: relative;
   width: 100%;
-  height: 560px;
+  height: 100%;
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -80px;
 }
 
 /* Aurora Orbs - soft glowing circles behind the card */
@@ -3826,16 +3835,17 @@ footer {
 /* Main Frosted Glass Card */
 .prism-card {
   position: relative;
-  width: 380px;
+  width: 90%;
+  max-width: 600px;
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.85);
-  border-radius: 20px;
+  border-radius: 22px;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   box-shadow:
     0 8px 40px rgba(0, 0, 0, 0.08),
     0 2px 0 rgba(255, 255, 255, 0.9) inset;
-  overflow: hidden;
+  overflow: visible;
   animation: prismFloat 7s ease-in-out infinite;
   z-index: 2;
 }
@@ -3883,13 +3893,14 @@ footer {
 pre.prism-body,
 .prism-body {
   margin: 0 !important;
-  padding: 16px 20px !important;
+  padding: 22px 28px !important;
   font-family: 'JetBrains Mono', 'Courier New', monospace !important;
-  font-size: 13.5px !important;
-  line-height: 1.6 !important;
+  font-size: 14.5px !important;
+  line-height: 1.7 !important;
   overflow-x: auto !important;
   white-space: pre !important;
   color: var(--text-primary) !important;
+  border-radius: 0 0 22px 22px;
 }
 
 .prism-line {
@@ -3974,8 +3985,8 @@ pre.prism-body,
 }
 
 .badge-available {
-  bottom: 14%;
-  right: -5%;
+  bottom: -22px;
+  right: -10px;
   animation: badgeFloat 6s ease-in-out infinite;
 }
 
@@ -4039,9 +4050,11 @@ pre.prism-body,
 
 /* Dark Mode Overrides for Code Prism & Floating Elements */
 [data-theme="dark"] .prism-card {
-  background: rgba(18, 18, 22, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  background: rgba(16, 16, 22, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.7),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
 }
 
 [data-theme="dark"] .prism-card-header {
@@ -4149,8 +4162,10 @@ pre.prism-body,
   }
 
   section#home {
+    height: auto !important;
     min-height: auto !important;
     padding-bottom: 0 !important;
+    display: block !important;
   }
 
   section#about {
