@@ -2590,17 +2590,25 @@ footer {
 
   .hero-title {
     order: 1 !important;
-    font-size: clamp(2.4rem, 11vw, 3.4rem) !important;
-    line-height: 1.05 !important;
+    font-size: clamp(2.7rem, 12.5vw, 3.8rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.02 !important;
     text-align: left !important;
     width: 100% !important;
     margin: 0 !important;
   }
 
+  .hero-title .accent-text {
+    color: #00E5FF !important;
+    text-shadow: 0 0 35px rgba(0, 229, 255, 0.5), 0 0 10px rgba(0, 229, 255, 0.3) !important;
+    display: inline-block !important;
+  }
+
   .hero-sub {
     order: 2 !important;
-    font-size: 15px !important;
-    line-height: 1.55 !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
     text-align: left !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -2615,10 +2623,10 @@ footer {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 12px !important;
+    gap: 14px !important;
     position: relative !important;
     overflow: hidden !important;
-    margin: 0 !important;
+    margin: 4px 0 !important;
   }
 
   .prism-card {
@@ -2627,6 +2635,9 @@ footer {
     max-width: 100% !important;
     margin: 0 !important;
     overflow: hidden !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(0, 229, 255, 0.35) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 229, 255, 0.15) !important;
   }
 
   .prism-body {
@@ -2634,8 +2645,9 @@ footer {
     white-space: pre !important;
     max-width: 100% !important;
     -webkit-overflow-scrolling: touch !important;
-    font-size: 14.5px !important;
-    line-height: 1.8 !important;
+    font-size: 15.5px !important;
+    line-height: 1.85 !important;
+    padding: 22px !important;
   }
 
   .badge-available,
