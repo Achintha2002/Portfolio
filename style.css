@@ -2603,28 +2603,29 @@ footer {
     margin: 0 auto;
   }
 
-  /* ====== ABOUT — MOBILE BENTO GRID (grid-template-areas) ======
-     Layout:
-     ┌─────────────┬─────────────┐
-     │    name     │    photo    │  row 1
-     ├─────────────┴─────────────┤
-     │       info (3-col)        │  row 2
-     ├─────────────┬─────────────┤
-     │             │     loc     │  row 3
-     │   craft     ├─────────────┤
-     │   (tall)    │    mind     │  row 4
-     └─────────────┴─────────────┘
-  ====================================================== */
+  /* ====== ABOUT — MOBILE BENTO GRID ======
+     ┌────────────┬────────────┐
+     │    name    │   photo    │  row 1  (equal height, stretch)
+     ├────────────┴────────────┤
+     │  [UNIV │ SKILLS │ EXP]  │  row 2  (one card, 3 internal cols + dividers)
+     ├────────────┬────────────┤
+     │            │    loc     │  row 3
+     │   craft    ├────────────┤
+     │  (spans    │  mindset   │  row 4
+     │   2 rows)  │            │
+     └────────────┴────────────┘
+     Gap: 8px everywhere. Radius: 12px everywhere.
+  ============================================ */
 
   /* ── Outer grid ── */
   .bento-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr;
     grid-template-rows:
-      minmax(175px, auto)   /* row 1: name + photo    */
-      auto                   /* row 2: info cards      */
-      minmax(148px, auto)   /* row 3: craft + loc     */
-      minmax(148px, auto);  /* row 4: craft + mindset */
+      minmax(175px, auto)
+      auto
+      minmax(145px, auto)
+      minmax(145px, auto);
     grid-template-areas:
       "name  photo"
       "info  info"
@@ -2634,18 +2635,13 @@ footer {
     align-items: stretch;
   }
 
-  /* Reset any desktop span classes */
-  .card-4, .card-8 {
-    grid-column: unset;
-    grid-row: unset;
-  }
+  /* Reset desktop span classes */
+  .card-4, .card-8 { grid-column: unset; grid-row: unset; }
 
-  /* bento-column disappears — photo & location join the outer grid */
-  .bento-column {
-    display: contents !important;
-  }
+  /* bento-column → disappears; children join the outer grid */
+  .bento-column { display: contents !important; }
 
-  /* ── Named grid-area assignments ── */
+  /* ── Named area assignments ── */
   .sleek-name-card     { grid-area: name  !important; }
   .hover-cards-wrapper { grid-area: info  !important; }
   .photo-card          { grid-area: photo !important; }
@@ -2653,16 +2649,16 @@ footer {
   .sleek-mindset-card  { grid-area: mind  !important; }
   .sleek-craft-card    { grid-area: craft !important; }
 
-  /* ── Shared card base: one radius, one subtle border ── */
+  /* ── Shared card base — one radius, one border everywhere ── */
   .bento-card {
-    border-radius: 14px;
+    border-radius: 12px;
     padding: 12px;
     border: 1px solid rgba(255, 255, 255, 0.07);
   }
 
-  /* ════════════════════════════════
+  /* ══════════════════════════════════════
      ROW 1 — Name card (left)
-  ════════════════════════════════ */
+  ══════════════════════════════════════ */
   .sleek-name-card {
     display: flex !important;
     flex-direction: column;
@@ -2688,15 +2684,15 @@ footer {
     margin-top: 7px;
   }
 
-  /* ════════════════════════════════
+  /* ══════════════════════════════════════
      ROW 1 — Photo card (right)
-  ════════════════════════════════ */
+  ══════════════════════════════════════ */
   .photo-card {
     padding: 0 !important;
     background: transparent !important;
     border: none !important;
     overflow: hidden;
-    border-radius: 14px;
+    border-radius: 12px;
   }
 
   .photo-card-img,
@@ -2706,48 +2702,60 @@ footer {
     object-fit: cover;
     object-position: top center;
     display: block;
-    border-radius: 14px;
+    border-radius: 12px;
   }
 
-  /* ════════════════════════════════
-     ROW 2 — Three info cards
-  ════════════════════════════════ */
+  /* ══════════════════════════════════════
+     ROW 2 — ONE card with 3 internal columns
+     (hover-cards-wrapper = the single outer card)
+     (hover-cards-container = flex row, gap:0)
+     (hover-card = internal col, border-right divider)
+  ══════════════════════════════════════ */
   .hover-cards-wrapper {
+    /* Becomes the single outer card */
+    background: var(--bg-card) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-radius: 12px !important;
     padding: 0 !important;
-    background: transparent !important;
-    border: none !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    border-radius: 0 !important;
+    overflow: hidden !important;
   }
 
-  /* 3-column inner grid → all cards equal height automatically */
+  /* Inner flex row — columns fill equally, dividers via border-right */
   .hover-cards-container {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-    overflow: visible;
-    padding: 0;
+    display: flex !important;
+    flex-direction: row;
+    gap: 0;
     align-items: stretch;
+    padding: 0;
+    overflow: visible;
     scroll-snap-type: none;
+    height: 100%;
   }
 
+  /* Each column: transparent bg, no individual radius, border-right as divider */
   .hover-card {
     position: static !important;
     opacity: 1 !important;
     transform: none !important;
-    flex: unset;
-    width: 100%;
+    flex: 1;
     min-width: 0;
     max-width: none;
-    padding: 10px 9px;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    background: var(--bg-card);
+    padding: 10px 8px;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.07) !important;
     display: flex;
     flex-direction: column;
     scroll-snap-align: none;
+  }
+
+  /* Remove divider from last column */
+  .hover-card:last-child {
+    border-right: none !important;
   }
 
   .hover-card h4 {
@@ -2762,8 +2770,8 @@ footer {
   }
 
   .hover-card p {
-    font-size: 0.66rem;
-    line-height: 1.52;
+    font-size: 0.65rem;
+    line-height: 1.5;
     color: var(--text-secondary);
     display: -webkit-box;
     -webkit-line-clamp: 6;
@@ -2772,13 +2780,15 @@ footer {
     margin: 0;
   }
 
-  /* ════════════════════════════════
-     ROWS 3-4 — Craft card (tall left)
-  ════════════════════════════════ */
+  /* ══════════════════════════════════════
+     ROWS 3–4 — Craft card (left, tall — spans both rows)
+     Height = loc_height + 8px_gap + mind_height  (handled by CSS grid)
+  ══════════════════════════════════════ */
   .sleek-craft-card {
     display: flex !important;
     flex-direction: column;
     padding: 14px !important;
+    border-radius: 12px;
   }
 
   .craft-title,
@@ -2823,14 +2833,16 @@ footer {
   .craft-status {
     margin-top: 7px;
     font-size: 0.7rem;
+    margin-top: auto;   /* push to bottom of card */
+    padding-top: 10px;
   }
 
-  /* ════════════════════════════════
+  /* ══════════════════════════════════════
      ROW 3 — Location card (top right)
-  ════════════════════════════════ */
+  ══════════════════════════════════════ */
   .location-card {
     overflow: hidden;
-    border-radius: 14px;
+    border-radius: 12px;
   }
 
   .location-city {
@@ -2850,13 +2862,13 @@ footer {
     margin-top: 4px;
   }
 
-  /* ════════════════════════════════
+  /* ══════════════════════════════════════
      ROW 4 — Mindset card (bottom right)
-  ════════════════════════════════ */
+  ══════════════════════════════════════ */
   .sleek-mindset-card {
     overflow: hidden;
     padding: 12px !important;
-    border-radius: 14px;
+    border-radius: 12px;
   }
 
   .mindset-floating-graphic {
@@ -2881,6 +2893,8 @@ footer {
   .mindset-tagline {
     display: none;
   }
+
+
 
 
   /* ====== Projects - Mobile ====== */
