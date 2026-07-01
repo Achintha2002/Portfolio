@@ -2722,6 +2722,10 @@ footer {
     animation: mobilePrismFloat 6s ease-in-out infinite !important;
   }
   
+  /* Swap code blocks on mobile */
+  .desktop-code-block { display: none !important; }
+  .mobile-code-block { display: block !important; }
+
   .desktop-break { display: none !important; }
   .mobile-space { display: inline !important; }
 
@@ -2733,12 +2737,12 @@ footer {
   pre.prism-body,
   .prism-body {
     margin: 0 !important;
-    overflow-x: hidden !important;
+    overflow: hidden !important;
     white-space: pre !important;
     max-width: 100% !important;
-    font-size: 11.5px !important;
-    line-height: 1.7 !important;
-    padding: 16px 12px !important;
+    font-size: 13px !important;
+    line-height: 1.75 !important;
+    padding: 20px 18px !important;
   }
 
   .prism-line {
@@ -3838,6 +3842,10 @@ footer {
 
 .desktop-break { display: inline; }
 .mobile-space { display: none; }
+
+/* Show desktop block, hide mobile block by default */
+.desktop-code-block { display: block; }
+.mobile-code-block { display: none; }
 
 .prism-wrapper {
   position: relative;
