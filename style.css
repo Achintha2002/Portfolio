@@ -3977,8 +3977,8 @@ pre.prism-body,
 }
 
 .badge-available {
-  bottom: -22px;
-  right: -22px;
+  bottom: -20px;
+  right: -45px;
   animation: none;
 }
 
