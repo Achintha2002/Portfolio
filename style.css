@@ -3946,7 +3946,7 @@ pre.prism-body,
   display: inline-block;
   width: 9px;
   height: 15px;
-  background: var(--accent-orange);
+  background: #00e5ff;
   vertical-align: middle;
   margin-left: 3px;
   border-radius: 2px;
