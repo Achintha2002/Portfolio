@@ -143,10 +143,16 @@
 }
 
 /* Reset and Global Styles */
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+a, button, input, select, textarea, [role="button"], .mobile-menu-btn, .theme-toggle-btn {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
 }
 
 html {
@@ -2479,6 +2485,9 @@ footer {
     font-size: 1.2rem;
     cursor: pointer;
     box-shadow: var(--card-shadow);
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+    user-select: none;
   }
 
   [data-theme="light"] .mobile-menu-btn {
