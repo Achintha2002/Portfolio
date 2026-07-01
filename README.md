@@ -168,7 +168,4 @@ Love the design and want to use it for your own developer portfolio? You can ada
 
 ---
 
-<div align="center">
-  <p>Engineered with ❤️ by Achintha Edirisinghe</p>
-  <p>⭐ Star this repository if you found it useful or inspiring!</p>
-</div>
+
