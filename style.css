@@ -3972,7 +3972,7 @@ pre.prism-body,
 }
 
 .pc-func {
-  color: #0284c7;
+  color: var(--accent-cyan);
 }
 
 .pc-bool {
@@ -3985,14 +3985,14 @@ pre.prism-body,
 }
 
 .pc-method {
-  color: #0284c7;
+  color: var(--accent-cyan);
 }
 
 .pc-cursor {
   display: inline-block;
   width: 9px;
   height: 15px;
-  background: #00e5ff;
+  background: var(--accent-cyan);
   vertical-align: middle;
   margin-left: 3px;
   border-radius: 2px;
