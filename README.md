@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ Achintha Edirisinghe — Next-Gen Developer Portfolio
+#  Achintha Edirisinghe — Next-Gen Developer Portfolio
 
 [![Live Website](https://img.shields.io/badge/Live%20Demo-achinthaedirisinghe.me-00C7B7?style=for-the-badge&logo=vercel&logoColor=white)](https://achinthaedirisinghe.me)
 [![Vite Powered](https://img.shields.io/badge/Powered%20by-Vite%205.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
