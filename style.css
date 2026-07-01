@@ -3825,7 +3825,7 @@ footer {
 /* Main Frosted Glass Card */
 .prism-card {
   position: relative;
-  width: 480px;
+  width: 390px;
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 20px;
@@ -3882,7 +3882,7 @@ footer {
 pre.prism-body,
 .prism-body {
   margin: 0 !important;
-  padding: 24px 32px !important;
+  padding: 24px 28px 48px 28px !important;
   font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace !important;
   font-size: 14.5px !important;
   line-height: 1.8 !important;
@@ -3977,8 +3977,8 @@ pre.prism-body,
 }
 
 .badge-available {
-  bottom: -18px;
-  right: -18px;
+  bottom: -22px;
+  right: -22px;
   animation: none;
 }
 
