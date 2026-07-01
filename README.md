@@ -15,7 +15,7 @@ An ultra-responsive, highly interactive **Bento Grid** software engineering port
 
 ---
 
-## 🌟 Overview
+##  Overview
 
 Unlike static developer portfolios, this repository implements a **data-driven architecture** where all content—from hero details and skill tags to full-stack project spotlights and chatbot answers—is hydrated dynamically via a central config engine (`js/config.js`). 
 
@@ -23,11 +23,11 @@ Designed with a sleek **Dark Mode Glassmorphism** aesthetic, micro-animations, a
 
 ---
 
-## ✨ Key Highlights & Features
+##  Key Highlights & Features
 
 | Feature | Description |
 | :--- | :--- |
-| 🏗️ **Bento Grid UI/UX** | Inspired by Apple & Linear design systems, organizing content into modular, scannable, and interactive grid containers. |
+|  **Bento Grid UI/UX** | Inspired by Apple & Linear design systems, organizing content into modular, scannable, and interactive grid containers. |
 | ⚡ **Dynamic Hydration Engine** | Zero-touch HTML content updates! Update bio, social links, project cards, and achievements purely through `config.js`. |
 | 🌐 **3D Interactive Skill Sphere** | A physics-based, rotating 3D tag cloud visualizing frontend, backend, database, and cloud technologies. |
 | 🤖 **Interactive Portfolio Assistant** | Built-in smart chatbot widget that allows recruiters and visitors to interactively query information about projects, skills, and contact info. |
@@ -37,26 +37,26 @@ Designed with a sleek **Dark Mode Glassmorphism** aesthetic, micro-animations, a
 
 ---
 
-## 🚀 Featured Case Studies & Projects
+##  Featured Case Studies & Projects
 
 Here are some of the full-stack applications featured within the portfolio:
 
-### 🎓 [BrightPath LMS](https://github.com/Gagana0819/BrightPath-LMS-ITPM-.git)
+###  [BrightPath LMS](https://github.com/Gagana0819/BrightPath-LMS-ITPM-.git)
 > **Stack:** Python, Django, React, Supabase, Celery, PostgreSQL  
 > Interactive live *Kuppi* sessions and peer-led learning ecosystem built for university student networks with real-time notifications and background task processing.  
 > 📄 [View Architectural Case Study](./project-details.html)
 
-### 🛒 [Sportify E-Commerce](https://sportify-frontend-eight.vercel.app)
+###  [Sportify E-Commerce](https://sportify-frontend-eight.vercel.app)
 > **Stack:** React, Node.js, Express, MongoDB, Tailwind CSS, Stripe  
 > Next-generation sports equipment marketplace featuring role-based dashboards (Admin/Customer), secure payment gateways, and cloud asset management.  
 > 📄 [View Architectural Case Study](./sportify-details.html)
 
-### ✨ [Raani Cream Skincare](https://cream-web-ten.vercel.app/)
+###  [Raani Cream Skincare](https://cream-web-ten.vercel.app/)
 > **Stack:** MERN Stack (MongoDB, Express, React, Node.js), Tailwind CSS  
 > Premium organic skincare platform featuring an intuitive product discovery catalog, administrative inventory controls, and sleek visual storytelling.  
 > 📄 [View Architectural Case Study](./raanicream-details.html)
 
-### 🏛️ [Smart Campus Hub](./smartcampus-details.html)
+### [Smart Campus Hub](./smartcampus-details.html)
 > **Stack:** Spring Boot, Java, React, PostgreSQL, Google OAuth  
 > Comprehensive smart facility management platform enabling automated room scheduling, real-time ticketing for campus maintenance, and secure identity management.  
 
@@ -103,7 +103,7 @@ Portfolio/
 
 ---
 
-## ⚡ Quick Start & Local Development
+##  Quick Start & Local Development
 
 To run or customize this portfolio locally on your machine, follow these steps:
 
@@ -139,7 +139,7 @@ npm run preview
 
 ---
 
-## 🎨 How to Customize for Yourself
+##  How to Customize for Yourself
 
 Love the design and want to use it for your own developer portfolio? You can adapt it in less than 5 minutes!
 
@@ -153,7 +153,7 @@ Love the design and want to use it for your own developer portfolio? You can ada
 
 ---
 
-## 📬 Connect with Me
+##  Connect with Me
 
 **Achintha Edirisinghe**  
 *Full Stack Developer & Software Engineering Undergraduate*
