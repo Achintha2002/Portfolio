@@ -412,6 +412,14 @@ section {
   overflow: hidden;
 }
 
+/* Project Detail Pages Section Override */
+main.max-w-7xl section {
+  min-height: auto !important;
+  padding: 0 !important;
+  display: block !important;
+  overflow: visible !important;
+}
+
 #about {
   padding-top: 3rem;
 }
