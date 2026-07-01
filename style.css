@@ -412,6 +412,10 @@ section {
   overflow: hidden;
 }
 
+#about {
+  padding-top: 3rem;
+}
+
 #home::before {
   content: '';
   position: absolute;
