@@ -156,7 +156,7 @@ Love the design and want to use it for your own developer portfolio? You can ada
 ##  Connect with Me
 
 **Achintha Edirisinghe**  
-*Full Stack Developer & Software Engineering Undergraduate*
+*Full Stack Developer & Information Technology Undergraduate*
 
 <div align="left">
 
