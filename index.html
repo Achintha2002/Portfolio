@@ -25,6 +25,12 @@
 
   <!-- Local Styles -->
   <link rel="stylesheet" href="style.css?v=31">
+
+  <script>
+    // Ensure dark mode by default on initial load
+    const savedTheme = localStorage.getItem("portfolio_theme") || "dark";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  </script>
 </head>
 
 <body class="home-page">
