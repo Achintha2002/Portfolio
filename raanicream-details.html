@@ -50,6 +50,11 @@
 
     html { scroll-behavior: smooth; }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background: #0a0a0a;
@@ -211,7 +216,7 @@
     </div>
   </header>
 
-  <main class="mx-auto max-w-7xl px-6 pt-28 pb-12 lg:pt-32 lg:pb-20 overflow-x-clip">
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 pt-28 pb-12 lg:pt-32 lg:pb-20 overflow-x-clip">
     <!-- Hero / Intro -->
     <section class="reveal grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="space-y-8">
@@ -275,7 +280,7 @@
         <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Built With a <span class="accent-text">Robust Stack</span></h2>
       </div>
       <div class="grid gap-6 md:grid-cols-3">
-        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 hover:border-white/20 transition duration-300 min-w-0 break-words">
           <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Frontend</p>
           <div class="flex flex-wrap gap-3">
             <span class="tech-pill"><i class="fab fa-react text-cyan-400"></i> React.js 18</span>
@@ -286,7 +291,7 @@
             <span class="tech-pill"><i class="fas fa-icons text-emerald-300"></i> Lucide React</span>
           </div>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 hover:border-white/20 transition duration-300 min-w-0 break-words">
           <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Backend</p>
           <div class="flex flex-wrap gap-3">
             <span class="tech-pill"><i class="fab fa-node-js text-emerald-400"></i> Node.js</span>
@@ -297,7 +302,7 @@
             <span class="tech-pill"><i class="fas fa-cogs text-gray-400"></i> dotenv &amp; CORS</span>
           </div>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 hover:border-white/20 transition duration-300 min-w-0 break-words">
           <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Database &amp; Cloud</p>
           <div class="flex flex-wrap gap-3">
             <span class="tech-pill"><i class="fas fa-database text-green-500"></i> MongoDB</span>
@@ -316,42 +321,42 @@
         <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Core <span class="accent-text">Functionalities</span></h2>
       </div>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
             <i class="fas fa-leaf text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Interactive Product Catalog</h3>
           <p class="text-sm leading-relaxed text-white/60">Displays premium products with filtering capabilities, detailed views, and smooth micro-animations to enhance user experience.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400 mb-6">
             <i class="fas fa-shopping-cart text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Dynamic Shopping Cart</h3>
           <p class="text-sm leading-relaxed text-white/60">Features a sliding drawer UI for real-time cart updates, providing a seamless checkout process without unnecessary page reloads.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
             <i class="fas fa-user-shield text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Secure Authentication System</h3>
           <p class="text-sm leading-relaxed text-white/60">Includes user registration, login, protected route access, profile management, and password recovery using JWT securely.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mb-6">
             <i class="fas fa-chart-pie text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Admin Analytics Dashboard</h3>
           <p class="text-sm leading-relaxed text-white/60">Delivers real-time insights into total sales, order status ratios, and best-selling products for store administrators.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400 mb-6">
             <i class="fas fa-box-open text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Order &amp; Inventory Management</h3>
           <p class="text-sm leading-relaxed text-white/60">Allows admins to process customer orders, update shipping statuses, adjust stock levels manually, and receive automated low-stock alerts.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 mb-6">
             <i class="fas fa-envelope-open-text text-xl"></i>
           </div>
@@ -368,47 +373,47 @@
         <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Engineering <span class="accent-text">Complexities</span></h2>
       </div>
       <div class="grid gap-6 lg:grid-cols-[1fr_1fr]">
-        <article class="glass rounded-[2rem] p-8 sm:p-10">
+        <article class="glass rounded-[2rem] p-6 sm:p-8 md:p-10 min-w-0 break-words">
           <div class="space-y-8">
             <div>
-              <h3 class="font-display text-2xl font-semibold text-white mb-3">Complex Checkout &amp; Email Integration</h3>
-              <p class="text-base leading-relaxed text-white/60">
+              <h3 class="font-display text-xl sm:text-2xl font-semibold text-white mb-3">Complex Checkout &amp; Email Integration</h3>
+              <p class="text-sm sm:text-base leading-relaxed text-white/60">
                 Handling order creation involves not only saving the transaction to the database but also dynamically generating and dispatching a visually structured HTML email receipt to the customer using <strong class="text-white">Nodemailer</strong>. This requires careful error handling to prevent the entire checkout process from failing if the email service times out.
               </p>
             </div>
             <div class="h-px w-full bg-white/10"></div>
             <div>
-              <h3 class="font-display text-2xl font-semibold text-white mb-3">Secure Authentication &amp; Route Protection</h3>
-              <p class="text-base leading-relaxed text-white/60">
-                Designing a robust authentication flow using JSON Web Tokens (JWT). The backend employs custom <code class="bg-white/10 px-1 py-0.5 rounded text-sm font-mono text-emerald-300">protect</code> and <code class="bg-white/10 px-1 py-0.5 rounded text-sm font-mono text-emerald-300">authorize</code> middleware to restrict endpoint access based on user roles (Admin vs User), while the frontend manages local storage and React context to persist secure sessions.
+              <h3 class="font-display text-xl sm:text-2xl font-semibold text-white mb-3">Secure Authentication &amp; Route Protection</h3>
+              <p class="text-sm sm:text-base leading-relaxed text-white/60">
+                Designing a robust authentication flow using JSON Web Tokens (JWT). The backend employs custom <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-emerald-300 break-all inline-block my-0.5">protect</code> and <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-emerald-300 break-all inline-block my-0.5">authorize</code> middleware to restrict endpoint access based on user roles (Admin vs User), while the frontend manages local storage and React context to persist secure sessions.
               </p>
             </div>
           </div>
         </article>
         
-        <aside class="flex flex-col gap-6">
-          <article class="glass rounded-[2rem] p-8 sm:p-10 flex-1">
+        <aside class="flex flex-col gap-6 min-w-0">
+          <article class="glass rounded-[2rem] p-6 sm:p-8 md:p-10 flex-1 min-w-0 break-words">
             <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-emerald-500 to-amber-500 flex items-center justify-center text-white mb-6 shadow-lg shadow-emerald-500/30">
               <i class="fas fa-code-branch text-xl"></i>
             </div>
-            <h3 class="font-display text-2xl font-semibold text-white mb-4">Architecture &amp; State Synchronization</h3>
-            <p class="text-base leading-relaxed text-white/60 mb-6">
+            <h3 class="font-display text-xl sm:text-2xl font-semibold text-white mb-4">Architecture &amp; State Synchronization</h3>
+            <p class="text-sm sm:text-base leading-relaxed text-white/60 mb-6">
               The application is split into two distinct repositories (client and server), allowing independent scaling and deployment on <strong class="text-white">Vercel</strong> and <strong class="text-white">Render</strong>. The backend strictly follows a decoupled <strong class="text-white">MVC-inspired</strong> structure.
             </p>
-            <p class="text-base leading-relaxed text-white/60 mb-6">
-              A major frontend challenge was implementing <strong class="text-white">Real-time State Synchronization</strong>. The dynamic shopping cart uses a sliding drawer UI that seamlessly syncs with the global <code class="bg-white/10 px-1 py-0.5 rounded text-sm font-mono text-amber-300">CartContext</code> across different components (like the navigation badge and checkout page) without causing unnecessary re-rendering bottlenecks.
+            <p class="text-sm sm:text-base leading-relaxed text-white/60 mb-6">
+              A major frontend challenge was implementing <strong class="text-white">Real-time State Synchronization</strong>. The dynamic shopping cart uses a sliding drawer UI that seamlessly syncs with the global <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-amber-300 break-all inline-block my-0.5">CartContext</code> across different components (like the navigation badge and checkout page) without causing unnecessary re-rendering bottlenecks.
             </p>
-            <ul class="space-y-3 text-sm text-white/70">
+            <ul class="space-y-3 text-xs sm:text-sm text-white/70">
               <li class="flex items-start gap-3">
-                <i class="fas fa-check-circle text-emerald-400 mt-0.5"></i>
+                <i class="fas fa-check-circle text-emerald-400 mt-0.5 shrink-0"></i>
                 <span>Independent Client/Server deployments</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="fas fa-check-circle text-emerald-400 mt-0.5"></i>
+                <i class="fas fa-check-circle text-emerald-400 mt-0.5 shrink-0"></i>
                 <span>Global Context State Management</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="fas fa-check-circle text-emerald-400 mt-0.5"></i>
+                <i class="fas fa-check-circle text-emerald-400 mt-0.5 shrink-0"></i>
                 <span>Responsive UI with Framer Motion Micro-Animations</span>
               </li>
             </ul>

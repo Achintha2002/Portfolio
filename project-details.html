@@ -50,6 +50,11 @@
 
     html { scroll-behavior: smooth; }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background: #0a0a0a;
@@ -213,7 +218,7 @@
     </div>
   </header>
 
-  <main class="mx-auto max-w-7xl px-6 pt-28 pb-12 lg:pt-32 lg:pb-20 overflow-x-clip">
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 pt-28 pb-12 lg:pt-32 lg:pb-20 overflow-x-clip">
     <!-- Hero / Intro -->
     <section class="reveal grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="space-y-8">
@@ -264,14 +269,13 @@
       </div>
     </section>
 
-    <!-- Tech Stack -->
     <section class="reveal mt-14 lg:mt-16">
       <div class="mb-10 text-center">
         <p class="text-sm uppercase tracking-[0.25em] text-white/40 font-display">Technology</p>
         <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Built With a <span class="accent-text">Robust Stack</span></h2>
       </div>
       <div class="grid gap-6 md:grid-cols-3">
-        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 hover:border-white/20 transition duration-300 min-w-0 break-words">
           <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Frontend</p>
           <div class="flex flex-wrap gap-3">
             <span class="tech-pill"><i class="fab fa-vuejs text-emerald-400"></i> Vue 3 (Composition API)</span>
@@ -282,7 +286,7 @@
             <span class="tech-pill"><i class="fab fa-css3-alt text-cyan-400"></i> Tailwind CSS &amp; PostCSS</span>
           </div>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 hover:border-white/20 transition duration-300 min-w-0 break-words">
           <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Backend &amp; Processing</p>
           <div class="flex flex-wrap gap-3">
             <span class="tech-pill"><i class="fab fa-python text-blue-400"></i> Python 3</span>
@@ -293,7 +297,7 @@
             <span class="tech-pill"><i class="fas fa-file-pdf text-red-500"></i> PyPDF2 &amp; ReportLab</span>
           </div>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 hover:border-white/20 transition duration-300 min-w-0 break-words">
           <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Database &amp; Automation</p>
           <div class="flex flex-wrap gap-3">
             <span class="tech-pill"><i class="fas fa-database text-blue-300"></i> PostgreSQL &amp; SQLite</span>
@@ -313,42 +317,42 @@
         <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Core <span class="accent-text">Functionalities</span></h2>
       </div>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
             <i class="fas fa-user-shield text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Automated Optical ID Verification &amp; RBAC</h3>
           <p class="text-sm leading-relaxed text-white/60">Multi-tier onboarding system for Students, Lecturers, and Staff that incorporates automated OCR document processing (pytesseract + Pillow) to extract, validate, and verify National Identity Cards (NICs) and university registration numbers.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400 mb-6">
             <i class="fas fa-book-reader text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Digital Library &amp; Smart Categorization</h3>
           <p class="text-sm leading-relaxed text-white/60">A secure cloud document hub (StudyResource) supporting lecture notes, past papers, and tutorials with quality scoring, rating metrics, page/word count indexing, and AWS S3 cloud storage integration.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mb-6">
             <i class="fas fa-chalkboard-teacher text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Live Kuppi (Peer Tutoring) Scheduling</h3>
           <p class="text-sm leading-relaxed text-white/60">Dedicated collaboration engine allowing verified peer tutors to organize, schedule, and broadcast live revision sessions (KuppiSession) with meeting links, stream tagging, and video playback support.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
             <i class="fas fa-trophy text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Gamified "Points Wallet" Reward System</h3>
           <p class="text-sm leading-relaxed text-white/60">An built-in academic incentive system (PointsWallet, PointTransaction) that rewards users with points and tier promotions (Bronze to Platinum) for contributing study resources, conducting tutoring sessions, and active platform engagement.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 mb-6">
             <i class="fas fa-envelope-open-text text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Asynchronous HTML Email Notifications</h3>
           <p class="text-sm leading-relaxed text-white/60">Event-driven notification engine that alerts active users when new study materials are published (broadcast_notification_task) and automatically dispatches rich, interactive HTML feedback request emails post-download.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 mb-6">
             <i class="fas fa-brain text-xl"></i>
           </div>
@@ -365,53 +369,53 @@
         <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Engineering <span class="accent-text">Complexities</span></h2>
       </div>
       <div class="grid gap-6 lg:grid-cols-[1fr_1fr]">
-        <article class="glass rounded-[2rem] p-8 sm:p-10">
+        <article class="glass rounded-[2rem] p-6 sm:p-8 md:p-10 min-w-0 break-words">
           <div class="space-y-8">
             <div>
-              <h3 class="font-display text-2xl font-semibold text-white mb-3">Automated Document OCR &amp; Image Preprocessing</h3>
-              <p class="text-base leading-relaxed text-white/60 mb-2">
+              <h3 class="font-display text-xl sm:text-2xl font-semibold text-white mb-3">Automated Document OCR &amp; Image Preprocessing</h3>
+              <p class="text-sm sm:text-base leading-relaxed text-white/60 mb-3">
                 <strong class="text-white">Challenge:</strong> Accurately extracting unstructured text data (Full Name, Student Reg No, NIC number, University) from real-world student ID card photos that suffer from varying lighting, low contrast, and different layout structures across institutions (SLIIT, NSBM, IIT, etc.).
               </p>
-              <p class="text-base leading-relaxed text-white/60">
-                <strong class="text-white">Solution:</strong> Built an image enhancement pipeline using <strong class="text-white">Pillow</strong> (<code>preprocess_image</code>) that dynamically scales resolution up to 1200px, converts images to grayscale, and applies aggressive contrast boosting (2.5x) and sharpness filters (2.0x). The engine then runs <strong class="text-white">pytesseract</strong> across dual Page Segmentation Modes (<code>--psm 6</code> and <code>--psm 3</code>) and parses text using regex heuristics.
+              <p class="text-sm sm:text-base leading-relaxed text-white/60">
+                <strong class="text-white">Solution:</strong> Built an image enhancement pipeline using <strong class="text-white">Pillow</strong> (<code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-purple-300 break-all inline-block my-0.5">preprocess_image</code>) that dynamically scales resolution up to 1200px, converts images to grayscale, and applies aggressive contrast boosting (2.5x) and sharpness filters (2.0x). The engine then runs <strong class="text-white">pytesseract</strong> across dual Page Segmentation Modes (<code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-purple-300 whitespace-nowrap inline-block my-0.5">--psm 6</code> and <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-purple-300 whitespace-nowrap inline-block my-0.5">--psm 3</code>) and parses text using regex heuristics.
               </p>
             </div>
             <div class="h-px w-full bg-white/10"></div>
             <div>
-              <h3 class="font-display text-2xl font-semibold text-white mb-3">Asynchronous Task Orchestration &amp; Privacy</h3>
-              <p class="text-base leading-relaxed text-white/60 mb-2">
+              <h3 class="font-display text-xl sm:text-2xl font-semibold text-white mb-3">Asynchronous Task Orchestration &amp; Privacy</h3>
+              <p class="text-sm sm:text-base leading-relaxed text-white/60 mb-3">
                 <strong class="text-white">Challenge:</strong> Broadcasting notifications and rich HTML feedback emails to thousands of students without blocking the WSGI/ASGI web server thread or causing HTTP timeouts.
               </p>
-              <p class="text-base leading-relaxed text-white/60">
-                <strong class="text-white">Solution:</strong> Offloaded all I/O-heavy mail tasks to <strong class="text-white">Celery + Redis</strong> background workers. Implemented secure multi-part alternative emails formatted with inline CSS cards, utilizing Blind Carbon Copy (BCC) bulk dispatching to protect user privacy while concurrently performing bulk database inserts (<code>Notification.objects.bulk_create</code>) for real-time alerts.
+              <p class="text-sm sm:text-base leading-relaxed text-white/60">
+                <strong class="text-white">Solution:</strong> Offloaded all I/O-heavy mail tasks to <strong class="text-white">Celery + Redis</strong> background workers. Implemented secure multi-part alternative emails formatted with inline CSS cards, utilizing Blind Carbon Copy (BCC) bulk dispatching to protect user privacy while concurrently performing bulk database inserts (<code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-purple-300 break-all inline-block my-0.5">Notification.objects.bulk_create</code>) for real-time alerts.
               </p>
             </div>
           </div>
         </article>
         
-        <aside class="flex flex-col gap-6">
-          <article class="glass rounded-[2rem] p-8 sm:p-10 flex-1">
+        <aside class="flex flex-col gap-6 min-w-0">
+          <article class="glass rounded-[2rem] p-6 sm:p-8 md:p-10 flex-1 min-w-0 break-words">
             <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white mb-6 shadow-lg shadow-purple-500/30">
               <i class="fas fa-project-diagram text-xl"></i>
             </div>
-            <h3 class="font-display text-2xl font-semibold text-white mb-4">Technical Architecture &amp; Patterns</h3>
-            <p class="text-base leading-relaxed text-white/60 mb-6">
+            <h3 class="font-display text-xl sm:text-2xl font-semibold text-white mb-4">Technical Architecture &amp; Patterns</h3>
+            <p class="text-sm sm:text-base leading-relaxed text-white/60 mb-6">
               The application adheres to a decoupled <strong class="text-white">Single-Page Application (SPA) &amp; REST API</strong> architecture. The Vue 3 SPA uses Pinia state management and communicates securely via JSON Web Tokens (<strong class="text-white">SimpleJWT</strong>) with decoupled Django REST Framework endpoints.
             </p>
-            <p class="text-base leading-relaxed text-white/60 mb-6">
-              To power dynamic recommendations without database bottlenecks, we engineered a scalable <strong class="text-white">Activity-Based Algorithm</strong>. The memory-aggregated <code>RecommendationEngine</code> queries related peer interactions filtered strictly by academic stream, utilizing Python’s <code>collections.Counter</code> to compute interaction frequency distributions in memory before running periodic schedule sweeps via <code>django-celery-beat</code>.
+            <p class="text-sm sm:text-base leading-relaxed text-white/60 mb-6">
+              To power dynamic recommendations without database bottlenecks, we engineered a scalable <strong class="text-white">Activity-Based Algorithm</strong>. The memory-aggregated <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-purple-300 break-all inline-block my-0.5">RecommendationEngine</code> queries related peer interactions filtered strictly by academic stream, utilizing Python’s <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-purple-300 break-all inline-block my-0.5">collections.Counter</code> to compute interaction frequency distributions in memory before running periodic schedule sweeps via <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-purple-300 break-all inline-block my-0.5">django-celery-beat</code>.
             </p>
-            <ul class="space-y-3 text-sm text-white/70">
+            <ul class="space-y-3 text-xs sm:text-sm text-white/70">
               <li class="flex items-start gap-3">
-                <i class="fas fa-check-circle text-purple-400 mt-0.5"></i>
+                <i class="fas fa-check-circle text-purple-400 mt-0.5 shrink-0"></i>
                 <span>Decoupled Vue 3 SPA + Django MVS REST API</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="fas fa-check-circle text-purple-400 mt-0.5"></i>
+                <i class="fas fa-check-circle text-purple-400 mt-0.5 shrink-0"></i>
                 <span>Stateless JWT Session &amp; Role-Based Access Control</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="fas fa-check-circle text-purple-400 mt-0.5"></i>
+                <i class="fas fa-check-circle text-purple-400 mt-0.5 shrink-0"></i>
                 <span>Celery &amp; Redis Event-Driven Background Task Queue</span>
               </li>
             </ul>

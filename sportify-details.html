@@ -50,6 +50,11 @@
 
     html { scroll-behavior: smooth; }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background: #0a0a0a;
@@ -213,7 +218,7 @@
     </div>
   </header>
 
-  <main class="mx-auto max-w-7xl px-6 pt-28 pb-12 lg:pt-32 lg:pb-20 overflow-x-clip">
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 pt-28 pb-12 lg:pt-32 lg:pb-20 overflow-x-clip">
     <!-- Hero / Intro -->
     <section class="reveal grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="space-y-8">
@@ -277,7 +282,7 @@
         <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Built With a <span class="accent-text">Robust Stack</span></h2>
       </div>
       <div class="grid gap-6 md:grid-cols-3">
-        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 hover:border-white/20 transition duration-300 min-w-0 break-words">
           <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Frontend</p>
           <div class="flex flex-wrap gap-3">
             <span class="tech-pill"><i class="fab fa-react text-blue-400"></i> React 18</span>
@@ -288,7 +293,7 @@
             <span class="tech-pill"><i class="fas fa-route text-red-400"></i> React Router DOM v7</span>
           </div>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 hover:border-white/20 transition duration-300 min-w-0 break-words">
           <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Backend</p>
           <div class="flex flex-wrap gap-3">
             <span class="tech-pill"><i class="fab fa-node-js text-emerald-400"></i> Node.js</span>
@@ -298,7 +303,7 @@
             <span class="tech-pill"><i class="fas fa-file-upload text-blue-300"></i> Multer</span>
           </div>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 hover:border-white/20 transition duration-300 min-w-0 break-words">
           <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Database &amp; Tools</p>
           <div class="flex flex-wrap gap-3">
             <span class="tech-pill"><i class="fas fa-database text-green-500"></i> MongoDB &amp; Mongoose</span>
@@ -320,42 +325,42 @@
         <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Core <span class="accent-text">Functionalities</span></h2>
       </div>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mb-6">
             <i class="fas fa-users-cog text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Role-Based Access Control (RBAC)</h3>
           <p class="text-sm leading-relaxed text-white/60">Features dedicated, isolated workflows and dashboards for three distinct user types: Customers (shopping &amp; tracking), Admins (platform oversight), and Suppliers (inventory &amp; fulfillment).</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
             <i class="fas fa-search text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Dynamic Product Catalog &amp; Search</h3>
           <p class="text-sm leading-relaxed text-white/60">Implements advanced browsing with text-indexed search capabilities, filtering by categories/brands, and dynamic calculation of discounted prices.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 mb-6">
             <i class="fas fa-bell text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Automated Inventory &amp; Alert System</h3>
           <p class="text-sm leading-relaxed text-white/60">Monitors stock levels in the background and automatically dispatches formatted emails and in-app notifications to suppliers when product quantities fall below defined reorder points.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
             <i class="fas fa-shopping-cart text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Comprehensive Order Management</h3>
           <p class="text-sm leading-relaxed text-white/60">Supports an end-to-end checkout flow with Stripe payment integration, alongside a detailed order tracking system that handles everything from shipment processing to refunds.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400 mb-6">
             <i class="fas fa-chart-line text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Data Visualization &amp; PDF Reporting</h3>
           <p class="text-sm leading-relaxed text-white/60">Allows Admins and Suppliers to track sales performance via Chart.js and generate downloadable PDF reports directly from their dashboards using aggregated database statistics.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 mb-6">
             <i class="fas fa-cloud-upload-alt text-xl"></i>
           </div>
@@ -372,47 +377,47 @@
         <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Engineering <span class="accent-text">Complexities</span></h2>
       </div>
       <div class="grid gap-6 lg:grid-cols-[1fr_1fr]">
-        <article class="glass rounded-[2rem] p-8 sm:p-10">
+        <article class="glass rounded-[2rem] p-6 sm:p-8 md:p-10 min-w-0 break-words">
           <div class="space-y-8">
             <div>
-              <h3 class="font-display text-2xl font-semibold text-white mb-3">Automated Background Processes (Cron Jobs)</h3>
-              <p class="text-base leading-relaxed text-white/60">
+              <h3 class="font-display text-xl sm:text-2xl font-semibold text-white mb-3">Automated Background Processes (Cron Jobs)</h3>
+              <p class="text-sm sm:text-base leading-relaxed text-white/60">
                 Orchestrating real-time inventory monitoring required implementing <strong class="text-white">node-cron</strong>. The backend executes scheduled background jobs that run complex database queries to identify low-stock items. This immediately triggers a concurrent workflow to compile HTML email templates and dispatch them via <strong class="text-white">Nodemailer</strong> without blocking the main event loop.
               </p>
             </div>
             <div class="h-px w-full bg-white/10"></div>
             <div>
-              <h3 class="font-display text-2xl font-semibold text-white mb-3">Transactional Integrity &amp; Payments</h3>
-              <p class="text-base leading-relaxed text-white/60">
+              <h3 class="font-display text-xl sm:text-2xl font-semibold text-white mb-3">Transactional Integrity &amp; Payments</h3>
+              <p class="text-sm sm:text-base leading-relaxed text-white/60">
                 Handling the checkout process required a highly synchronized state machine. The system seamlessly transitions cart data from the frontend, validates pricing against the database, securely processes transactions via the <strong class="text-white">Stripe API</strong>, and subsequently triggers updates to inventory levels, shipment statuses, and supplier ledgers while accounting for refunds and cancellations.
               </p>
             </div>
           </div>
         </article>
         
-        <aside class="flex flex-col gap-6">
-          <article class="glass rounded-[2rem] p-8 sm:p-10 flex-1">
+        <aside class="flex flex-col gap-6 min-w-0">
+          <article class="glass rounded-[2rem] p-6 sm:p-8 md:p-10 flex-1 min-w-0 break-words">
             <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-500/30">
               <i class="fas fa-project-diagram text-xl"></i>
             </div>
-            <h3 class="font-display text-2xl font-semibold text-white mb-4">Architecture &amp; Aggregations</h3>
-            <p class="text-base leading-relaxed text-white/60 mb-6">
+            <h3 class="font-display text-xl sm:text-2xl font-semibold text-white mb-4">Architecture &amp; Aggregations</h3>
+            <p class="text-sm sm:text-base leading-relaxed text-white/60 mb-6">
               The backend strictly adheres to a modular <strong class="text-white">MVC pattern</strong>. The API relies on custom middleware chains for JWT verification, role authorization, and file uploading via Multer before controllers execute business logic.
             </p>
-            <p class="text-base leading-relaxed text-white/60 mb-6">
-              To power the analytical dashboards, the application utilizes <strong class="text-white">MongoDB Aggregation Pipelines</strong> (<code class="bg-white/10 px-1 py-0.5 rounded text-sm font-mono text-emerald-300">$group</code>, <code class="bg-white/10 px-1 py-0.5 rounded text-sm font-mono text-emerald-300">$sum</code>, <code class="bg-white/10 px-1 py-0.5 rounded text-sm font-mono text-emerald-300">$avg</code>). This enables the database engine to rapidly compute revenues and order statuses without overloading the Node server's memory.
+            <p class="text-sm sm:text-base leading-relaxed text-white/60 mb-6">
+              To power the analytical dashboards, the application utilizes <strong class="text-white">MongoDB Aggregation Pipelines</strong> (<code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-emerald-300 break-all inline-block my-0.5">$group</code>, <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-emerald-300 break-all inline-block my-0.5">$sum</code>, <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-emerald-300 break-all inline-block my-0.5">$avg</code>). This enables the database engine to rapidly compute revenues and order statuses without overloading the Node server's memory.
             </p>
-            <ul class="space-y-3 text-sm text-white/70">
+            <ul class="space-y-3 text-xs sm:text-sm text-white/70">
               <li class="flex items-start gap-3">
-                <i class="fas fa-check-circle text-emerald-400 mt-0.5"></i>
+                <i class="fas fa-check-circle text-emerald-400 mt-0.5 shrink-0"></i>
                 <span>Strict Mongoose schema definitions &amp; virtual fields</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="fas fa-check-circle text-emerald-400 mt-0.5"></i>
+                <i class="fas fa-check-circle text-emerald-400 mt-0.5 shrink-0"></i>
                 <span>React Hooks, Context API &amp; TanStack Query</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="fas fa-check-circle text-emerald-400 mt-0.5"></i>
+                <i class="fas fa-check-circle text-emerald-400 mt-0.5 shrink-0"></i>
                 <span>Component-based isolated RBAC workflow</span>
               </li>
             </ul>

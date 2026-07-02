@@ -51,6 +51,11 @@
 
     html { scroll-behavior: smooth; }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background: #0a0a0a;
@@ -214,7 +219,7 @@
     </div>
   </header>
 
-  <main class="mx-auto max-w-7xl px-6 pt-28 pb-12 lg:pt-32 lg:pb-20 overflow-x-clip">
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 pt-28 pb-12 lg:pt-32 lg:pb-20 overflow-x-clip">
     <!-- Hero / Intro -->
     <section class="reveal grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="space-y-8">
@@ -290,7 +295,7 @@
         <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Built With a <span class="accent-text">Robust Stack</span></h2>
       </div>
       <div class="grid gap-6 md:grid-cols-3">
-        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 hover:border-white/20 transition duration-300 min-w-0 break-words">
           <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Frontend</p>
           <div class="flex flex-wrap gap-3">
             <span class="tech-pill"><i class="fab fa-react text-cyan-400"></i> React 19</span>
@@ -301,7 +306,7 @@
             <span class="tech-pill"><i class="fas fa-icons text-purple-300"></i> Lucide React</span>
           </div>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 hover:border-white/20 transition duration-300 min-w-0 break-words">
           <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Backend</p>
           <div class="flex flex-wrap gap-3">
             <span class="tech-pill"><i class="fab fa-java text-orange-500"></i> Java 17</span>
@@ -311,7 +316,7 @@
             <span class="tech-pill"><i class="fas fa-shield-alt text-red-400"></i> Spring Security</span>
           </div>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 hover:border-white/20 transition duration-300">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 hover:border-white/20 transition duration-300 min-w-0 break-words">
           <p class="text-xs uppercase tracking-[0.25em] text-white/40 font-display mb-5">Database &amp; DevOps</p>
           <div class="flex flex-wrap gap-3">
             <span class="tech-pill"><i class="fas fa-database text-blue-500"></i> PostgreSQL 15</span>
@@ -332,33 +337,33 @@
         <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Core <span class="accent-text">Functionalities</span></h2>
       </div>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mb-6">
             <i class="fas fa-calendar-check text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Resource Booking Engine</h3>
           <p class="text-sm leading-relaxed text-white/60">Allows users to request reservations for campus resources with built-in conflict detection and a dedicated admin approval/rejection workflow.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-red-500/20 flex items-center justify-center text-red-400 mb-6">
             <i class="fas fa-exclamation-triangle text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Incident Ticketing System</h3>
           <p class="text-sm leading-relaxed text-white/60">Enables users to report issues with up to 3 image attachments (max 5MB each), utilizing secure file storage and path traversal protection.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 mb-6">
             <i class="fas fa-bell text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Auto-triggered Notification System</h3>
           <p class="text-sm leading-relaxed text-white/60">Sends automated, real-time alerts for booking status updates and incident progress, featuring a React-based notification panel with an unread badge counter.</p>
         </article>
-        <article class="glass rounded-[1.5rem] p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+        <article class="glass rounded-[1.5rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow min-w-0 break-words">
           <div class="h-12 w-12 rounded-full bg-violet-500/20 flex items-center justify-center text-violet-400 mb-6">
             <i class="fas fa-user-shield text-xl"></i>
           </div>
           <h3 class="font-display text-xl font-semibold mb-3">Role-Based Access Control (RBAC)</h3>
-          <p class="text-sm leading-relaxed text-white/60">Secures endpoints by restricting sensitive actions—like status approvals and global data viewing—strictly to users with <code>ADMIN</code> privileges.</p>
+          <p class="text-sm leading-relaxed text-white/60">Secures endpoints by restricting sensitive actions—like status approvals and global data viewing—strictly to users with <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-violet-300 inline-block my-0.5">ADMIN</code> privileges.</p>
         </article>
       </div>
     </section>
@@ -370,54 +375,54 @@
         <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Engineering <span class="accent-text">Complexities</span></h2>
       </div>
       <div class="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
-        <aside class="flex flex-col gap-6">
-          <article class="glass rounded-[2rem] p-8 sm:p-10 flex-1">
+        <aside class="flex flex-col gap-6 min-w-0">
+          <article class="glass rounded-[2rem] p-6 sm:p-8 md:p-10 flex-1 min-w-0 break-words">
             <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center text-white mb-6 shadow-lg shadow-violet-500/30">
               <i class="fas fa-layer-group text-xl"></i>
             </div>
-            <h3 class="font-display text-2xl font-semibold text-white mb-4">Backend Architecture</h3>
-            <p class="text-base leading-relaxed text-white/60 mb-6">
+            <h3 class="font-display text-xl sm:text-2xl font-semibold text-white mb-4">Backend Architecture</h3>
+            <p class="text-sm sm:text-base leading-relaxed text-white/60 mb-6">
               Implements a robust structural pattern separated into distinct layers: Entities, Repositories, Services, Controllers, DTOs, and Exceptions. This ensures a clean separation of business logic, database operations, and API routing.
             </p>
-            <p class="text-base leading-relaxed text-white/60 mb-6">
+            <p class="text-sm sm:text-base leading-relaxed text-white/60 mb-6">
               The <strong class="text-white">Spring Boot</strong> backend exposes well-defined RESTful endpoints that the React Single Page Application (SPA) consumes asynchronously via Axios. It utilizes Spring Data JPA with Hibernate for seamless ORM and schema management.
             </p>
-            <ul class="space-y-3 text-sm text-white/70">
+            <ul class="space-y-3 text-xs sm:text-sm text-white/70">
               <li class="flex items-start gap-3">
-                <i class="fas fa-check-circle text-violet-400 mt-0.5"></i>
+                <i class="fas fa-check-circle text-violet-400 mt-0.5 shrink-0"></i>
                 <span>Layered MVC Architecture</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="fas fa-check-circle text-violet-400 mt-0.5"></i>
+                <i class="fas fa-check-circle text-violet-400 mt-0.5 shrink-0"></i>
                 <span>Automated Data Modeling with JPA</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="fas fa-check-circle text-violet-400 mt-0.5"></i>
+                <i class="fas fa-check-circle text-violet-400 mt-0.5 shrink-0"></i>
                 <span>RESTful API SPA Integration</span>
               </li>
             </ul>
           </article>
         </aside>
 
-        <article class="glass rounded-[2rem] p-8 sm:p-10">
+        <article class="glass rounded-[2rem] p-6 sm:p-8 md:p-10 min-w-0 break-words">
           <div class="space-y-8">
             <div>
-              <h3 class="font-display text-2xl font-semibold text-white mb-3">Advanced Conflict Detection</h3>
-              <p class="text-base leading-relaxed text-white/60">
+              <h3 class="font-display text-xl sm:text-2xl font-semibold text-white mb-3">Advanced Conflict Detection</h3>
+              <p class="text-sm sm:text-base leading-relaxed text-white/60">
                 Engineered complex <strong>JPQL overlap queries</strong> to ensure no double-booking of resources occurs. This required handling intricate date-time overlap logic efficiently at the database level rather than the application level.
               </p>
             </div>
             <div class="h-px w-full bg-white/10"></div>
             <div>
-              <h3 class="font-display text-2xl font-semibold text-white mb-3">Secure File Handling &amp; Validation</h3>
-              <p class="text-base leading-relaxed text-white/60">
-                Implemented robust file upload mechanisms featuring <strong>UUID-based filename generation</strong> to prevent path traversal attacks. This is coupled with strict MIME-type validation (accepting only <code class="bg-white/10 px-1 py-0.5 rounded text-sm font-mono text-blue-300">image/*</code>) before routing to Supabase Storage Buckets.
+              <h3 class="font-display text-xl sm:text-2xl font-semibold text-white mb-3">Secure File Handling &amp; Validation</h3>
+              <p class="text-sm sm:text-base leading-relaxed text-white/60">
+                Implemented robust file upload mechanisms featuring <strong>UUID-based filename generation</strong> to prevent path traversal attacks. This is coupled with strict MIME-type validation (accepting only <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs sm:text-sm font-mono text-blue-300 break-all inline-block my-0.5">image/*</code>) before routing to Supabase Storage Buckets.
               </p>
             </div>
             <div class="h-px w-full bg-white/10"></div>
             <div>
-              <h3 class="font-display text-2xl font-semibold text-white mb-3">Scalable Database Connectivity</h3>
-              <p class="text-base leading-relaxed text-white/60">
+              <h3 class="font-display text-xl sm:text-2xl font-semibold text-white mb-3">Scalable Database Connectivity</h3>
+              <p class="text-sm sm:text-base leading-relaxed text-white/60">
                 Integrated a <strong>Supabase Transaction Pooler</strong> (PgBouncer proxy on port 6543) instead of a direct connection. This architectural decision optimizes database performance and gracefully handles concurrent PostgreSQL connection scaling under high load.
               </p>
             </div>
