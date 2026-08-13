@@ -1154,4 +1154,69 @@ function updateLocationTime() {
 document.addEventListener('DOMContentLoaded', () => {
   updateLocationTime();
   setInterval(updateLocationTime, 1000);
+  initCertsAutoScroll();
 });
+
+/* ============================================
+   CERTIFICATES AUTOSCROLL (MOBILE)
+   ============================================ */
+function initCertsAutoScroll() {
+  const carousel = document.querySelector('.certs-carousel');
+  if (!carousel) return;
+
+  let scrollAmount = 1; // Pixels per frame
+  let isHoveredOrTouched = false;
+  
+  const pauseScroll = () => {
+    isHoveredOrTouched = true;
+    carousel.style.scrollSnapType = 'x mandatory';
+  };
+  
+  const resumeScroll = () => {
+    isHoveredOrTouched = false;
+    if (window.innerWidth <= 768) {
+      carousel.style.scrollSnapType = 'none';
+    }
+  };
+
+  // Pause auto-scroll when user interacts
+  carousel.addEventListener('mouseenter', pauseScroll);
+  carousel.addEventListener('mouseleave', resumeScroll);
+  carousel.addEventListener('touchstart', pauseScroll, { passive: true });
+  carousel.addEventListener('touchend', () => {
+    setTimeout(resumeScroll, 2000); // Wait 2s before resuming after touch
+  }, { passive: true });
+
+  // Initial check to disable snap on mobile
+  if (window.innerWidth <= 768) {
+    carousel.style.scrollSnapType = 'none';
+  }
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      carousel.style.scrollSnapType = 'x mandatory';
+    } else if (!isHoveredOrTouched) {
+      carousel.style.scrollSnapType = 'none';
+    }
+  });
+
+  function autoScroll() {
+    // Only auto-scroll on mobile view (< 768px)
+    if (window.innerWidth <= 768 && !isHoveredOrTouched) {
+      // If we hit the right end
+      if (Math.ceil(carousel.scrollLeft + carousel.clientWidth) >= carousel.scrollWidth) {
+        scrollAmount = -1; // Reverse direction (left)
+      } 
+      // If we hit the left end
+      else if (carousel.scrollLeft <= 0) {
+        scrollAmount = 1; // Forward direction (right)
+      }
+      
+      carousel.scrollLeft += scrollAmount;
+    }
+    requestAnimationFrame(autoScroll);
+  }
+  
+  // Start the animation loop
+  requestAnimationFrame(autoScroll);
+}
