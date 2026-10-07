@@ -157,6 +157,15 @@ function setupPortfolioContent() {
   const bookCallBtn = document.getElementById("book-call-btn");
   if (bookCallBtn) bookCallBtn.href = config.owner.calendar;
 
+  // Resume Download Links
+  const resumeUrl = config.owner.resume || "/assets/Achintha_Lihan_Resume.pdf";
+  const resumeLinks = document.querySelectorAll(".craft-resume-btn, .resume-download-btn, [data-resume-link]");
+  resumeLinks.forEach(link => {
+    link.href = resumeUrl;
+    link.setAttribute("download", "Achintha_Lihan_Resume.pdf");
+    link.setAttribute("target", "_blank");
+  });
+
   // Featured Projects Section Setup
   const projectsContainer = document.getElementById("projects-grid-container");
   if (projectsContainer) {
