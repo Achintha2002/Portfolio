@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TableFlow - Project Details &amp; Engineering Case Study</title>
+  <meta name="description" content="Detailed engineering case study for TableFlow — Full-Stack Real-Time Restaurant Management, Table Reservation & Contactless Dining Platform." />
+  
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    // Prevent FOUC by setting theme immediately
+    const savedTheme = localStorage.getItem("portfolio_theme") || "dark";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            body: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          },
+          colors: {
+            ink: '#0e0b08',
+            panel: 'rgba(32, 22, 14, 0.45)',
+            line: 'rgba(255,255,255,0.06)',
+            terracotta: {
+              400: '#fb923c',
+              500: '#ea580c',
+              600: '#c2783e'
+            }
+          },
+          boxShadow: {
+            glow: '0 0 45px rgba(234, 88, 12, 0.18), 0 24px 80px rgba(0,0,0,0.5)',
+            security: '0 0 35px rgba(245, 158, 11, 0.25)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --accent: linear-gradient(135deg, #fb923c 0%, #ea580c 50%, #c2783e 100%);
+    }
+
+    *, *::before, *::after, a, button {
+      -webkit-tap-highlight-color: transparent !important;
+      outline: none;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0806;
+      color: #f5f2eb;
+    }
+
+    .glass {
+      background: rgba(22, 18, 14, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px) saturate(150%);
+    }
+
+    .accent-text {
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .grid-overlay {
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0.2) 100%);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .floaty { animation: floaty 8s ease-in-out infinite; }
+    .floaty-delay { animation: floaty 10s ease-in-out infinite; animation-delay: -4s; }
+    
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-15px) translateX(10px); }
+    }
+
+    .shine { position: relative; overflow: hidden; }
+    .shine::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.06) 50%, transparent 100%);
+      transform: translateX(-120%);
+      animation: sweep 7s infinite;
+      pointer-events: none;
+    }
+    @keyframes sweep {
+      0% { transform: translateX(-120%); }
+      30%, 100% { transform: translateX(120%); }
+    }
+    
+    .tech-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.85);
+      transition: all 0.3s;
+    }
+    .tech-pill:hover {
+      background: rgba(251, 146, 60, 0.12);
+      border-color: rgba(251, 146, 60, 0.5);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .arch-box {
+      background: rgba(18, 14, 10, 0.85);
+      border: 1px solid rgba(251, 146, 60, 0.15);
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+      transition: all 0.3s ease;
+    }
+    .arch-box:hover {
+      border-color: rgba(251, 146, 60, 0.4);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Light Mode Overrides */
+    html[data-theme="light"] body {
+      background: #faf8f5;
+      color: #1a1512;
+    }
+    html[data-theme="light"] .glass {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(234, 88, 12, 0.2);
+      box-shadow: 0 4px 30px rgba(234, 88, 12, 0.06);
+    }
+    html[data-theme="light"] .text-white { color: #1a1512 !important; }
+    html[data-theme="light"] .text-white\/80 { color: #374151 !important; }
+    html[data-theme="light"] .text-white\/70,
+    html[data-theme="light"] .text-white\/60,
+    html[data-theme="light"] .text-white\/50,
+    html[data-theme="light"] .text-white\/40,
+    html[data-theme="light"] .text-white\/30 { color: #5a524c !important; }
+    
+    html[data-theme="light"] .accent-text {
+      background: linear-gradient(135deg, #ea580c 0%, #c2783e 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    html[data-theme="light"] .bg-white\/5 { background-color: rgba(234, 88, 12, 0.05) !important; }
+    html[data-theme="light"] .bg-white\/10 { background-color: rgba(234, 88, 12, 0.1) !important; }
+    html[data-theme="light"] .border-white\/10 { border-color: rgba(234, 88, 12, 0.15) !important; }
+    html[data-theme="light"] .border-white\/5 { border-color: rgba(234, 88, 12, 0.08) !important; }
+    html[data-theme="light"] .bg-\[\#0e0b08\]\/80 { background-color: rgba(255, 255, 255, 0.92) !important; }
+    
+    html[data-theme="light"] .grid-overlay {
+      background-image: 
+        linear-gradient(rgba(234, 88, 12, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(234, 88, 12, 0.05) 1px, transparent 1px);
+    }
+    
+    html[data-theme="light"] .tech-pill {
+      border: 1px solid rgba(234, 88, 12, 0.2);
+      background: rgba(234, 88, 12, 0.06);
+      color: #374151;
+    }
+    html[data-theme="light"] .tech-pill:hover {
+      background: rgba(234, 88, 12, 0.15);
+      border-color: rgba(234, 88, 12, 0.5);
+      color: #1a1512;
+    }
+    
+    html[data-theme="light"] .arch-box {
+      background: rgba(255, 255, 255, 0.85);
+      border-color: rgba(234, 88, 12, 0.2);
+    }
+
+    html[data-theme="light"] .bg-white { 
+      background-color: #ea580c !important; 
+      color: #ffffff !important; 
+      box-shadow: 0 4px 15px rgba(234, 88, 12, 0.3); 
+    }
+    html[data-theme="light"] .bg-white i { color: #ffffff !important; }
+    html[data-theme="light"] .hover\:bg-white\/90:hover { background-color: #c2783e !important; }
+  </style>
+</head>
+<body class="font-body">
+  <div class="fixed inset-0 pointer-events-none grid-overlay opacity-50"></div>
+  <div class="fixed -top-32 -left-32 h-[32rem] w-[32rem] rounded-full bg-amber-500/10 blur-3xl floaty pointer-events-none"></div>
+  <div class="fixed top-40 right-0 h-[28rem] w-[28rem] rounded-full bg-orange-600/10 blur-3xl floaty-delay pointer-events-none"></div>
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 w-full z-50 border-b border-white/5 bg-[#0e0b08]/80 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-4">
+        <a href="index.html#projects" class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/10">
+          <span class="text-lg leading-none">←</span>
+          Back to Portfolio
+        </a>
+        <button id="theme-toggle-btn" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-white/20 hover:bg-white/10" aria-label="Toggle Theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+      <div class="hidden items-center gap-3 md:flex">
+        <span class="h-2.5 w-2.5 rounded-full bg-amber-400 shadow-[0_0_15px_rgba(251,146,60,0.8)]"></span>
+        <span class="text-xs uppercase tracking-[0.25em] text-white/50 font-display">Mobile App &amp; System Case Study</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 pt-28 pb-12 lg:pt-32 lg:pb-20 overflow-x-clip">
+    <!-- Hero / Intro -->
+    <section class="reveal grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="space-y-8">
+        <div class="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">
+          <i class="fas fa-mobile-alt"></i> Mobile App &amp; Orchestration Platform
+        </div>
+        <div class="space-y-4">
+          <p class="text-sm uppercase tracking-[0.3em] text-white/40 font-display">Project 05 • Case Study</p>
+          <h1 class="font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+            <span class="accent-text">TableFlow</span>
+          </h1>
+          <p class="text-xl text-white/80 font-display mt-2">
+            End-to-End Smart Restaurant Orchestration &amp; Real-Time Dining Platform
+          </p>
+          
+          <div class="flex items-center gap-4 pt-6 pb-2">
+            <a href="https://github.com/Achintha2002/TableFlow" target="_blank" aria-label="View on GitHub" class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-ink transition-all duration-300 hover:scale-[1.1] hover:bg-white/90 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+              <i class="fab fa-github text-2xl"></i>
+            </a>
+            <div class="flex flex-col">
+              <span class="text-xs uppercase tracking-wider text-white/40 font-display">Repository</span>
+              <span class="text-sm font-semibold text-white/90">Achintha2002/TableFlow</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass rounded-[2rem] p-7 sm:p-9 shadow-glow mt-8">
+          <p class="text-xs uppercase tracking-[0.25em] text-amber-400 font-display font-semibold">Project Overview</p>
+          <p class="mt-4 text-base leading-relaxed text-white/70 sm:text-lg">
+            <strong>TableFlow</strong> is an omnichannel restaurant operations ecosystem that unifies guest dining experiences with back-of-house hospitality management. It solves critical inefficiencies in traditional dining—such as crowded waiting areas, manual table turnover delays, fragmented POS billing, and reservation booking conflicts—by synchronizing customer mobile apps, cashier POS terminals, kitchen display systems (KDS), and administrative dashboards in sub-second real time.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Side Visual / Phone Mockup Area -->
+      <div class="reveal relative flex justify-center">
+        <div class="absolute -inset-8 rounded-[2.5rem] bg-gradient-to-br from-amber-500/15 via-orange-600/15 to-amber-700/15 blur-3xl pointer-events-none"></div>
+        <div class="glass shine relative overflow-hidden rounded-[2.5rem] border-white/10 p-6 sm:p-8 shadow-glow max-w-sm sm:max-w-md w-full flex flex-col items-center">
+          <div class="relative w-full flex justify-center items-center py-4">
+            <img src="/assets/tableflow.jpg" alt="TableFlow Mobile App Interface" class="w-full max-w-[280px] h-auto object-contain rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.7)] transition duration-700 hover:scale-[1.03]" />
+          </div>
+          <div class="mt-5 text-center">
+            <div class="inline-flex items-center gap-2 mb-2">
+              <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-xs font-semibold uppercase tracking-widest text-emerald-300">Live Dine-In Client</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white">Flutter Luxury Customer Experience</h3>
+            <p class="text-xs text-white/60 mt-1">Real-time table binding, QR ordering &amp; active ticket state machines.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Highlight Stats Banner -->
+    <section class="reveal mt-20 lg:mt-24">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <div class="glass rounded-[1.5rem] p-6 text-center">
+          <p class="font-display text-3xl sm:text-4xl font-extrabold text-amber-400">&lt;50ms</p>
+          <p class="text-xs uppercase tracking-wider text-white/50 mt-1">Sync Latency</p>
+        </div>
+        <div class="glass rounded-[1.5rem] p-6 text-center">
+          <p class="font-display text-3xl sm:text-4xl font-extrabold text-orange-400">100%</p>
+          <p class="text-xs uppercase tracking-wider text-white/50 mt-1">Conflict-Free Bookings</p>
+        </div>
+        <div class="glass rounded-[1.5rem] p-6 text-center">
+          <p class="font-display text-3xl sm:text-4xl font-extrabold text-amber-300">5-State</p>
+          <p class="text-xs uppercase tracking-wider text-white/50 mt-1">Live KDS Pipeline</p>
+        </div>
+        <div class="glass rounded-[1.5rem] p-6 text-center">
+          <p class="font-display text-3xl sm:text-4xl font-extrabold text-orange-300">Zero</p>
+          <p class="text-xs uppercase tracking-wider text-white/50 mt-1">Stale Network States</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="reveal mt-20 lg:mt-28">
+      <div class="mb-10 text-center">
+        <p class="text-sm uppercase tracking-[0.25em] text-white/40 font-display">Technology</p>
+        <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Built With an <span class="accent-text">Omnichannel Architecture</span></h2>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <!-- Mobile Client -->
+        <article class="glass rounded-[1.5rem] p-6 sm:p-7 hover:border-white/20 transition duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="h-10 w-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
+              <i class="fas fa-mobile-screen text-lg"></i>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-white/40 font-display">Mobile Client</p>
+              <h3 class="font-display text-base font-bold text-white">Customer App</h3>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="tech-pill"><i class="devicon-flutter-plain colored"></i> Flutter 3.x</span>
+            <span class="tech-pill"><i class="devicon-dart-plain colored"></i> Dart 3.x</span>
+            <span class="tech-pill"><i class="fas fa-sitemap text-amber-400"></i> Provider (MVVM)</span>
+            <span class="tech-pill"><i class="fas fa-route text-blue-400"></i> GoRouter</span>
+            <span class="tech-pill"><i class="fas fa-qrcode text-emerald-400"></i> mobile_scanner</span>
+            <span class="tech-pill"><i class="fas fa-bolt text-yellow-400"></i> supabase_flutter</span>
+            <span class="tech-pill"><i class="fas fa-bell text-red-400"></i> FCM Push</span>
+          </div>
+        </article>
+
+        <!-- Admin Console -->
+        <article class="glass rounded-[1.5rem] p-6 sm:p-7 hover:border-white/20 transition duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="h-10 w-10 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center">
+              <i class="fas fa-desktop text-lg"></i>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-white/40 font-display">Operations</p>
+              <h3 class="font-display text-base font-bold text-white">Admin Console</h3>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="tech-pill"><i class="devicon-nextjs-plain text-white"></i> Next.js 16 (App Router)</span>
+            <span class="tech-pill"><i class="devicon-react-original colored"></i> React 19</span>
+            <span class="tech-pill"><i class="fas fa-chart-line text-emerald-400"></i> Recharts</span>
+            <span class="tech-pill"><i class="fas fa-palette text-amber-300"></i> Design Tokens</span>
+            <span class="tech-pill"><i class="fas fa-feather text-cyan-300"></i> Lucide React</span>
+            <span class="tech-pill"><i class="fas fa-clock text-amber-400"></i> Luxury TimePicker</span>
+          </div>
+        </article>
+
+        <!-- Backend -->
+        <article class="glass rounded-[1.5rem] p-6 sm:p-7 hover:border-white/20 transition duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="h-10 w-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center">
+              <i class="fas fa-server text-lg"></i>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-white/40 font-display">Micro-Services</p>
+              <h3 class="font-display text-base font-bold text-white">Backend &amp; APIs</h3>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="tech-pill"><i class="devicon-nodejs-plain colored"></i> Node.js Runtime</span>
+            <span class="tech-pill"><i class="devicon-express-original text-white"></i> Express.js 4.x</span>
+            <span class="tech-pill"><i class="fas fa-database text-blue-400"></i> pg (Native Client)</span>
+            <span class="tech-pill"><i class="fas fa-file-upload text-purple-400"></i> Multer Uploads</span>
+            <span class="tech-pill"><i class="fas fa-fire text-amber-500"></i> firebase-admin</span>
+            <span class="tech-pill"><i class="fas fa-sync text-green-400"></i> Nodemon Engine</span>
+          </div>
+        </article>
+
+        <!-- Database & Cloud -->
+        <article class="glass rounded-[1.5rem] p-6 sm:p-7 hover:border-white/20 transition duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="h-10 w-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center">
+              <i class="fas fa-cloud-arrow-up text-lg"></i>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-white/40 font-display">Cloud Hub</p>
+              <h3 class="font-display text-base font-bold text-white">Database &amp; Real-time</h3>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="tech-pill"><i class="devicon-postgresql-plain colored"></i> PostgreSQL 15+</span>
+            <span class="tech-pill"><i class="fas fa-bolt text-emerald-400"></i> Supabase Realtime</span>
+            <span class="tech-pill"><i class="fas fa-shield-halved text-amber-400"></i> Row-Level Security</span>
+            <span class="tech-pill"><i class="fas fa-code-branch text-purple-400"></i> PL/pgSQL Triggers</span>
+            <span class="tech-pill"><i class="fas fa-network-wired text-cyan-400"></i> WebSocket CDC</span>
+            <span class="tech-pill"><i class="fas fa-key text-yellow-400"></i> OAuth 2.0 &amp; RLS</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="reveal mt-20 lg:mt-28">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.25em] text-white/40 font-display">Capabilities</p>
+        <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Key Features &amp; <span class="accent-text">Core Functionalities</span></h2>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Feature 1 -->
+        <article class="glass rounded-[1.75rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-2xl bg-amber-500/20 flex items-center justify-center text-amber-400 mb-6">
+            <i class="fas fa-qrcode text-2xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Table QR Check-In &amp; Dining Tabs</h3>
+          <p class="text-sm leading-relaxed text-white/70">
+            Guests scan tabletop QR codes via the mobile client to instantly bind sessions to physical tables, place kitchen-directed orders, dispatch waiter calls, and view live order tallies with zero physical menus.
+          </p>
+        </article>
+
+        <!-- Feature 2 -->
+        <article class="glass rounded-[1.75rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-2xl bg-orange-500/20 flex items-center justify-center text-orange-400 mb-6">
+            <i class="fas fa-users-line text-2xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Live Waitlist &amp; Dynamic Queue</h3>
+          <p class="text-sm leading-relaxed text-white/70">
+            Allows guests to join virtual queues remotely. Dynamically computes wait estimates based on party size, tracks queue positions in real time, and sends automated table-ready push alerts with instant seat allocation.
+          </p>
+        </article>
+
+        <!-- Feature 3 -->
+        <article class="glass rounded-[1.75rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-2xl bg-amber-600/20 flex items-center justify-center text-amber-300 mb-6">
+            <i class="fas fa-calendar-check text-2xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Intelligent Reservation Engine</h3>
+          <p class="text-sm leading-relaxed text-white/70">
+            Conflict-free scheduler configured with weekly operating windows, customizable order cutoff buffers, and automated holiday date lockouts with zero double-booking vulnerabilities.
+          </p>
+        </article>
+
+        <!-- Feature 4 -->
+        <article class="glass rounded-[1.75rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
+            <i class="fas fa-cash-register text-2xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Cashier POS &amp; Billing Terminal</h3>
+          <p class="text-sm leading-relaxed text-white/70">
+            Enables managers and cashiers to monitor live table tabs, apply percentage or flat vouchers, settle payments across Cash, Card, and Digital methods, and generate audit-trailed itemized receipts.
+          </p>
+        </article>
+
+        <!-- Feature 5 -->
+        <article class="glass rounded-[1.75rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-2xl bg-red-500/20 flex items-center justify-center text-red-400 mb-6">
+            <i class="fas fa-utensils text-2xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Kitchen Display System (KDS)</h3>
+          <p class="text-sm leading-relaxed text-white/70">
+            Station screens receive orders in real time governed by atomic state machines: <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs text-amber-300 font-mono">pending</code> → <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs text-amber-300 font-mono">cooking</code> → <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs text-amber-300 font-mono">ready</code> → <code class="bg-white/10 px-1.5 py-0.5 rounded text-xs text-amber-300 font-mono">served</code>, streaming updates instantaneously to guest screens.
+          </p>
+        </article>
+
+        <!-- Feature 6 -->
+        <article class="glass rounded-[1.75rem] p-6 sm:p-8 transition duration-300 hover:-translate-y-2 hover:shadow-glow">
+          <div class="h-12 w-12 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 mb-6">
+            <i class="fas fa-bullhorn text-2xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Operating Hours &amp; Broadcasts</h3>
+          <p class="text-sm leading-relaxed text-white/70">
+            Features luxury time pickers, 1-click emergency "Close Today" toggles with automatic timezone-derived midnight resets, and automated multi-channel FCM push notifications for scheduled holidays.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Technical Architecture Diagram -->
+    <section class="reveal mt-20 lg:mt-28">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.25em] text-white/40 font-display">System Blueprint</p>
+        <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Technical <span class="accent-text">Architecture &amp; Data Flow</span></h2>
+      </div>
+
+      <div class="glass rounded-[2rem] p-6 sm:p-10">
+        <!-- Responsive Architecture Visual -->
+        <div class="grid gap-6 lg:grid-cols-3 mb-10">
+          <div class="arch-box text-center">
+            <div class="inline-flex h-12 w-12 rounded-xl bg-amber-500/20 text-amber-400 items-center justify-center mb-3">
+              <i class="fas fa-layer-group text-xl"></i>
+            </div>
+            <h4 class="font-display text-lg font-bold text-white mb-2">1. Client Tier</h4>
+            <p class="text-xs text-white/60 leading-relaxed">
+              <strong>Flutter Mobile Client</strong> (Guests/Dine-In) &amp; <strong>Next.js 16 App Router</strong> (Admin/Cashier POS). Decoupled UI with GoRouter and custom luxury design tokens.
+            </p>
+          </div>
+
+          <div class="arch-box text-center">
+            <div class="inline-flex h-12 w-12 rounded-xl bg-orange-500/20 text-orange-400 items-center justify-center mb-3">
+              <i class="fas fa-network-wired text-xl"></i>
+            </div>
+            <h4 class="font-display text-lg font-bold text-white mb-2">2. Application &amp; Push Tier</h4>
+            <p class="text-xs text-white/60 leading-relaxed">
+              <strong>Node.js / Express Backend</strong>. Manages POS billing, emergency conflict engines, Multer file pipelines, and FCM push broadcast dispatchers.
+            </p>
+          </div>
+
+          <div class="arch-box text-center">
+            <div class="inline-flex h-12 w-12 rounded-xl bg-red-500/20 text-red-400 items-center justify-center mb-3">
+              <i class="fas fa-database text-xl"></i>
+            </div>
+            <h4 class="font-display text-lg font-bold text-white mb-2">3. Real-Time Data Hub</h4>
+            <p class="text-xs text-white/60 leading-relaxed">
+              <strong>Supabase PostgreSQL 15+</strong> with Change Data Capture (CDC), WebSocket Broadcast Channels, Row-Level Security (RLS), and temporal validation triggers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Architectural Highlights List -->
+        <div class="grid gap-6 md:grid-cols-2 pt-6 border-t border-white/10">
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <i class="fas fa-shield-halved text-amber-400 mt-1 shrink-0"></i>
+              <div>
+                <strong class="text-white text-sm">Row-Level Security (RLS) Without Policy Recursion:</strong>
+                <p class="text-xs text-white/60 mt-0.5">Enforced via security definer PostgreSQL functions (<code class="text-amber-300 font-mono">get_my_role()</code>) evaluating roles (<code class="text-white font-mono">admin</code>, <code class="text-white font-mono">manager</code>, <code class="text-white font-mono">cashier</code>, <code class="text-white font-mono">kitchen</code>, <code class="text-white font-mono">customer</code>) cleanly without recursive policy locks.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-sitemap text-amber-400 mt-1 shrink-0"></i>
+              <div>
+                <strong class="text-white text-sm">Provider MVVM Service-Repository Pattern:</strong>
+                <p class="text-xs text-white/60 mt-0.5">Mobile features strictly decouple presentation views from state stores (<code class="text-white font-mono">CartProvider</code>) and service repositories (<code class="text-white font-mono">OperatingHoursService</code>, <code class="text-white font-mono">SupabaseService</code>).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <i class="fas fa-cubes text-amber-400 mt-1 shrink-0"></i>
+              <div>
+                <strong class="text-white text-sm">Component-Driven Next.js App Router:</strong>
+                <p class="text-xs text-white/60 mt-0.5">Modular boutique luxury UI tokens (<code class="text-white font-mono">LuxuryTimePicker</code>, <code class="text-white font-mono">AuthGuard</code>, <code class="text-white font-mono">Topbar</code>, <code class="text-white font-mono">Sidebar</code>) paired with Recharts analytics.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-link text-amber-400 mt-1 shrink-0"></i>
+              <div>
+                <strong class="text-white text-sm">Relational Schemas &amp; Atomic Integrity:</strong>
+                <p class="text-xs text-white/60 mt-0.5">Strict foreign key cascades, unique table constraints, and transactional rollback guarantees across distributed payments and kitchen stations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engineering Complexities Deep Dive -->
+    <section class="reveal mt-20 lg:mt-28">
+      <div class="mb-10">
+        <p class="text-sm uppercase tracking-[0.25em] text-white/40 font-display">Engineering Rigor</p>
+        <h2 class="mt-3 font-display text-3xl font-bold sm:text-4xl">Engineering <span class="accent-text">Complexities &amp; Solutions</span></h2>
+      </div>
+
+      <div class="space-y-8">
+        <!-- Challenge 1 -->
+        <article class="glass rounded-[2rem] p-7 sm:p-10 transition duration-300 hover:border-amber-500/30">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500/20 text-amber-400 text-sm font-bold font-display">01</span>
+            <span class="text-xs uppercase tracking-widest text-amber-300 font-semibold font-display">Real-Time State Synchronization</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-white mb-4">Dual-Layer Real-Time Synchronization &amp; Resilient Fallbacks</h3>
+          <div class="grid gap-6 md:grid-cols-2 text-sm leading-relaxed">
+            <div class="space-y-2">
+              <p class="text-xs font-semibold uppercase tracking-wider text-red-400 font-display"><i class="fas fa-triangle-exclamation"></i> The Challenge</p>
+              <p class="text-white/70">
+                When restaurant opening hours, holiday closures, or table statuses change in the admin console, all connected customer apps and waitlist monitors must update instantly without manual reloads. Relying exclusively on standard polling wastes mobile battery and bandwidth, while pure WebSockets risk connection drops on unstable cellular networks.
+              </p>
+            </div>
+            <div class="space-y-2">
+              <p class="text-xs font-semibold uppercase tracking-wider text-emerald-400 font-display"><i class="fas fa-circle-check"></i> The Engineering Solution</p>
+              <p class="text-white/70">
+                Engineered a dual-layer sync architecture combining <strong>Supabase Realtime Postgres CDC</strong> (Change Data Capture) and <strong>Custom WebSocket Broadcast Channels</strong> (<code class="text-amber-300 font-mono text-xs">restaurant_operating_hours_sync</code>). When an admin modifies configurations, the backend emits broadcast events while Postgres replicates the row mutation. The mobile app implements a reactive listener that triggers instant UI updates, supplemented by a 3-second heartbeat auto-polling fallback to guarantee zero stale states across backgrounding and cellular transitions.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Challenge 2 -->
+        <article class="glass rounded-[2rem] p-7 sm:p-10 transition duration-300 hover:border-amber-500/30">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500/20 text-orange-400 text-sm font-bold font-display">02</span>
+            <span class="text-xs uppercase tracking-widest text-orange-300 font-semibold font-display">Concurrency &amp; Conflict Resolution</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-white mb-4">Concurrency-Safe Reservation Conflict Resolution &amp; Automatic Cancellations</h3>
+          <div class="grid gap-6 md:grid-cols-2 text-sm leading-relaxed">
+            <div class="space-y-2">
+              <p class="text-xs font-semibold uppercase tracking-wider text-red-400 font-display"><i class="fas fa-triangle-exclamation"></i> The Challenge</p>
+              <p class="text-white/70">
+                When restaurant management schedules an unscheduled closure or emergency maintenance day, dozens of existing guest reservations may already be confirmed for that date. Canceling these manually or leaving them active leads to severe guest dissatisfaction and operational errors.
+              </p>
+            </div>
+            <div class="space-y-2">
+              <p class="text-xs font-semibold uppercase tracking-wider text-emerald-400 font-display"><i class="fas fa-circle-check"></i> The Engineering Solution</p>
+              <p class="text-white/70">
+                Developed an automated conflict resolution pipeline in the backend and database. Upon submitting a closure date, the system executes an atomic transaction querying all overlapping reservations, tallies the conflict count, and presents an actionable resolution modal. Once confirmed, the system auto-cancels conflicting bookings, frees allocated tables, logs cancellation audit records, and broadcasts automated push notification announcements to affected customers in a single coordinated workflow.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Challenge 3 -->
+        <article class="glass rounded-[2rem] p-7 sm:p-10 transition duration-300 hover:border-amber-500/30">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-amber-600/20 text-amber-300 text-sm font-bold font-display">03</span>
+            <span class="text-xs uppercase tracking-widest text-amber-300 font-semibold font-display">Database-Level Data Integrity</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-white mb-4">Database-Level Temporal Validation Triggers for Strict Operating Bounds</h3>
+          <div class="grid gap-6 md:grid-cols-2 text-sm leading-relaxed">
+            <div class="space-y-2">
+              <p class="text-xs font-semibold uppercase tracking-wider text-red-400 font-display"><i class="fas fa-triangle-exclamation"></i> The Challenge</p>
+              <p class="text-white/70">
+                Web and mobile frontend validations can easily be bypassed by latent network requests, spoofed API calls, or race conditions during peak rush hours, potentially allowing table reservations outside operating hours or waitlist entries on closed dates.
+              </p>
+            </div>
+            <div class="space-y-2">
+              <p class="text-xs font-semibold uppercase tracking-wider text-emerald-400 font-display"><i class="fas fa-circle-check"></i> The Engineering Solution</p>
+              <p class="text-white/70">
+                Implemented server-side PL/pgSQL database triggers (<code class="text-amber-300 font-mono text-xs">trg_validate_reservation_hours</code> on <code class="text-white font-mono text-xs">reservations</code> and <code class="text-amber-300 font-mono text-xs">trg_validate_queue_hours</code> on <code class="text-white font-mono text-xs">queue_entries</code>). These triggers dynamically evaluate input timestamps against <code class="text-white font-mono text-xs">restaurant_operating_hours</code> and <code class="text-white font-mono text-xs">restaurant_special_closures</code> converted strictly to the local restaurant timezone (<code class="text-amber-300 font-mono text-xs">Asia/Colombo</code>). If a booking falls outside allowable windows, the database immediately raises a PostgreSQL exception, completely preventing invalid inserts regardless of which client initiated the mutation.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="reveal pt-16 pb-8 text-center border-t border-white/10 mt-20">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="index.html#projects" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/20 hover:bg-white/10 hover:-translate-y-1">
+          <i class="fas fa-arrow-left"></i> Return to Portfolio
+        </a>
+        <a href="https://github.com/Achintha2002/TableFlow" target="_blank" class="inline-flex items-center justify-center gap-2 rounded-full bg-white text-ink px-6 py-3 text-sm font-semibold transition hover:bg-white/90 hover:-translate-y-1 shadow-[0_4px_20px_rgba(255,255,255,0.2)]">
+          <i class="fab fa-github"></i> View GitHub Repository
+        </a>
+      </div>
+      <p class="mt-8 text-xs text-white/30 uppercase tracking-widest font-display">Achintha Edirisinghe • TableFlow Case Study</p>
+    </footer>
+  </main>
+
+  <script>
+    // Intersection Observer for scroll animations
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+      
+      // Theme Toggle Logic
+      const themeToggle = document.getElementById("theme-toggle-btn");
+      const themeIcon = themeToggle.querySelector("i");
+      
+      function updateIcon(theme) {
+        if (theme === "light") {
+          themeIcon.className = "fas fa-sun";
+        } else {
+          themeIcon.className = "fas fa-moon";
+        }
+      }
+      
+      updateIcon(document.documentElement.getAttribute("data-theme"));
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("portfolio_theme", newTheme);
+        updateIcon(newTheme);
+      });
+    });
+  </script>
+</body>
+</html>

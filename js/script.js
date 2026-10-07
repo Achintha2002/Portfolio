@@ -162,8 +162,9 @@ function setupPortfolioContent() {
   if (projectsContainer) {
     projectsContainer.innerHTML = "";
     config.projects.forEach(project => {
+      const isMobile = project.isMobile || project.category === "MOBILE APP";
       const card = document.createElement("div");
-      card.className = "project-card";
+      card.className = `project-card ${isMobile ? 'is-mobile-project-card' : ''}`;
       card.innerHTML = `
           <div class="project-meta">
             <span class="project-num">${project.id}</span>
@@ -172,10 +173,18 @@ function setupPortfolioContent() {
           </div>
           <h3 class="project-title-new">${project.title}</h3>
           
-          <div class="project-visual-block" style="background-color: ${project.color};">
-            <p class="project-desc-overlay">${project.description}</p>
-            <div class="project-img-wrapper">
-              <img class="project-img-mockup" src="${project.image}" alt="${project.title}">
+          <div class="project-visual-block ${isMobile ? 'is-mobile-visual-block' : ''}" style="background-color: ${project.color};">
+            <p class="project-desc-overlay ${isMobile ? 'mobile-desc-overlay' : ''}">${project.description}</p>
+            <div class="project-img-wrapper ${isMobile ? 'mobile-img-wrapper' : ''}">
+              ${isMobile ? `
+                <div class="mobile-phone-frame-container">
+                  <div class="mobile-phone-inner-frame">
+                    <img class="project-img-mockup mobile-phone-mockup" src="${project.image}" alt="${project.title}">
+                  </div>
+                </div>
+              ` : `
+                <img class="project-img-mockup" src="${project.image}" alt="${project.title}">
+              `}
             </div>
           </div>
           
@@ -186,12 +195,12 @@ function setupPortfolioContent() {
           ` : ''}
           
           <div class="project-links-new">
-            <a href="${project.github}" target="_blank" class="project-btn-new">
+            <a href="${project.github}" target="_blank" class="project-btn-new" aria-label="GitHub Repository">
               <i class="fab fa-github"></i>
             </a>
             ${project.link ? `
             <a href="${project.link}" target="_blank" class="project-btn-new primary">
-              <i class="fas fa-external-link-alt"></i> Live Demo
+              <i class="${isMobile ? 'fas fa-mobile-alt' : 'fas fa-external-link-alt'}"></i> ${project.linkText || (isMobile ? 'Mobile App' : 'Live Demo')}
             </a>
             ` : ''}
             ${project.hasCaseStudy ? `

@@ -1,5 +1,4 @@
-/* Import Modern Premium Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+/* Modern Premium Fonts are loaded via HTML link tags in head for optimal performance */
 
 /* ===================================
    PREMIUM COLOR SYSTEM — LIGHT ELEGANCE
@@ -1608,6 +1607,64 @@ main.max-w-7xl section {
 
 .project-card:hover .project-img-mockup {
   transform: translateY(-10px) scale(1.02);
+}
+
+/* Mobile App Mockup Enhancements */
+.is-mobile-visual-block {
+  position: relative;
+}
+
+.mobile-desc-overlay {
+  padding: 1.6rem 1.75rem 0.5rem 1.75rem !important;
+  font-size: 0.95rem !important;
+  line-height: 1.55 !important;
+  color: #fff !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.mobile-img-wrapper {
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-end !important;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.mobile-phone-frame-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.mobile-phone-inner-frame {
+  width: 236px;
+  max-width: 62vw;
+  height: 252px;
+  border-radius: 44px 44px 0 0;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+  border: none;
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.14), -6px 0 16px rgba(0, 0, 0, 0.08), 6px 0 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.mobile-phone-mockup {
+  width: 108% !important;
+  margin-left: -4% !important;
+  margin-top: -3% !important;
+  height: auto !important;
+  display: block !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.project-card:hover .mobile-phone-inner-frame {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 -10px 24px rgba(0, 0, 0, 0.18), -8px 0 18px rgba(0, 0, 0, 0.1), 8px 0 18px rgba(0, 0, 0, 0.1);
 }
 
 .project-tags-new {

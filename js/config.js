@@ -93,18 +93,22 @@ const PORTFOLIO_CONFIG = {
     },
     {
       id: "05",
-      category: "WEB APP",
-      title: "Photo Home",
-      description: "A modern photography portfolio website to showcase galleries, featured works, and photography services.",
-      image: "/assets/photo-home.png",
-      github: "https://github.com/Achintha2002/PhotoFrameWeb.git",
-      link: "https://photo-frame-web.vercel.app/",
-      tags: ["React", "Vite", "Tailwind CSS"],
-      color: "#EC4899"
+      category: "MOBILE APP",
+      title: "TableFlow",
+      description: "Smart fine dining and table reservation mobile application featuring real-time kitchen order tracking, interactive menus, and seamless table booking.",
+      image: "/assets/tableflow.jpg",
+      github: "https://github.com/Achintha2002/TableFlow",
+      link: "https://github.com/Achintha2002/TableFlow",
+      linkText: "Mobile App",
+      tags: ["Flutter", "Dart", "Next.js", "Node.js", "PostgreSQL", "Supabase"],
+      hasCaseStudy: true,
+      caseStudyUrl: "tableflow-details.html",
+      color: "#FB923C",
+      isMobile: true
     }
   ],
   skills: [
-    "Next.js", "Python", "MongoDB", "GitHub", "Vercel", "Expo",
+    "Flutter", "Dart", "Next.js", "Python", "MongoDB", "GitHub", "Vercel", "Expo",
     "React", "JavaScript", "HTML5", "CSS3", "Docker", "Figma", "Git", "C++"
   ],
   chatbot: {
@@ -117,7 +121,7 @@ const PORTFOLIO_CONFIG = {
       { text: "Contact", keyword: "contact" }
     ],
     responses: {
-      work: "I have built several interesting projects:\n\n🎓 **BrightPath LMS** - Interactive university learning platform.\n🛒 **Sportify** - Modern e-commerce platform for sports equipment.\n✨ **Raani Cream** - Premium skincare e-commerce platform.\n🏛️ **Smart Campus Hub** - Full-stack campus management system.\n📷 **Photo Home** - Photography portfolio.\n\nYou can explore them in detail in the Projects section!",
+      work: "I have built several interesting projects:\n\n🎓 **BrightPath LMS** - Interactive university learning platform.\n🛒 **Sportify** - Modern e-commerce platform for sports equipment.\n✨ **Raani Cream** - Premium skincare e-commerce platform.\n🏛️ **Smart Campus Hub** - Full-stack campus management system.\n🍽️ **TableFlow** - Fine dining & table reservation mobile app.\n\nYou can explore them in detail in the Projects section!",
       about: "Here is a bit about me:\n\n🧑‍💻 Role: Full Stack Developer\n🎯 Focus: High-performance, aesthetic web apps & automations\n❤️ Passions: Clean architecture, hackathons, and physical fitness\n🎓 Education: BSc (Hons) in IT at SLIIT",
       skills: "My tech stack includes:\n\n• **Frontend:** React, Next.js, TypeScript\n• **Backend:** Node.js, Python, Express\n• **Database:** PostgreSQL, MongoDB\n• **DevOps & Tools:** Docker, Git, Vercel\n\nI am also familiar with Figma for UI design.",
       contact: "Let's connect!\n\n📧 You can contact me via **Gmail** (achintha.w101@gmail.com)\n💼 Reach out through my **LinkedIn**.\n\nI'm always open to freelance opportunities, hackathons, and collaborations!",
