@@ -485,6 +485,8 @@ function initSkillsSphere() {
 
   // Devicon class mapping or raw SVG for each skill
   const iconMap = {
+    "Flutter":    `<svg viewBox="0 0 256 317" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path fill="#47C5FB" d="M158 0L0 158l49 48L255 0zM157 145l-85 85 49 50 49-49 85-86z"/><path fill="#00569E" d="m121 280 37 37h97l-85-86z"/><path fill="#00B5F8" d="m72 230 48-48 50 49-49 49z"/></svg>`,
+    "Dart":       `<svg viewBox="0 0 24 24" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path fill="#0175C2" d="M4.105 4.105S9.158 1.58 11.684.316a3.079 3.079 0 0 1 1.481-.315c.766.047 1.677.788 1.677.788L24 9.948v9.789h-4.263V24H9.789l-9-9C.303 14.5 0 13.795 0 13.105c0-.319.18-.818.316-1.105l3.789-7.895zm.679.679v11.787c.002.543.021 1.024.498 1.508L10.204 23h8.533v-4.263L4.784 4.784zm12.055-.678c-.899-.896-1.809-1.78-2.74-2.643-.302-.267-.567-.468-1.07-.462-.37.014-.87.195-.87.195L6.341 4.105l10.498.001z"/></svg>`,
     "React":      "devicon-react-original colored",
     "Node.js":    "devicon-nodejs-plain colored",
     "Python":     "devicon-python-original colored",
