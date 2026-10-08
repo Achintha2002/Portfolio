@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCertsCarousel();
   initMobileMenu();
   initMindsetCard();
+  initBackToTop();
 });
 
 // =========================================================================
@@ -305,7 +306,33 @@ function initScrollHighlight() {
   sections.forEach(section => observer.observe(section));
 }
 
+// =========================================================================
+// Back to Top Floating Button (Pops up when page is scrolled)
+// =========================================================================
+function initBackToTop() {
+  const backToTopBtn = document.querySelector(".back-to-home-btn");
+  if (!backToTopBtn) return;
 
+  const toggleBackToTop = () => {
+    // Show popup as soon as user scrolls down a little bit (150px)
+    if (window.scrollY > 150) {
+      backToTopBtn.classList.add("visible");
+    } else {
+      backToTopBtn.classList.remove("visible");
+    }
+  };
+
+  window.addEventListener("scroll", toggleBackToTop, { passive: true });
+  toggleBackToTop();
+
+  backToTopBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+}
 
 // =========================================================================
 // Simulated AI Chatbot Logic
