@@ -1803,14 +1803,18 @@ main.max-w-7xl section {
   height: 52px;
   pointer-events: all;
   cursor: default;
-  transition: filter 0.2s;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-origin: center center;
 }
 
 .sphere-icon-item i,
 .sphere-icon-item svg {
   font-size: 2rem;
-  transition: transform 0.3s var(--ease-spring);
   line-height: 1;
+  display: block;
+  pointer-events: none;
 }
 
 .sphere-icon-text {

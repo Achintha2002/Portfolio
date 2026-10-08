@@ -541,14 +541,18 @@ function initSkillsSphere() {
 
     const itemObj = { el: div, x: x0, y: y0, z: z0, isHovered: false };
 
-    div.addEventListener("mouseenter", () => {
-      itemObj.isHovered = true;
-      speedX = 0;
-      speedY = 0;
-    });
-    div.addEventListener("mouseleave", () => {
-      itemObj.isHovered = false;
-    });
+    // Only enable hover freeze on devices with a real mouse pointer (prevents mobile touch scroll stutter)
+    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if (canHover) {
+      div.addEventListener("mouseenter", () => {
+        itemObj.isHovered = true;
+        speedX = 0;
+        speedY = 0;
+      });
+      div.addEventListener("mouseleave", () => {
+        itemObj.isHovered = false;
+      });
+    }
 
     iconsLayer.appendChild(div);
     return itemObj;
@@ -560,30 +564,64 @@ function initSkillsSphere() {
   let speedY = 0.003;
   let mouseActive = false;
 
-  scene.addEventListener("mousemove", (e) => {
-    // If we are hovering an icon, don't change speed with mouse move
-    const anyHovered = items.some(it => it.isHovered);
-    if (anyHovered) return;
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-    const rect = scene.getBoundingClientRect();
-    const mx = e.clientX - rect.left - CX;
-    const my = e.clientY - rect.top - CY;
-    speedY = mx * 0.00004;
-    speedX = my * 0.00004;
-    mouseActive = true;
-  });
+  // Desktop Mouse Move (calculates accurate center on any screen width)
+  if (canHover) {
+    scene.addEventListener("mousemove", (e) => {
+      const anyHovered = items.some(it => it.isHovered);
+      if (anyHovered) return;
 
-  scene.addEventListener("mouseleave", () => {
+      const rect = scene.getBoundingClientRect();
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const mx = e.clientX - rect.left - cx;
+      const my = e.clientY - rect.top - cy;
+      speedY = mx * 0.00004;
+      speedX = my * 0.00004;
+      mouseActive = true;
+    });
+
+    scene.addEventListener("mouseleave", () => {
+      mouseActive = false;
+    });
+  }
+
+  // Smooth Mobile Touch Drag (Swipe to rotate without stutter)
+  let touchStartX = 0, touchStartY = 0;
+  let isTouching = false;
+
+  scene.addEventListener("touchstart", (e) => {
+    if (e.touches.length === 1) {
+      isTouching = true;
+      mouseActive = true;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  scene.addEventListener("touchmove", (e) => {
+    if (!isTouching || e.touches.length !== 1) return;
+    const dx = e.touches[0].clientX - touchStartX;
+    const dy = e.touches[0].clientY - touchStartY;
+    speedY = dx * 0.00025;
+    speedX = -dy * 0.00025;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  scene.addEventListener("touchend", () => {
+    isTouching = false;
     mouseActive = false;
-  });
+  }, { passive: true });
 
   function animate() {
     const anyHovered = items.some(it => it.isHovered);
 
-    // Ease back to default speed when mouse leaves, unless hovering an icon
+    // Ease back to default smooth speed
     if (!mouseActive && !anyHovered) {
-      speedX += (0.0005 - speedX) * 0.05;
-      speedY += (0.003 - speedY) * 0.05;
+      speedX += (0.0005 - speedX) * 0.04;
+      speedY += (0.003 - speedY) * 0.04;
     }
 
     rotX += speedX;
@@ -594,10 +632,8 @@ function initSkillsSphere() {
 
     // Project each icon to 2D and compute depth
     const projected = items.map(item => {
-      // Rotate around Y axis
       const x1 = item.x * cosY + item.z * sinY;
       const z1 = -item.x * sinY + item.z * cosY;
-      // Rotate around X axis
       const y2 = item.y * cosX - z1 * sinX;
       const z2 = item.y * sinX + z1 * cosX;
       return { item, sx: x1, sy: y2, sz: z2 };
@@ -608,27 +644,23 @@ function initSkillsSphere() {
 
     projected.forEach(({ item, sx, sy, sz }, idx) => {
       const norm = (sz + RADIUS) / (2 * RADIUS); // 0=back, 1=front
-      const opacity = Math.max(0.08, 0.15 + norm * 0.85);
-      const scale = 0.45 + norm * 0.75;
-      const fontSize = Math.round(1.1 + norm * 1.2);
+      const opacity = Math.max(0.12, 0.18 + norm * 0.82);
+      const scale = 0.5 + norm * 0.7; // Smooth continuous scaling without snapping
 
       item.el.style.left = `${50 + (sx / CX) * 50}%`;
       item.el.style.top  = `${50 + (sy / CY) * 50}%`;
       
       if (item.isHovered) {
-        item.el.style.opacity = 1;
-        item.el.style.transform = `translate(-50%, -50%) scale(${scale * 1.25})`;
-        item.el.style.zIndex = 1000;
+        item.el.style.opacity = "1";
+        item.el.style.transform = `translate3d(-50%, -50%, 0) scale(${scale * 1.25})`;
+        item.el.style.zIndex = "1000";
         item.el.style.filter = "none";
       } else {
-        item.el.style.opacity = opacity;
-        item.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
-        item.el.style.zIndex = idx;
-        item.el.style.filter = norm < 0.25 ? "grayscale(80%) brightness(0.6)" : "none";
+        item.el.style.opacity = opacity.toFixed(2);
+        item.el.style.transform = `translate3d(-50%, -50%, 0) scale(${scale.toFixed(3)})`;
+        item.el.style.zIndex = `${idx}`;
+        item.el.style.filter = norm < 0.22 ? "grayscale(70%)" : "none";
       }
-      
-      const iconElem = item.el.querySelector("i") || item.el.querySelector("svg");
-      if (iconElem) iconElem.style.fontSize = `${fontSize}rem`;
     });
 
     requestAnimationFrame(animate);
