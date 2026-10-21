@@ -2444,11 +2444,19 @@ footer {
 }
 
 .back-to-home-btn:hover {
-  background: var(--accent-cyan, #00e5ff);
+  background: #00e5ff;
   color: #fff;
-  border-color: var(--accent-cyan, #00e5ff);
+  border-color: #00e5ff;
   transform: translateY(-4px) scale(1.06);
-  box-shadow: 0 8px 24px rgba(0, 229, 255, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 229, 255, 0.45);
+}
+
+[data-theme="light"] .back-to-home-btn:hover {
+  background: #ff7e5f;
+  color: #fff;
+  border-color: #ff7e5f;
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 10px 25px rgba(255, 126, 95, 0.45);
 }
 
 .back-to-home-btn:active {
