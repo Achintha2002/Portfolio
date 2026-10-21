@@ -67,7 +67,7 @@
   --bg-tertiary: #eef0f5;
   --bg-card: rgba(244, 245, 248, 0.9);
   --bg-glass: rgba(0, 0, 0, 0.02);
-  --bg-dot: rgba(0, 0, 0, 0.05);
+  --bg-dot: rgba(0, 0, 0, 0.08);
 
   --border-color: rgba(0, 0, 0, 0.07);
   --border-hover: rgba(255, 126, 95, 0.4);
@@ -86,7 +86,7 @@
   --bg-tertiary: #1a1a1a;
   --bg-card: rgba(18, 18, 18, 0.9);
   --bg-glass: rgba(255, 255, 255, 0.03);
-  --bg-dot: rgba(255, 255, 255, 0.05);
+  --bg-dot: rgba(255, 255, 255, 0.12);
 
   --border-color: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(0, 229, 255, 0.4);
@@ -115,17 +115,64 @@
   --glow-cyan: 0 0 30px rgba(0, 229, 255, 0.15);
 }
 
-/* Lit Dots Overlay — dots near cursor light up */
+/* Lit Dots Overlay — dots near cursor light up and shimmer */
+.cursor-dot-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(var(--accent-cyan, #00e5ff) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(circle 350px at var(--mouse-x, 50vw) var(--mouse-y, 50vh), black 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  mask-image: radial-gradient(circle 350px at var(--mouse-x, 50vw) var(--mouse-y, 50vh), black 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
 
+/* Ambient Floating Glow Animation across the viewport */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background: 
+    radial-gradient(circle 700px at 15% 20%, rgba(0, 229, 255, 0.12), transparent 70%),
+    radial-gradient(circle 750px at 85% 40%, rgba(139, 92, 246, 0.10), transparent 70%),
+    radial-gradient(circle 600px at 50% 85%, rgba(0, 184, 212, 0.09), transparent 70%);
+  animation: ambientGlowDrift 14s ease-in-out infinite alternate;
+}
+
+@keyframes ambientGlowDrift {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.08) translate(-2%, 2%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.96) translate(3%, -2%);
+    opacity: 0.85;
+  }
+}
 
 /* Mobile specific reliable animation for the dots overlay, unlinked from touch */
 @media (max-width: 768px) {
   .cursor-dot-overlay {
-    -webkit-mask-image: linear-gradient(135deg, transparent 0%, transparent 40%, black 50%, transparent 60%, transparent 100%);
-    mask-image: linear-gradient(135deg, transparent 0%, transparent 40%, black 50%, transparent 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(135deg, transparent 0%, transparent 35%, black 50%, transparent 65%, transparent 100%);
+    mask-image: linear-gradient(135deg, transparent 0%, transparent 35%, black 50%, transparent 65%, transparent 100%);
     -webkit-mask-size: 300% 300%;
     mask-size: 300% 300%;
-    animation: dotShimmer 8s linear infinite;
+    animation: dotShimmer 6s linear infinite;
+    opacity: 0.95;
   }
 }
 
@@ -3655,7 +3702,7 @@ footer {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  background: var(--bg-primary);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
