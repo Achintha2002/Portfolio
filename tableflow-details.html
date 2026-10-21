@@ -216,8 +216,8 @@
 </head>
 <body class="font-body">
   <div class="fixed inset-0 pointer-events-none grid-overlay opacity-50"></div>
-  <div class="fixed -top-32 -left-32 h-[32rem] w-[32rem] rounded-full bg-amber-500/10 blur-3xl floaty pointer-events-none"></div>
-  <div class="fixed top-40 right-0 h-[28rem] w-[28rem] rounded-full bg-orange-600/10 blur-3xl floaty-delay pointer-events-none"></div>
+  <div class="fixed -top-32 -left-32 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.15)_0%,transparent_70%)] blur-3xl floaty pointer-events-none"></div>
+  <div class="fixed top-40 -right-20 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(234,88,12,0.15)_0%,transparent_70%)] blur-3xl floaty-delay pointer-events-none"></div>
 
   <!-- Header -->
   <header class="fixed top-0 left-0 right-0 w-full z-50 border-b border-white/5 bg-[#0e0b08]/80 backdrop-blur-xl">
@@ -238,7 +238,7 @@
     </div>
   </header>
 
-  <main class="mx-auto max-w-7xl px-4 sm:px-6 pt-28 pb-12 lg:pt-32 lg:pb-20 overflow-x-clip">
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 pt-28 pb-12 lg:pt-32 lg:pb-20 overflow-visible">
     <!-- Hero / Intro -->
     <section class="reveal grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="space-y-8">
@@ -275,7 +275,7 @@
 
       <!-- Right Side Visual / Phone Mockup Area -->
       <div class="reveal relative flex justify-center">
-        <div class="absolute -inset-8 rounded-[2.5rem] bg-gradient-to-br from-amber-500/15 via-orange-600/15 to-amber-700/15 blur-3xl pointer-events-none"></div>
+        <div class="absolute -inset-10 rounded-[3rem] bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.18)_0%,rgba(234,88,12,0.1)_45%,transparent_75%)] blur-2xl pointer-events-none"></div>
         <div class="glass shine relative overflow-hidden rounded-[2.5rem] border-white/10 p-6 sm:p-8 shadow-glow max-w-sm sm:max-w-md w-full flex flex-col items-center">
           <div class="relative w-full flex justify-center items-center py-4">
             <img src="/assets/tableflow.jpg" alt="TableFlow Mobile App Interface" class="w-full max-w-[280px] h-auto object-contain rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.7)] transition duration-700 hover:scale-[1.03]" />
