@@ -110,7 +110,8 @@ const PORTFOLIO_CONFIG = {
   ],
   skills: [
     "Flutter", "Dart", "Next.js", "Python", "MongoDB", "GitHub", "Vercel", "Expo",
-    "React", "JavaScript", "HTML5", "CSS3", "Docker", "Figma", "Git", "C++"
+    "React", "JavaScript", "HTML5", "CSS3", "Docker", "Figma", "Git", "C++",
+    "Supabase", "Firebase"
   ],
   chatbot: {
     avatar: "/assets/real_photo.png",
