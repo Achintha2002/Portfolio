@@ -3336,7 +3336,7 @@ footer {
     position: relative !important;
     padding-bottom: 0 !important;
     border-radius: 36px !important;
-    background: linear-gradient(165deg, #fb923c 0%, #ea580c 50%, #c2410c 100%) !important;
+    background: #fb923c !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
   }
 
